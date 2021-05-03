@@ -20,4 +20,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
          name: data-livewallpaper-relase
-         path: ./app/build/outputs/apk/relase
+         path: ./app/build/outputs/apk/debug
