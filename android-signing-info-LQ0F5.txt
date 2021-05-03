@@ -1,0 +1,4 @@
+Keystore: android-LQ0F5.keystore
+Keystore password: milankomaj
+Key alias: mm1
+Key password: milankomaj
