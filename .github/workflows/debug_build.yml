@@ -5,7 +5,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 11
@@ -20,5 +19,5 @@ jobs:
       - name: generated APK file
         uses: actions/upload-artifact@v2
         with:
-         name: data-livewallpaper
+         name: data-livewallpaper-debug
          path: ./app/build/outputs/apk/debug
