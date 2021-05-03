@@ -19,5 +19,5 @@ jobs:
       - name: generated APK file
         uses: actions/upload-artifact@v2
         with:
-         name: data-livewallpaper-Release
+         name: data-livewallpaper
          path: ./app/build/outputs/apk/relase
