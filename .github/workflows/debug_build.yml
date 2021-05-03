@@ -1,0 +1,20 @@
+name: Build Debug
+
+on:
+ push:
+ workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Clone repository
+      uses: actions/checkout@v2
+    - name: Build
+      run: |
+        ./gradlew assembleDebug
+    - name: Store generated APK file
+      uses: actions/upload-artifact@v2
+      with:
+        name: data_live_wallpaper_debug.apk
+        path: ./app/build/outputs/apk/debug
