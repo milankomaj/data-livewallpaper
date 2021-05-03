@@ -15,9 +15,9 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x ./gradlew         
       - name: Build with Gradle
-        run: ./gradlew assembleRelease
+        run: ./gradlew assembleDebug
       - name: generated APK file
         uses: actions/upload-artifact@v2
         with:
-         name: data-livewallpaper
-         path: ./app/build/outputs/apk/relase
+         name: data-livewallpaper-debug
+         path: ./app/build/outputs/apk/debug
