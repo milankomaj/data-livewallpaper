@@ -83,7 +83,7 @@ class UnlockCounterWallpaper : WallpaperService() {
             textAlign = Paint.Align.CENTER
             color = context.getColor(R.color.colorPrimary)
             typeface = ResourcesCompat.getFont(context,
-                R.font.mon
+                R.font.sixcaps
             )
             isAntiAlias = true
         }
@@ -92,7 +92,7 @@ class UnlockCounterWallpaper : WallpaperService() {
             textAlign = Paint.Align.CENTER
             color = context.getColor(R.color.colorPrimary)
             typeface = ResourcesCompat.getFont(context,
-                R.font.mon
+                R.font.opensans_regular
             )
             letterSpacing = 0.05f
             isAntiAlias = true
@@ -141,8 +141,8 @@ class UnlockCounterWallpaper : WallpaperService() {
             this.width = width
             this.height = height
 
-            counterTextPaint.textSize = dpToPx(context, 200f)
-            unlocksTodayTextPaint.textSize = dpToPx(context, 7f)
+            counterTextPaint.textSize = dpToPx(context, 400f)
+            unlocksTodayTextPaint.textSize = dpToPx(context, 14f)
             this.charHeight = counterTextPaint.textSize
             this.charWidth = calculateCharWidth()
             this.topMargin = (height / 2f) - (charHeight / 1.7f)
