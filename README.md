@@ -3,4 +3,7 @@ Unlock Clock
 - ##### Based on *[googlecreativelab/digital-wellbeing-experiments-toolkit](https://github.com/googlecreativelab/digital-wellbeing-experiments-toolkit/tree/master/liveWallpaper)*
 - ##### Changed *background color : #245b82* 
 - ##### Changed *[font : cascadia-code](https://github.com/microsoft/cascadia-code)* (SIL Open Font License 1.1)
-<img src=".gitbook/assets/Screenshot.jpg" width="300">
+- ##### right original
+<img src=".gitbook/assets/Screenshot.jpg" width="300"> <img src="https://play-lh.googleusercontent.com/5jrV7gPOVdXPw54SXDEqnQIbQlfb6mziR5JDwu7-04rUofHSPp-cJo2TveEUXQvHjW4=w1366-h695" width="267">
+
+
