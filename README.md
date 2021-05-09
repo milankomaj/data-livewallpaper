@@ -1,11 +1,6 @@
 # data-livewallpaper
 Unlock Clock
-
-- 
-[googlecreativelab/](https://github.com/googlecreativelab/digital-wellbeing-experiments-toolkit/tree/master/liveWallpaper)
-
-
-
-
-
-<img src=".gitbook/assets/Screenshot.jpg" width="350">
+- ##### Based on *[googlecreativelab/digital-wellbeing-experiments-toolkit](https://github.com/googlecreativelab/digital-wellbeing-experiments-toolkit/tree/master/liveWallpaper)*
+- ##### Changed *background color : #245b82* 
+- ##### Changed *[font : cascadia-code](https://github.com/microsoft/cascadia-code)* (SIL Open Font License 1.1)
+<img src=".gitbook/assets/Screenshot.jpg" width="300">
