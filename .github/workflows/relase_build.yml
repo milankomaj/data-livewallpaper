@@ -1,6 +1,6 @@
 name: Build Relase
 on:
- push:
+
  workflow_dispatch:
  schedule:
    - cron: '5 2 */86 * *'
