@@ -31,7 +31,7 @@ jobs:
          name: bundletool
          path: ./app/build/outputs//bundle/debug
       - name: bundletool build-apks
-        run: java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs//bundle/debug --output=./MyApp/my_app.apks
+        run: java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs//bundle/debug/app-debug.aab --output=./MyApp/my_app.apks
       - name: apks
         uses: actions/upload-artifact@v2 
         with:
