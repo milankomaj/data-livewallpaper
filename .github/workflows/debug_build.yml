@@ -18,8 +18,17 @@ jobs:
         run: chmod +x ./gradlew         
       - name: Build with Gradle
         run: ./gradlew assembleDebug
+      - name: Build app bundle 
+        run: ./gradlew app:bundle
       - name: generated APK file
         uses: actions/upload-artifact@v2
         with:
          name: data-livewallpaper-debug
          path: ./app/build/outputs/apk/debug
+      - name: generated app bundle
+        uses: actions/upload-artifact@v2 
+        with:
+         name: app bundle
+         path: ./app/build/outputs//bundle/debug/app.aab
+
+        
