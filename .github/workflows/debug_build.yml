@@ -43,4 +43,6 @@ jobs:
         uses: actions/upload-artifact@v2 
         with:
          name: nokia5(.apks)
-         path: ./MyApp/nokia5_app.apks      
+         path: ./MyApp/nokia5_app.apks
+      - name: Markdown autodocs
+        uses: dineshsonachalam/markdown-autodocs@v1.0.2
