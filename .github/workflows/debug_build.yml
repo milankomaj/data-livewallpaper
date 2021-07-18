@@ -44,5 +44,3 @@ jobs:
         with:
          name: nokia5(.apks)
          path: ./MyApp/nokia5_app.apks
-      - name: Markdown autodocs
-        uses: dineshsonachalam/markdown-autodocs@v1.0.2
