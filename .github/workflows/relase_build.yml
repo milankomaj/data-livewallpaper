@@ -17,25 +17,25 @@ jobs:
           distribution: 'adopt'
       - name: Run scripts
       - shell: bash
-        run: |
-        echo "*** Make gradlew executable ***"
-        chmod +x ./gradlew
-         echo "*** assembleRelease ***"
-        ./gradlew assembleRelease       
-        echo "*** assembleDebug ***"
-        ./gradlew assembleDebug
-        echo "*** Download bundletool ***"
-        curl -o /bundletool.jar https://github.com/google/bundletool/releases/download/1.7.0/bundletool-all-1.7.0.jar 
-        echo "*** Build app bundle all (.aab) ***"
-        ./gradlew app:bundle
-        echo "*** Bundletool build apks all DEBUG (.apks) ***"
-        java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./MyApp/app_debub_all.apks
-        echo "*** Bundletool build apks all RELASE (.apks) ***"
-        java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs/bundle/relase/app-release.aab --output=./MyApp/app_relase_all.apks
-        echo "*** Bundletool build apks all NOKIA 5 DEBUG (.apks) ***"
-        java -jar ./bundletool.jar build-apks --device-spec=./nokia5.json --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./MyApp/nokia5_debug.apks
-        echo "*** Bundletool build apks all NOKIA 5 RELASE (.apks) ***"
-        java -jar ./bundletool.jar build-apks --device-spec=./nokia5.json --bundle=./app/build/outputs/bundle/relase/app-release.aab --output=./MyApp/nokia5_relase.apks
+
+        - name: echo "*** Make gradlew executable ***"
+          run: chmod +x ./gradlew
+        - name:  echo "*** assembleRelease ***"
+          run: ./gradlew assembleRelease       
+        - name: echo "*** assembleDebug ***"
+          run: ./gradlew assembleDebug
+        - name: echo "*** Download bundletool ***"
+          run: curl -o /bundletool.jar https://github.com/google/bundletool/releases/download/1.7.0/bundletool-all-1.7.0.jar 
+        - name: echo "*** Build app bundle all (.aab) ***"
+          run: ./gradlew app:bundle
+        - name: echo "*** Bundletool build apks all DEBUG (.apks) ***"
+          run: java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./MyApp/app_debub_all.apks
+        - name: echo "*** Bundletool build apks all RELASE (.apks) ***"
+          run: java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs/bundle/relase/app-release.aab --output=./MyApp/app_relase_all.apks
+        - name: echo "*** Bundletool build apks all NOKIA 5 DEBUG (.apks) ***"
+          run: java -jar ./bundletool.jar build-apks --device-spec=./nokia5.json --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./MyApp/nokia5_debug.apks
+        - name: echo "*** Bundletool build apks all NOKIA 5 RELASE (.apks) ***"
+          run: java -jar ./bundletool.jar build-apks --device-spec=./nokia5.json --bundle=./app/build/outputs/bundle/relase/app-release.aab --output=./MyApp/nokia5_relase.apks
 
   upload-artifact:
     name: UPLOAD ARTIFACTS
