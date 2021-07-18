@@ -16,15 +16,15 @@ jobs:
           distribution: 'adopt'
       - name: echo "*** Make gradlew executable ***"
         run: chmod +x ./gradlew
+      - name: echo "*** Make bundletool executable ***"
+        run: chmod +x ./bundletool.jar           
       - name:  echo "*** assembleRelease ***"
         run: ./gradlew assembleRelease       
       - name: echo "*** assembleDebug ***"
         run: ./gradlew assembleDebug
       - name: echo "*** Download bundletool ***"
         run: curl -o /bundletool.jar https://github.com/google/bundletool/releases/download/1.7.0/bundletool-all-1.7.0.jar
-        shell: bash 
-      - name: echo "*** Make bundletool executable ***"
-        run: chmod +x ./bundletool.jar      
+        shell: bash    
       - name: echo "*** Build app bundle all (.aab) ***"
         run: ./gradlew app:bundle
       - name: echo "*** Bundletool build apks all DEBUG (.apks) ***"
