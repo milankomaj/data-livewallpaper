@@ -36,8 +36,8 @@ jobs:
         with:
          name: debug&relase_APK
          path: |
-          ./app/build/outputs/apk/debug/*.apk
-          ./app/build/outputs/apk/release/*.apk
+          ./app/build/outputs/apk/debug/data_live_wallpaper_debug.apk
+          ./app/build/outputs/apk/release/data_live_wallpaper_release.apk
       - name: debug&relase_APKS
         uses: actions/upload-artifact@v2
         with:
@@ -57,8 +57,7 @@ jobs:
          with:
           name: debug&relase_AAB
           path: |
-           ./app/build/outputs/bundle/debug/*.aab
-           ./app/build/outputs/bundle/release/*.aab
+           ./app/build/outputs/bundle/debug/app-debug.aab
+           ./app/build/outputs/bundle/release/app-release.aab
 
-      - name: Markdown autodocs
-        uses: dineshsonachalam/markdown-autodocs@v1.0.3
+
