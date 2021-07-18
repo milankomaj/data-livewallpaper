@@ -29,6 +29,14 @@ jobs:
         run: ./gradlew app:bundle
       - name: echo "*** Bundletool build apks all DEBUG (.apks) ***"
         run: java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./MyApp/app_debub_all.apks
+      - name: tree
+        run: |
+         echo install tree
+         sudo apt-get install -y tree
+         echo ***./app/build/outputs/***
+         tree -h ./app/build/outputs/
+         echo ***./MyApp/***
+         tree -h ./MyApp/      
       - name: echo "*** Bundletool build apks all RELASE (.apks) ***"
         run: java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs/bundle/app-release.aab --output=./MyApp/app_relase_all.apks
       - name: echo "*** Bundletool build apks all NOKIA 5 DEBUG (.apks) ***"
