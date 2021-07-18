@@ -24,7 +24,7 @@ jobs:
         run: curl -o /bundletool.jar https://github.com/google/bundletool/releases/download/1.7.0/bundletool-all-1.7.0.jar
         shell: bash 
       - name: echo "*** Build app bundle all (.aab) ***"
-       run: ./gradlew app:bundle
+        run: ./gradlew app:bundle
       - name: echo "*** Bundletool build apks all DEBUG (.apks) ***"
         run: java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./MyApp/app_debub_all.apks
       - name: echo "*** Bundletool build apks all RELASE (.apks) ***"
