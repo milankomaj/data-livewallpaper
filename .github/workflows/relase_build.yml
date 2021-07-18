@@ -41,16 +41,19 @@ jobs:
           ./app/build/outputs/apk/debug/*.apk
           ./app/build/outputs/apk/relase/*.apk
       - name: debug&relase_APKS
+        uses: actions/upload-artifact@v2
         with:
          path: |
           ./MyApp/app_debub_all.apks
           ./MyApp/app_relase_all.apks
       - name: debug&relase_Nokia5_APKS
+        uses: actions/upload-artifact@v2
         with:
          path: |
           ./MyApp/nokia5_debug.apks
           ./MyApp/nokia5_relase.apks
       -  name: debug&relase_AAB
+         uses: actions/upload-artifact@v2
          with:
           path: |
            ./app/build/outputs/bundle/debug/*.aab
