@@ -15,12 +15,7 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: echo "*** Make gradlew executable ***"
-        run: chmod +x ./gradlew
-    # - name: echo "*** Make bundletool executable ***"
-    #   run: chmod +x ./bundletool.jar  
-    # - name: echo "*** Download bundletool ***"
-    #   run: curl -o /bundletool.jar https://github.com/google/bundletool/releases/download/1.7.0/bundletool-all-1.7.0.jar
-    #   shell: bash              
+        run: chmod +x ./gradlew            
       - name:  echo "*** assembleRelease ***"
         run: ./gradlew assembleRelease       
       - name: echo "*** assembleDebug ***"
@@ -39,25 +34,31 @@ jobs:
       - name: debug&relase_APK
         uses: actions/upload-artifact@v2
         with:
+         name: debug&relase_APK
          path: |
           ./app/build/outputs/apk/debug/*.apk
           ./app/build/outputs/apk/release/*.apk
       - name: debug&relase_APKS
         uses: actions/upload-artifact@v2
         with:
+         name: debug&relase_APKS
          path: |
           ./MyApp/app_debub_all.apks
           ./MyApp/app_relase_all.apks
       - name: debug&relase_Nokia5_APKS
         uses: actions/upload-artifact@v2
         with:
+         name: debug&relase_Nokia5_APKS
          path: |
           ./MyApp/nokia5_debug.apks
           ./MyApp/nokia5_relase.apks
       -  name: debug&relase_AAB
          uses: actions/upload-artifact@v2
          with:
+          name: debug&relase_AAB
           path: |
            ./app/build/outputs/bundle/debug/*.aab
            ./app/build/outputs/bundle/release/*.aab
 
+      - name: Markdown autodocs
+        uses: dineshsonachalam/markdown-autodocs@v1.0.3
