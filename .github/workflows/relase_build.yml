@@ -30,11 +30,11 @@ jobs:
       - name: echo "*** Bundletool build apks all DEBUG (.apks) ***"
         run: java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./MyApp/app_debub_all.apks
       - name: echo "*** Bundletool build apks all RELASE (.apks) ***"
-        run: java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs/bundle/*/app-release.aab --output=./MyApp/app_relase_all.apks
+        run: java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs/bundle/app-release.aab --output=./MyApp/app_relase_all.apks
       - name: echo "*** Bundletool build apks all NOKIA 5 DEBUG (.apks) ***"
         run: java -jar ./bundletool.jar build-apks --device-spec=./nokia5.json --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./MyApp/nokia5_debug.apks
       - name: echo "*** Bundletool build apks all NOKIA 5 RELASE (.apks) ***"
-        run: java -jar ./bundletool.jar build-apks --device-spec=./nokia5.json --bundle=./app/build/outputs/bundle/*/app-release.aab --output=./MyApp/nokia5_relase.apks
+        run: java -jar ./bundletool.jar build-apks --device-spec=./nokia5.json --bundle=./app/build/outputs/bundle/app-release.aab --output=./MyApp/nokia5_relase.apks
 
       - name: debug&relase_APK
         uses: actions/upload-artifact@v2
