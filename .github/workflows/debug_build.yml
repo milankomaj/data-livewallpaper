@@ -23,17 +23,24 @@ jobs:
       - name: generated APK file
         uses: actions/upload-artifact@v2
         with:
-         name: data-livewallpaper-debug
+         name: data-livewallpaper-debug(.apk)
          path: ./app/build/outputs/apk/debug
       - name: generated app bundle
         uses: actions/upload-artifact@v2 
         with:
-         name: bundletool
-         path: ./app/build/outputs//bundle/debug
+         name: bundletool(.aab)
+         path: ./app/build/outputs/bundle/debug
       - name: bundletool build-apks
-        run: java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs//bundle/debug/app-debug.aab --output=./MyApp/my_app.apks
+        run: java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./MyApp/my_app.apks
       - name: apks
         uses: actions/upload-artifact@v2 
         with:
-         name: apks
+         name: apks(.apks)
          path: ./MyApp/my_app.apks
+      - name: bundletool build-apks nokia5.json
+        run: java -jar ./bundletool build-apks --device-spec=./nokia5.json --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./MyApp/nokia5_app.apks
+      - name: apks nokia5
+        uses: actions/upload-artifact@v2 
+        with:
+         name: nokia5(.apks)
+         path: ./MyApp/nokia5_app.apks      
