@@ -44,3 +44,9 @@ jobs:
         with:
          name: nokia5(.apks)
          path: ./MyApp/nokia5_app.apks
+      - name: tree
+        run: |
+         echo install tree
+         sudo apt-get install -y tree
+         echo ./app/build/outputs/
+         tree ./app/build/outputs/
