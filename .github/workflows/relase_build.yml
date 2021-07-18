@@ -41,15 +41,18 @@ jobs:
           ./app/build/outputs/apk/debug/*.apk
           ./app/build/outputs/apk/relase/*.apk
       - name: debug&relase_APKS
-        path: |
-         ./MyApp/app_debub_all.apks
-         ./MyApp/app_relase_all.apks
+        with:
+         path: |
+          ./MyApp/app_debub_all.apks
+          ./MyApp/app_relase_all.apks
       - name: debug&relase_Nokia5_APKS
-        path: |
-         ./MyApp/nokia5_debug.apks
-         ./MyApp/nokia5_relase.apks
+        with:
+         path: |
+          ./MyApp/nokia5_debug.apks
+          ./MyApp/nokia5_relase.apks
      -  name: debug&relase_AAB
-        path: |
-         ./app/build/outputs/bundle/debug/*.aab
-         ./app/build/outputs/bundle/relase/*.aab
+        with:
+         path: |
+          ./app/build/outputs/bundle/debug/*.aab
+          ./app/build/outputs/bundle/relase/*.aab
 
