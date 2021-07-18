@@ -50,9 +50,9 @@ jobs:
          path: |
           ./MyApp/nokia5_debug.apks
           ./MyApp/nokia5_relase.apks
-     -  name: debug&relase_AAB
-        with:
-         path: |
+      -  name: debug&relase_AAB
+         with:
+          path: |
           ./app/build/outputs/bundle/debug/*.aab
           ./app/build/outputs/bundle/relase/*.aab
 
