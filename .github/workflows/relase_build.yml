@@ -53,6 +53,6 @@ jobs:
       -  name: debug&relase_AAB
          with:
           path: |
-          ./app/build/outputs/bundle/debug/*.aab
-          ./app/build/outputs/bundle/relase/*.aab
+           ./app/build/outputs/bundle/debug/*.aab
+           ./app/build/outputs/bundle/relase/*.aab
 
