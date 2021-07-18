@@ -17,23 +17,23 @@ jobs:
           distribution: 'adopt'
       - name: Run scripts
         run: |
-        echo *** Make gradlew executable ***
+        echo "*** Make gradlew executable ***"
         chmod +x ./gradlew
-         echo *** assembleRelease ***
+         echo "*** assembleRelease ***"
         ./gradlew assembleRelease       
-        echo *** assembleDebug ***
+        echo "*** assembleDebug ***"
         ./gradlew assembleDebug
-        echo *** Download bundletool ***
+        echo "*** Download bundletool ***"
         curl -o /bundletool.jar https://github.com/google/bundletool/releases/download/1.7.0/bundletool-all-1.7.0.jar 
-        echo *** Build app bundle all (.aab) ***
+        echo "*** Build app bundle all (.aab) ***"
         ./gradlew app:bundle
-        echo *** Bundletool build apks all DEBUG (.apks) ***
+        echo "*** Bundletool build apks all DEBUG (.apks) ***"
         java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./MyApp/app_debub_all.apks
-        echo *** Bundletool build apks all RELASE (.apks) ***
+        echo "*** Bundletool build apks all RELASE (.apks) ***"
         java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs/bundle/relase/app-release.aab --output=./MyApp/app_relase_all.apks
-        echo *** Bundletool build apks all NOKIA 5 DEBUG (.apks) ***
+        echo "*** Bundletool build apks all NOKIA 5 DEBUG (.apks) ***"
         java -jar ./bundletool.jar build-apks --device-spec=./nokia5.json --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./MyApp/nokia5_debug.apks
-        echo *** Bundletool build apks all NOKIA 5 RELASE (.apks) ***
+        echo "*** Bundletool build apks all NOKIA 5 RELASE (.apks) ***"
         java -jar ./bundletool.jar build-apks --device-spec=./nokia5.json --bundle=./app/build/outputs/bundle/relase/app-release.aab --output=./MyApp/nokia5_relase.apks
 
   upload-artifact:
