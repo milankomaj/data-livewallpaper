@@ -49,6 +49,6 @@ jobs:
          echo install tree
          sudo apt-get install -y tree
          echo ***./app/build/outputs/***
-         tree ./app/build/outputs/
+         tree -h ./app/build/outputs/
          echo ***./MyApp/***
-         tree ./MyApp/
+         tree -h ./MyApp/
