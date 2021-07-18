@@ -14,7 +14,6 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
-
      - name: echo "*** Make gradlew executable ***"
        run: chmod +x ./gradlew
      - name:  echo "*** assembleRelease ***"
@@ -22,7 +21,8 @@ jobs:
      - name: echo "*** assembleDebug ***"
        run: ./gradlew assembleDebug
      - name: echo "*** Download bundletool ***"
-       run: curl -o /bundletool.jar https://github.com/google/bundletool/releases/download/1.7.0/bundletool-all-1.7.0.jar 
+       run: curl -o /bundletool.jar https://github.com/google/bundletool/releases/download/1.7.0/bundletool-all-1.7.0.jar
+       shell: bash 
      - name: echo "*** Build app bundle all (.aab) ***"
        run: ./gradlew app:bundle
      - name: echo "*** Bundletool build apks all DEBUG (.apks) ***"
@@ -35,7 +35,7 @@ jobs:
        run: java -jar ./bundletool.jar build-apks --device-spec=./nokia5.json --bundle=./app/build/outputs/bundle/relase/app-release.aab --output=./MyApp/nokia5_relase.apks
 
   upload-artifact:
-    - uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v2
       with:
        name: debug&relase_APK
        path: |
