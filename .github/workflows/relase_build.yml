@@ -16,6 +16,7 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Run scripts
+      - shell: bash
         run: |
         echo "*** Make gradlew executable ***"
         chmod +x ./gradlew
