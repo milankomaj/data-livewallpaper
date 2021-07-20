@@ -6,4 +6,4 @@ Unlock Clock
 - ##### [![Build Debug](https://github.com/milankomaj/data-livewallpaper/actions/workflows/debug_build.yml/badge.svg)](https://github.com/milankomaj/data-livewallpaper/actions/workflows/debug_build.yml) [![Build Relase](https://github.com/milankomaj/data-livewallpaper/actions/workflows/relase_build.yml/badge.svg)](https://github.com/milankomaj/data-livewallpaper/actions/workflows/relase_build.yml)
 
 
-<img src=".gitbook/assets/Screenshot.jpg" width="300" title="👉  With change  👈"> <img src="https://play-lh.googleusercontent.com/5jrV7gPOVdXPw54SXDEqnQIbQlfb6mziR5JDwu7-04rUofHSPp-cJo2TveEUXQvHjW4=w1366-h695" width="267" title="Original">
+<img src=".gitbook/assets/Screenshot.jpg" width="200" title="👉  With change  👈"> <img src="https://play-lh.googleusercontent.com/5jrV7gPOVdXPw54SXDEqnQIbQlfb6mziR5JDwu7-04rUofHSPp-cJo2TveEUXQvHjW4=w1366-h695" width="178" title="Original">
