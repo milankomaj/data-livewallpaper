@@ -21,15 +21,15 @@ jobs:
       - name: echo "*** assembleDebug ***"
         run: ./gradlew assembleDebug
       - name: echo "*** Build app bundle all (.aab) ***"
-        run: ./gradlew data_live_wallpaper:bundle
+        run: ./gradlew app:bundle
       - name: echo "*** Bundletool build apks all DEBUG (.apks) ***"
-        run: java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs/bundle/debug/data_live_wallpaper-debug.aab --output=./MyApp/data_live_wallpaper_debug_all.apks
+        run: java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./MyApp/data_live_wallpaper_debug_all.apks
       - name: echo "*** Bundletool build apks all RELASE (.apks) ***"
-        run: java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs/bundle/release/data_live_wallpaper-release.aab --output=./MyApp/data_live_wallpaper_relase_all.apks
+        run: java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs/bundle/release/app-release.aab --output=./MyApp/data_live_wallpaper_relase_all.apks
       - name: echo "*** Bundletool build apks all NOKIA 5 DEBUG (.apks) ***"
-        run: java -jar ./bundletool.jar build-apks --device-spec=./nokia5.json --bundle=./app/build/outputs/bundle/debug/data_live_wallpaper-debug.aab --output=./MyApp/data_live_wallpaper_nokia5_debug.apks
+        run: java -jar ./bundletool.jar build-apks --device-spec=./nokia5.json --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./MyApp/data_live_wallpaper_nokia5_debug.apks
       - name: echo "*** Bundletool build apks all NOKIA 5 RELASE (.apks) ***"
-        run: java -jar ./bundletool.jar build-apks --device-spec=./nokia5.json --bundle=./app/build/outputs/bundle/release/data_live_wallpaper-release.aab --output=./MyApp/data_live_wallpaper_nokia5_relase.apks
+        run: java -jar ./bundletool.jar build-apks --device-spec=./nokia5.json --bundle=./app/build/outputs/bundle/release/app-release.aab --output=./MyApp/data_live_wallpaper_nokia5_relase.apks
 
       - name: debug&relase_APK
         uses: actions/upload-artifact@v2
@@ -57,8 +57,8 @@ jobs:
          with:
           name: debug&relase_AAB
           path: |
-           ./app/build/outputs/bundle/debug/data_live_wallpaper-debug.aab
-           ./app/build/outputs/bundle/release/data_live_wallpaper-release.aab
+           ./app/build/outputs/bundle/debug/app-debug.aab
+           ./app/build/outputs/bundle/release/app-release.aab
 
       - uses: actions/download-artifact@v2
         with:
@@ -71,8 +71,8 @@ jobs:
          title: data_live_wallpaper_artifacts
          automatic_release_tag: apk, apks, aab
          files: |           
-            ./artifacts/debug&relase_AAB/debug/data_live_wallpaper-debug.aab
-            ./artifacts/debug&relase_AAB/release/data_live_wallpaper-release.aab
+            ./artifacts/debug&relase_AAB/debug/app-debug.aab
+            ./artifacts/debug&relase_AAB/release/app-release.aab
             ./artifacts/debug&relase_APK/debug/data_live_wallpaper_debug.apk
             ./artifacts/debug&relase_APK/release/data_live_wallpaper_release.apk
             ./artifacts/debug&relase_APKS/data_live_wallpaper_debug_all.apks
