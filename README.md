@@ -22,3 +22,5 @@ Unlock Clock
 ![](https://dev-badge.eleonora.workers.dev/github/open-prs/milankomaj/data-livewallpaper?icon=github&style=flat&scale=1) 
 ![](https://dev-badge.eleonora.workers.dev/github/closed-prs/milankomaj/data-livewallpaper?icon=github&style=flat&scale=1) 
 ![](https://dev-badge.eleonora.workers.dev/github/merged-prs/milankomaj/data-livewallpaper?icon=github&style=flat&scale=1) 
+
+---
