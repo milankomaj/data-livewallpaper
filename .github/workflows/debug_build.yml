@@ -53,9 +53,10 @@ jobs:
          echo ***./MyApp/***
          tree -h ./MyApp/
          
-      - name: Display  
-        uses: actions/download-artifact@v2
-      - name: Display structure of downloaded files  
-        run: ls -R
-         
+      - uses: actions/download-artifact@v2
+        with:
+         path: ./artifacts/
+      - name: Display structure of downloaded files 
+        run: tree -h ./artifacts/
+      
          
