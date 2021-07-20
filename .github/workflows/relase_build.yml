@@ -69,7 +69,7 @@ jobs:
          repo_token: "${{ secrets.GITHUB_TOKEN }}"
          prerelease: false
          title: data_live_wallpaper_artifacts
-         automatic_release_tag: apk, apks, aab
+         automatic_release_tag: all_artifacts
          files: |           
             ./artifacts/debug&relase_AAB/debug/app-debug.aab
             ./artifacts/debug&relase_AAB/release/app-release.aab
