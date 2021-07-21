@@ -15,7 +15,9 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: echo "*** Make gradlew executable ***"
-        run: chmod +x ./gradlew            
+        run: chmod +x ./gradlew
+      - name: echo "*** Download bundletool ***"
+        run: curl -L -o ./bundletool.jar https://github.com/google/bundletool/releases/download/1.7.0/bundletool-all-1.7.0.jar
       - name:  echo "*** assembleRelease ***"
         run: ./gradlew assembleRelease       
       - name: echo "*** assembleDebug ***"
