@@ -16,11 +16,6 @@ jobs:
           distribution: 'adopt'
       - name: Make gradlew executable
         run: chmod +x ./gradlew    
-      - name: echo "*** Download bundletool ***"
-        run: curl -o ./bundletool.jar https://github.com/google/bundletool/releases/download/1.7.0/bundletool-all-1.7.0.jar
-        shell: bash
-      - name: Make bundletool executable 
-        run: chmod +x ./bundletool.jar 
         shell: bash
       - name: Build with Gradle
         run: ./gradlew assembleDebug
