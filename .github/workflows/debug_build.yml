@@ -17,6 +17,8 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x ./gradlew    
         shell: bash
+      - name: echo "*** Download bundletool ***"
+        run: curl -L -o ./bundletool.jar https://github.com/google/bundletool/releases/download/1.7.0/bundletool-all-1.7.0.jar
       - name: Build with Gradle
         run: ./gradlew assembleDebug
       - name: Build app bundle 
