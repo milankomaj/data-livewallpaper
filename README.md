@@ -2,7 +2,7 @@
 Unlock Clock 
 - ##### Based on *[googlecreativelab/digital-wellbeing-experiments-toolkit](https://github.com/googlecreativelab/digital-wellbeing-experiments-toolkit/tree/master/liveWallpaper)*
 - ##### Changed *background [color : #245b82](https://github.com/milankomaj/data-livewallpaper/blob/b5c08d901c4341d0178ba37436c8bee609b97a44/app/src/main/res/values/colors.xml#L22)* 
-- ##### Changed *[font : cascadia-code](https://github.com/microsoft/cascadia-code)* (SIL Open Font License 1.1)
+- ##### Changed *[font](app/src/main/res/font/mon.ttf) [(86,95)](https://github.com/milankomaj/data-livewallpaper/blob/b5c08d901c4341d0178ba37436c8bee609b97a44/app/src/main/java/com/digitalwellbeingexperiments/toolkit/datalivewallpaper/UnlockCounterWallpaper.kt#L81) : [cascadia-code](https://github.com/microsoft/cascadia-code)* (SIL Open Font License 1.1), *textSize : [(144,145)](https://github.com/milankomaj/data-livewallpaper/blob/b5c08d901c4341d0178ba37436c8bee609b97a44/app/src/main/java/com/digitalwellbeingexperiments/toolkit/datalivewallpaper/UnlockCounterWallpaper.kt#L143)*
 - ##### [![Build Debug](https://github.com/milankomaj/data-livewallpaper/actions/workflows/debug_build.yml/badge.svg)](https://github.com/milankomaj/data-livewallpaper/actions/workflows/debug_build.yml) [![Build Relase](https://github.com/milankomaj/data-livewallpaper/actions/workflows/relase_build.yml/badge.svg)](https://github.com/milankomaj/data-livewallpaper/actions/workflows/relase_build.yml)
 
 
