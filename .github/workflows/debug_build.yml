@@ -27,7 +27,7 @@ jobs:
         run: |
          JSON_N5='{"supportedAbis":["arm64-v8a"],"supportedLocales":["en", "sk"],"screenDensity":282,"sdkVersion":28}\n'
          printf "$JSON_N5" "$supportedAbis" "$supportedLocales" "$screenDensity" "$sdkVersion" >> ./nokia5.json
-         
+         cat ./nokia5.json | jq
       - name: Build with Gradle
         run: ./gradlew assembleDebug
       - name: Build app bundle 
