@@ -17,4 +17,5 @@ jobs:
       uses: actions/checkout@v2
     - name: Execute tests
       run: |
-        ./gradlew test
+       chmod +x ./gradlew  
+       ./gradlew test
