@@ -3,11 +3,11 @@ name: Unit tests
 on:
   workflow_dispatch:
   push:
-    branches-ignore:
-      - master
+    branches:
+      - '!master' 
   pull_request:
-    branches-ignore:
-      - master
+    branches:
+      - '!master' 
 
 jobs:
   testing:
