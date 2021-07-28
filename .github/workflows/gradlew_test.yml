@@ -1,0 +1,16 @@
+name: Unit tests
+
+on:
+  pull_request:
+    branches-ignore:
+      - master
+
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Clone repository
+      uses: actions/checkout@v2
+    - name: Execute tests
+      run: |
+        ./gradlew test
