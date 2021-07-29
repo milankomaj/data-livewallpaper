@@ -20,4 +20,4 @@ jobs:
        chmod +x ./gradlew  
         echo Gradle Version
        ./gradlew -v 
-       ./gradlew test
+       ./gradlew test --console=(auto,plain,rich,verbose)
