@@ -18,6 +18,6 @@ jobs:
     - name: Execute tests
       run: |
        chmod +x ./gradlew  
-       version=$(./gradlew -v)
-       echo $version 
+        echo Gradle Version
+       ./gradlew -v 
        ./gradlew test
