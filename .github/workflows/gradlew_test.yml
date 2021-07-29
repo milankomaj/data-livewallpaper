@@ -33,5 +33,4 @@ jobs:
        cd ..
        cd ..
        echo Gradle Version
-       ./gradlew -v 
        ./gradlew test
