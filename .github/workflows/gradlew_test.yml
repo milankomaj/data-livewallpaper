@@ -28,7 +28,8 @@ jobs:
        echo "  gradle-wrapper.jar" >> gradle-wrapper.jar.sha256
        sha256sum --check gradle-wrapper.jar.sha256
        rm gradle.zip
-       cd ./
+       cd ..
+       cd ..
        chmod +x ./gradlew  
        echo Gradle Version
        ./gradlew -v 
