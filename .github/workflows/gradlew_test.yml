@@ -18,15 +18,17 @@ jobs:
     - name: Execute tests
       run: |
        echo Gradle wrapper
-       rm ./gradle/wrapper/gradle-wrapper.jar
+       cd ./gradle/wrapper
+       rm gradle-wrapper.jar
        RELEASE=$(curl -L -s -H 'Accept: application/json' https://services.gradle.org/versions/current | jq .version | sed -e 's/"//g')
        echo RELEASE = $RELEASE
-       URL=$(curl -L -o ./gradle/wrapper/gradle.zip https://services.gradle.org/distributions/gradle-$(curl -L -s -H 'Accept: application/json' https://services.gradle.org/versions/current | jq .version | sed -e 's/"//g')-src.zip)
-       wrapper=$(unzip -j -d /gradle/wrapper/ gradle.zip gradle-$(curl -L -s -H 'Accept: application/json' https://services.gradle.org/versions/current | jq .version | sed -e 's/"//g')/gradle/wrapper/gradle-wrapper.jar)
-       SHA=$(curl --location --output ./gradle/wrapper/gradle-wrapper.jar.sha256 https://services.gradle.org/distributions/gradle-$(curl -L -s -H 'Accept: application/json' https://services.gradle.org/versions/current | jq .version | sed -e 's/"//g')-wrapper.jar.sha256)
-       echo "  ./gradle/wrapper/gradle-wrapper.jar" >> ./gradle/wrapper/gradle-wrapper.jar.sha256
-       sha256sum --check ./gradle/wrapper/gradle-wrapper.jar.sha256
-       rm ./gradle/wrapper/gradle.zip
+       URL=$(curl -L -o gradle.zip https://services.gradle.org/distributions/gradle-$(curl -L -s -H 'Accept: application/json' https://services.gradle.org/versions/current | jq .version | sed -e 's/"//g')-src.zip)
+       wrapper=$(unzip -j -d . gradle.zip gradle-$(curl -L -s -H 'Accept: application/json' https://services.gradle.org/versions/current | jq .version | sed -e 's/"//g')/gradle/wrapper/gradle-wrapper.jar)
+       SHA=$(curl --location --output gradle-wrapper.jar.sha256 https://services.gradle.org/distributions/gradle-$(curl -L -s -H 'Accept: application/json' https://services.gradle.org/versions/current | jq .version | sed -e 's/"//g')-wrapper.jar.sha256)
+       echo "  gradle-wrapper.jar" >> gradle-wrapper.jar.sha256
+       sha256sum --check gradle-wrapper.jar.sha256
+       rm gradle.zip
+       cd ./
        chmod +x ./gradlew  
        echo Gradle Version
        ./gradlew -v 
