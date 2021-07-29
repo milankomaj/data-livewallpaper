@@ -33,6 +33,6 @@ jobs:
        chmod +x ./gradlew  
        echo Gradle Version
        Version=$(./gradlew -v)
-       echo $Version
+       echo Version: $Version
        ./gradlew -v 
        ./gradlew test
