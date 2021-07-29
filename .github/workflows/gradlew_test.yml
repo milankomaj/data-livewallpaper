@@ -32,5 +32,6 @@ jobs:
        cd ..
        chmod +x ./gradlew  
        echo Gradle Version
+       echo ./gradlew -v 
        ./gradlew -v 
        ./gradlew test
