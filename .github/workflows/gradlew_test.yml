@@ -19,6 +19,7 @@ jobs:
       run: |
        echo Gradle wrapper
        cd ./gradle/wrapper
+       rm gradle-wrapper.jar
        RELEASE=$(curl -L -s -H 'Accept: application/json' https://services.gradle.org/versions/current | jq .version | sed -e 's/"//g')
        echo RELEASE = $RELEASE
        URL=$(curl -L -o gradle.zip https://services.gradle.org/distributions/gradle-$(curl -L -s -H 'Accept: application/json' https://services.gradle.org/versions/current | jq .version | sed -e 's/"//g')-src.zip)
