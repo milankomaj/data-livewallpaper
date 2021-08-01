@@ -23,7 +23,7 @@ import java.util.*
 
 object UnlockBroadcastReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
-        val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+        val prefs = getSharedPreferences(context)
         if (intent.action == Intent.ACTION_USER_PRESENT) {
 
 
