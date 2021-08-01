@@ -29,6 +29,10 @@ android {
    buildFeatures {
         viewBinding true
     }
+   
+   test {
+        exclude '**/**UnitTestKotlin'
+    }
 
     buildTypes {
         release {
