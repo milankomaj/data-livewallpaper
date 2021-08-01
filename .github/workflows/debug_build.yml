@@ -2,8 +2,7 @@ name: Build Debug
 on:
  pull_request:
  workflow_dispatch:
- schedule:
-   - cron: '1 2 */86 * *'
+
 jobs:
   build:
     runs-on: ubuntu-latest
