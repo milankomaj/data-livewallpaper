@@ -17,13 +17,13 @@ package com.digitalwellbeingexperiments.toolkit.datalivewallpaper
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import androidx.preference.PreferenceManager
+import android.preference.PreferenceManager
 import java.time.Instant
 import java.util.*
 
 object UnlockBroadcastReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
-        val prefs = getSharedPreferences(context)
+        val prefs = PreferenceManager.getDefaultSharedPreferences(context)
         if (intent.action == Intent.ACTION_USER_PRESENT) {
 
 
