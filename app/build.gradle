@@ -30,10 +30,6 @@ android {
         viewBinding true
     }
    
-   test {
-        exclude '**/**UnitTestKotlin'
-    }
-
     buildTypes {
         release {
             signingConfig signingConfigs.release
