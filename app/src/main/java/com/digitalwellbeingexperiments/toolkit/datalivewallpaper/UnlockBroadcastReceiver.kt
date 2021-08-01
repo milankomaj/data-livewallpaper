@@ -23,7 +23,7 @@ import java.util.*
 
 object UnlockBroadcastReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
-        val prefs = getSharedPreferences("com.digitalwellbeingexperiments.toolkit.datalivewallpaper_preferences", Context.MODE_PRIVATE)
+        val prefs = getSharedPreferences("com.digitalwellbeingexperiments.toolkit.datalivewallpaper", Context.MODE_PRIVATE)
         if (intent.action == Intent.ACTION_USER_PRESENT) {
 
 
