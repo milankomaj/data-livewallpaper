@@ -70,4 +70,5 @@ jobs:
       - name: Display structure of downloaded files 
         run: tree -h ./artifacts/
       
-         
+      - name: sha256sum
+        run: find ./artifacts/ -type f -print0 | xargs -0 sha256sum
