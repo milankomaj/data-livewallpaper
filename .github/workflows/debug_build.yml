@@ -68,6 +68,10 @@ jobs:
         with:
          path: ./artifacts/
       - name: Display structure of downloaded files 
-        run: tree -h ./artifacts/
+        run: |
+         echo Tree
+         tree -h ./artifacts/
+         echo sha256sum
+         find ./artifacts/ -type f -print0 | xargs -0 sha256sum
       
          
