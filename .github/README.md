@@ -24,14 +24,14 @@
 ![](https://dev-badge.eleonora.workers.dev/github/merged-prs/milankomaj/data-livewallpaper?icon=github&style=flat&scale=1) 
 
 ---
-### SHA-256
+## SHA-256
 **sha256** | **file**
 ---: | :---:
-2d52d5e1779e05dcdaab12a5929e0cb3c68dc0677d28fa108cb3df02c6419e18|./artifacts/debug&relase_APKS/data_live_wallpaper_relase_all.apks
-da2ef6bb0782b18be06e62d85114c485aea4b2cd67e1a072f0b018e2d6c8d503|./artifacts/debug&relase_APKS/data_live_wallpaper_debug_all.apks
-3e3ac222eb0b1c841ded5c12bcbcc88e1f863d487cd46f81e0a4518804c3ea4b|./artifacts/debug&relase_APK/release/data_live_wallpaper_release.apk
-fc5130132a6ee3cf17e2b8f1326ae0394ed6c8780804596d4a008aa3e9c9b342|./artifacts/debug&relase_APK/debug/data_live_wallpaper_debug.apk
-76404115993c5e687e6bbfd2ef3be1e276001e54bb353468e28c221fd7f75d17|./artifacts/debug&relase_Nokia5_APKS/data_live_wallpaper_nokia5_debug.apks
-40fea5434a084d2a6ccedcf19511747fc5184791a09614fd53ba1a1ee19d0a16|./artifacts/debug&relase_Nokia5_APKS/data_live_wallpaper_nokia5_relase.apks
+dd952a9225b377e06058764ae7619ac8dc93d68d7754a7b7c4bdb51104076c86|./artifacts/debug&relase_APKS/data_live_wallpaper_relase_all.apks
+8489f87c62ef6823d9c016f443c88165fd47f9fc91b29de2566bb935e14c33ab|./artifacts/debug&relase_APKS/data_live_wallpaper_debug_all.apks
+4a26eaf2d62b5b2afd300099cd8cb2b046b8d56b06df8ef510cce30378ac1295|./artifacts/debug&relase_APK/release/data_live_wallpaper_release.apk
+80a8ced77b18a7424c64fc9d6a0a177faf4ae7db2a574e33a6072e35a729c873|./artifacts/debug&relase_APK/debug/data_live_wallpaper_debug.apk
+4500381bc1f0faf2f205e8feffd0f83d01e69f45f6e2f81bf581509e009710d8|./artifacts/debug&relase_Nokia5_APKS/data_live_wallpaper_nokia5_debug.apks
+7243b665f5a70e3eb83b9f836cb4ca55719913bd3fcb802f93a28c6b058ddb60|./artifacts/debug&relase_Nokia5_APKS/data_live_wallpaper_nokia5_relase.apks
 3e9a9c05c11ab30e7ef7bfe8f65a2f3f2b47b6959ec27ff154a885420e06ff00|./artifacts/debug&relase_AAB/release/app-release.aab
 120d1f5261ce6e7389da6fb5fecd5cd12d5b21198a643cf858b7577a6b42f54a|./artifacts/debug&relase_AAB/debug/app-debug.aab
