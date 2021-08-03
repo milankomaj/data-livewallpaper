@@ -50,7 +50,6 @@ jobs:
          path: ./MyApp/my_app.apks
       - name: bundletool build-apks nokia5.json
         run: java -jar ./bundletool.jar build-apks --device-spec=./nokia5.json --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./MyApp/nokia5_app.apks --ks=./app/android-LQ0F5.keystore --ks-key-alias=mm1 --key-pass=pass:milankomaj
-
       - name: apks
       - name: apks nokia5
         uses: actions/upload-artifact@v2 
