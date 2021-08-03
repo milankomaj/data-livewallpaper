@@ -32,13 +32,13 @@ jobs:
       - name: echo "*** Build app bundle all (.aab) ***"
         run: ./gradlew app:bundle
       - name: echo "*** Bundletool build apks all DEBUG (.apks) ***"
-        run: java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./MyApp/data_live_wallpaper_debug_all.apks
+        run: java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./MyApp/data_live_wallpaper_debug_all.apks --ks=./app/android-LQ0F5.keystore --ks-pass=pass:${{ secrets.KEYSTORE_PASSWORD }} --key-pass=pass:${{ secrets.KEY_PASSWORD }} --ks-key-alias=${{ secrets.KEY_ALIAS }}
       - name: echo "*** Bundletool build apks all RELASE (.apks) ***"
-        run: java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs/bundle/release/app-release.aab --output=./MyApp/data_live_wallpaper_relase_all.apks
+        run: java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs/bundle/release/app-release.aab --output=./MyApp/data_live_wallpaper_relase_all.apks --ks=./app/android-LQ0F5.keystore --ks-pass=pass:${{ secrets.KEYSTORE_PASSWORD }} --key-pass=pass:${{ secrets.KEY_PASSWORD }} --ks-key-alias=${{ secrets.KEY_ALIAS }}
       - name: echo "*** Bundletool build apks all NOKIA 5 DEBUG (.apks) ***"
-        run: java -jar ./bundletool.jar build-apks --device-spec=./nokia5.json --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./MyApp/data_live_wallpaper_nokia5_debug.apks
+        run: java -jar ./bundletool.jar build-apks --device-spec=./nokia5.json --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./MyApp/data_live_wallpaper_nokia5_debug.apks --ks=./app/android-LQ0F5.keystore --ks-pass=pass:${{ secrets.KEYSTORE_PASSWORD }} --key-pass=pass:${{ secrets.KEY_PASSWORD }} --ks-key-alias=${{ secrets.KEY_ALIAS }}
       - name: echo "*** Bundletool build apks all NOKIA 5 RELASE (.apks) ***"
-        run: java -jar ./bundletool.jar build-apks --device-spec=./nokia5.json --bundle=./app/build/outputs/bundle/release/app-release.aab --output=./MyApp/data_live_wallpaper_nokia5_relase.apks
+        run: java -jar ./bundletool.jar build-apks --device-spec=./nokia5.json --bundle=./app/build/outputs/bundle/release/app-release.aab --output=./MyApp/data_live_wallpaper_nokia5_relase.apks --ks=./app/android-LQ0F5.keystore --ks-pass=pass:${{ secrets.KEYSTORE_PASSWORD }} --key-pass=pass:${{ secrets.KEY_PASSWORD }} --ks-key-alias=${{ secrets.KEY_ALIAS }}
 
       - name: debug&relase_APK
         uses: actions/upload-artifact@v2
