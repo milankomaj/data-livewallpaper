@@ -6,6 +6,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+      KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+      KEY_PASSWORD: ${{ secrets.KEY_PASSWORD}}    
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 11
@@ -29,16 +33,8 @@ jobs:
          cat ./nokia5.json | jq
       - name: Build with Gradle
         run: ./gradlew assembleDebug
-        env:
-         KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
-         KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-         KEY_PASSWORD: ${{ secrets.KEY_PASSWORD}}
       - name: Build app bundle 
-        run: ./gradlew app:bundle
-        env:
-           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
-           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD}}        
+        run: ./gradlew app:bundle      
       - name: generated APK file
         uses: actions/upload-artifact@v2
         with:
