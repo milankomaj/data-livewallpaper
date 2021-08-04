@@ -16,6 +16,10 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x ./gradlew    
         shell: bash
+        env:
+         KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+         KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+         KEY_PASSWORD: ${{ secrets.KEY_PASSWORD}}
       - name: echo "*** Download bundletool ***"
         run: |
          RELEASE=$(curl -L -s -H 'Accept: application/json' https://github.com/google/bundletool/releases/latest)
