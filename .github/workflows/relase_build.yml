@@ -26,11 +26,23 @@ jobs:
          JSON_N5='{"supportedAbis":["arm64-v8a"],"supportedLocales":["sk"],"screenDensity":282,"sdkVersion":28}\n'
          printf "$JSON_N5" "$supportedAbis" "$supportedLocales" "$screenDensity" "$sdkVersion" >> ./nokia5.json
       - name:  echo "*** assembleRelease ***"
-        run: ./gradlew assembleRelease       
+        run: ./gradlew assembleRelease
+        env:
+           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD}}        
       - name: echo "*** assembleDebug ***"
         run: ./gradlew assembleDebug
+        env:
+           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD}}        
       - name: echo "*** Build app bundle all (.aab) ***"
         run: ./gradlew app:bundle
+        env:
+           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD}}        
       - name: echo "*** Bundletool build apks all DEBUG (.apks) ***"
         run: java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./MyApp/data_live_wallpaper_debug_all.apks --ks=./app/android-LQ0F5.keystore --ks-pass=pass:${{ secrets.KEYSTORE_PASSWORD }} --key-pass=pass:${{ secrets.KEY_PASSWORD }} --ks-key-alias=${{ secrets.KEY_ALIAS }}
       - name: echo "*** Bundletool build apks all RELASE (.apks) ***"
