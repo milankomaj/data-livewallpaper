@@ -20,9 +20,9 @@ android {
             // You need to specify either an absolute path or include the
             // keystore file in the same directory as the build.gradle file.
             storeFile file('android-LQ0F5.keystore')
-            storePassword '$KEYSTORE_PASSWORD'
-            keyAlias '$KEY_ALIAS'
-            keyPassword '$KEY_PASSWORD'
+            storePassword '${{ secrets.KEYSTORE_PASSWORD }}'
+            keyAlias '${{ secrets.$KEY_ALIAS }}'
+            keyPassword '${{ secrets.$KEY_PASSWORD }}'
         }
     }
 
