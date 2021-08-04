@@ -46,7 +46,7 @@ jobs:
          name: bundletool(.aab)
          path: ./app/build/outputs/bundle/debug
       - name: bundletool build-apks
-        run: java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./MyApp/my_app.apks
+        run: java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./MyApp/my_app.apks --ks=./app/android-LQ0F5.keystore --ks-pass=pass:${{ secrets.KEYSTORE_PASSWORD }} --key-pass=pass:${{ secrets.KEY_PASSWORD }} --ks-key-alias=${{ secrets.KEY_ALIAS }}
       - name: apks
         uses: actions/upload-artifact@v2 
         with:
