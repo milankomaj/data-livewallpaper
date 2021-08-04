@@ -35,6 +35,10 @@ jobs:
          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD}}
       - name: Build app bundle 
         run: ./gradlew app:bundle
+        env:
+           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD}}        
       - name: generated APK file
         uses: actions/upload-artifact@v2
         with:
