@@ -7,7 +7,7 @@
 - #####  Unit tests: Thu Aug  5 17:14:17 CEST 2021
 
 <img src="https://raw.githubusercontent.com/milankomaj/data-livewallpaper/master/.gitbook/assets/Screenshot.jpg" width="200" title="👉  With change  👈"> <img src="https://play-lh.googleusercontent.com/5jrV7gPOVdXPw54SXDEqnQIbQlfb6mziR5JDwu7-04rUofHSPp-cJo2TveEUXQvHjW4=w1366-h695" width="178" title="Original">
-- #####  Unit tests: Thu Aug  5 17:08:08 CEST 2021
+
 ---
 ![](https://dev-badge.eleonora.workers.dev/github/releases/milankomaj/data-livewallpaper?icon=github&style=flat&scale=1) 
 ![](https://dev-badge.eleonora.workers.dev/github/tags/milankomaj/data-livewallpaper?icon=github&style=flat&scale=1) 
