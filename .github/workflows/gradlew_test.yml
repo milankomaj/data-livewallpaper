@@ -46,7 +46,7 @@ jobs:
         shell: bash
         run: |
            date >> ./timestamp
-           sudo locale-gen LANG="sk_SK.UTF-8" LANGUAGE="sk_SK"
+           sudo locale-gen LANG="sk_SK.utf8" LANGUAGE="sk_SK"
            sudo update-locale LANG="sk_SK.UTF-8"
            zone=$(TZ='Europe/Bratislava' LANG='sk_SK.utf8' date -r ./timestamp)
            sed -i "7s/.*/- #####  Unit tests: $zone/" ./.github/README.md
