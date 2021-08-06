@@ -63,8 +63,8 @@ jobs:
       - name: get-size
         run: |
           echo Size : nokia5_app.apks
-          java -jar ./bundletool.jar get-size total --apks=./MyApp/nokia5_app.apks
-          java -jar ./bundletool.jar get-size total --instant --apks=./MyApp/nokia5_app.apks
+          java -jar ./bundletool.jar get-size total --device-spec=./nokia5.json --apks=./MyApp/nokia5_app.apks
+          java -jar ./bundletool.jar get-size total --device-spec=./nokia5.json --instant --apks=./MyApp/nokia5_app.apks
           echo ----------------------------------------
          
       - name: tree
