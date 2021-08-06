@@ -18,11 +18,10 @@ jobs:
       uses: actions/checkout@v2
     - name: Execute tests
       run: |
-       echo Gradle wrapper
        cd ./gradle/wrapper
        rm gradle-wrapper.jar
        RELEASE=$(curl -L -s -H 'Accept: application/json' https://services.gradle.org/versions/current | jq .version | sed -e 's/"//g')
-       echo Gradle Version:
+       echo Gradle wrapper:
        echo RELEASE = $RELEASE
        URL=$(curl -s -L -o gradle.zip https://services.gradle.org/distributions/gradle-$(curl -L -s -H 'Accept: application/json' https://services.gradle.org/versions/current | jq .version | sed -e 's/"//g')-src.zip)
        wrapper=$(unzip -j -d . gradle.zip gradle-$(curl -L -s -H 'Accept: application/json' https://services.gradle.org/versions/current | jq .version | sed -e 's/"//g')/gradle/wrapper/gradle-wrapper.jar)
@@ -32,6 +31,7 @@ jobs:
        rm gradle.zip
        cd ..
        cd ..
+       echo --------------------------------------
        chmod +x ./gradlew
        ./gradlew -v 
        echo Gradle Test
@@ -48,6 +48,7 @@ jobs:
            date >> ./timestamp
            zone=$(TZ='Europe/Bratislava' date -r ./timestamp)
            sed -i "7s/.*/- #####  Unit tests: $zone/" ./.github/README.md
+           echo Timestamp : $zone
            git config --global user.email ${{ secrets.EMAIL }}
            git config --global user.name ${{ secrets.NAME }}        
            git add ./.github/README.md
