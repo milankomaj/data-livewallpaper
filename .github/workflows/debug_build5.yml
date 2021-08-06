@@ -59,6 +59,14 @@ jobs:
         with:
          name: nokia5(.apks)
          path: ./MyApp/nokia5_app.apks
+       
+      - name: get-size
+        run: |
+          echo Size : nokia5_app.apks
+          java -jar ./bundletool.jar get-size total --apks=./MyApp/nokia5_app.apks
+          java -jar ./bundletool.jar get-size total --instant --apks=./MyApp/nokia5_app.apks
+          echo ----------------------------------------
+         
       - name: tree
         run: |
          echo install tree
