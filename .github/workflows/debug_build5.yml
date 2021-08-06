@@ -63,11 +63,17 @@ jobs:
       - name: get-size
         run: |
           echo Size : my_app.apks
-          java -jar ./bundletool.jar get-size total MB("MB") --apks=./MyApp/my_app.apks
+          java -jar ./bundletool.jar get-size total MB --apks=./MyApp/my_app.apks >> ./size.csv
           echo Size : --device-spec=./nokia5.json
-          java -jar ./bundletool.jar get-size total MB("MB") --device-spec=./nokia5.json --apks=./MyApp/my_app.apks --format=pretty
+          java -jar ./bundletool.jar get-size total MB --device-spec=./nokia5.json --apks=./MyApp/my_app.apks >> ./size.csv
           echo ----------------------------------------
-
+          
+      - name: csv
+        uses: actions/upload-artifact@v2 
+        with:
+         name: size.csv
+         path: ./size.csv
+         
       - name: tree
         run: |
          echo install tree
