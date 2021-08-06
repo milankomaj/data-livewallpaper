@@ -65,7 +65,7 @@ jobs:
           echo Size : my_app.apks
           java -cp ./bundletool.jar com.android.tools.build.bundletool.BundleToolMain get-size total MB --apks=./MyApp/my_app.apks
           echo Size : --device-spec=./nokia5.json
-          java -cp ./bundletool.jar com.android.tools.build.bundletool.BundleToolMain get-size total MB --device-spec=./nokia5.json --apks=./MyApp/my_app.apks
+          java -cp ./bundletool.jar com.android.tools.build.bundletool.BundleToolMain get-size total MB --device-spec=./nokia5.json --apks=./MyApp/my_app.apks --format=pretty
           echo ----------------------------------------
 
       - name: tree
