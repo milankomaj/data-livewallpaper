@@ -43,13 +43,6 @@ jobs:
         run: java -jar ./bundletool.jar build-apks --device-spec=./nokia5.json --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./MyApp/data_live_wallpaper_nokia5_debug.apks --ks=./app/android-LQ0F5.keystore --ks-pass=pass:${{ secrets.KEYSTORE_PASSWORD }} --key-pass=pass:${{ secrets.KEY_PASSWORD }} --ks-key-alias=${{ secrets.KEY_ALIAS }}
       - name: echo "*** Bundletool build apks all NOKIA 5 RELASE (.apks) ***"
         run: java -jar ./bundletool.jar build-apks --device-spec=./nokia5.json --bundle=./app/build/outputs/bundle/release/app-release.aab --output=./MyApp/data_live_wallpaper_nokia5_relase.apks --ks=./app/android-LQ0F5.keystore --ks-pass=pass:${{ secrets.KEYSTORE_PASSWORD }} --key-pass=pass:${{ secrets.KEY_PASSWORD }} --ks-key-alias=${{ secrets.KEY_ALIAS }}
-
-      - name: get-size
-        run: |
-          echo Size : data_live_wallpaper_debug_all.apks
-          java -jar ./bundletool.jar get-size total --apks=./MyApp/data_live_wallpaper_debug_all.apks
-          java -jar ./bundletool.jar get-size total --instant --apks=./MyApp/data_live_wallpaper_debug_all.apks
-          echo ----------------------------------------
           
       - name: debug&relase_APK
         uses: actions/upload-artifact@v2
