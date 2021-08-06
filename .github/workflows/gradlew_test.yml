@@ -19,8 +19,6 @@ jobs:
     - name: Execute tests
       run: |
        echo Gradle wrapper
-       chmod +x ./gradlew
-       ./gradlew -v 
        cd ./gradle/wrapper
        rm gradle-wrapper.jar
        RELEASE=$(curl -L -s -H 'Accept: application/json' https://services.gradle.org/versions/current | jq .version | sed -e 's/"//g')
@@ -34,6 +32,8 @@ jobs:
        rm gradle.zip
        cd ..
        cd ..
+       chmod +x ./gradlew
+       ./gradlew -v 
        echo Gradle Test
        ./gradlew test
        
