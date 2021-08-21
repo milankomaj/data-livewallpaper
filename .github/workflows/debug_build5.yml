@@ -34,7 +34,7 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew assembleDebug
       - name: Build app bundle 
-        run: ./gradlew app:bundle      
+        run: ./gradlew app:bundleDebug      
       - name: generated APK file
         uses: actions/upload-artifact@v2
         with:
