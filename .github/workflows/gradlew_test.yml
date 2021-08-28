@@ -19,7 +19,7 @@ jobs:
        cd ./gradle/wrapper
        rm gradle-wrapper.jar
        RELEASE=$(curl -L -s -H 'Accept: application/json' https://services.gradle.org/versions/current | jq .version | sed -e 's/"//g')
-       echo Gradle wrapper:
+       echo -e "\033[31;1m Gradle wrapper: \033[0m"
        echo RELEASE = $RELEASE
        URL=$(curl -s -L -o gradle.zip https://services.gradle.org/distributions/gradle-$(curl -L -s -H 'Accept: application/json' https://services.gradle.org/versions/current | jq .version | sed -e 's/"//g')-src.zip)
        wrapper=$(unzip -j -d . gradle.zip gradle-$(curl -L -s -H 'Accept: application/json' https://services.gradle.org/versions/current | jq .version | sed -e 's/"//g')/gradle/wrapper/gradle-wrapper.jar)
@@ -32,9 +32,9 @@ jobs:
        echo --------------------------------------
        chmod +x ./gradlew
        ./gradlew -v 
-       echo Gradle Test
+       echo -e "\033[31;1m Gradle Test \033[0m"
        ./gradlew test
-       echo -e "\033[31;1m ********* \033[0m"
+       
     - name: 🤖dependabot[bot]  Gradle assembleDebug
       if: ${{ github.actor == 'dependabot[bot]' }}
       run: ./gradlew assembleDebug
@@ -63,7 +63,7 @@ jobs:
   dependabot:
       name: Dependabot auto-merge   
       runs-on: ubuntu-latest 
-      needs: [timestamp,testing]    
+      needs: [testing]    
       if: ${{ github.actor == 'dependabot[bot]' }}
       steps:
         - name: Dependabot metadata
