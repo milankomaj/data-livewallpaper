@@ -34,7 +34,7 @@ jobs:
        ./gradlew -v 
        echo Gradle Test
        ./gradlew test
-    - name: dependabot[bot] 🟥 Gradle assembleDebug
+    - name: 🤖dependabot[bot]  Gradle assembleDebug
       if: ${{ github.actor == 'dependabot[bot]' }}
       run: ./gradlew assembleDebug
 
