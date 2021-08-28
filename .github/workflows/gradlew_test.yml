@@ -35,8 +35,10 @@ jobs:
        echo Gradle Test
        ./gradlew test
     - name: echo Gradle assembleDebug
-    if: ${{ github.actor == 'dependabot[bot]' }}
-       ./gradlew assembleDebug
+      if: ${{ github.actor == 'dependabot[bot]' }}
+      run: ./gradlew assembleDebug
+
+     
        
   timestamp:
       runs-on: ubuntu-latest
