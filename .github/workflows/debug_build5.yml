@@ -1,8 +1,11 @@
 name: Build Debug
 on:
- 
  workflow_dispatch:
-
+ workflow_run:
+  workflows: ["Unit tests"]
+  branches:
+   - '**'
+  types: [completed]
 jobs:
   build:
     runs-on: ubuntu-latest
