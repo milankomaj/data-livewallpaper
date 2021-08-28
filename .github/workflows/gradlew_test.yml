@@ -34,6 +34,7 @@ jobs:
        ./gradlew -v 
        echo Gradle Test
        ./gradlew test
+       echo -e "\033[31;1m ********* \033[0m"
     - name: 🤖dependabot[bot]  Gradle assembleDebug
       if: ${{ github.actor == 'dependabot[bot]' }}
       run: ./gradlew assembleDebug
