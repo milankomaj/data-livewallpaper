@@ -2,9 +2,7 @@ name: Unit tests
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - '**' 
+
   pull_request_target:
     branches:
       - '**' 
