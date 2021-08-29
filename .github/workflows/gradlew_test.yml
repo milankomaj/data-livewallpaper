@@ -13,6 +13,12 @@ jobs:
       uses: actions/checkout@v2
     - name: Execute tests
       run: |
+       echo -e "\033[31;1m Bundletool Version download Latest version\033[0m"
+       RELEASE=$(curl -L -s -H 'Accept: application/json' https://github.com/google/bundletool/releases/latest)
+       VERSION=$(echo $RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
+       echo VERSION = $VERSION
+       URL=$(curl -s -L -o ./bundletool.jar https://github.com/google/bundletool/releases/download/$(echo $RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')/bundletool-all-$(echo $RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/').jar)      
+       echo --------------------------------------*
        cd ./gradle/wrapper
        rm gradle-wrapper.jar
        RELEASE=$(curl -L -s -H 'Accept: application/json' https://services.gradle.org/versions/current | jq .version | sed -e 's/"//g')
