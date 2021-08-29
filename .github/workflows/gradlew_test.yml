@@ -30,7 +30,9 @@ jobs:
        cd ..
        cd ..
        echo --------------------------------------
-       chmod +x ./gradlew
+       chmod +x ./gradlew     
+       echo -e "\033[31;1m Gradle Version \033[0m"
+       ./gradlew wrapper --gradle-version=$RELEASE
        ./gradlew -v 
        echo -e "\033[31;1m Gradle Test \033[0m"
        ./gradlew test
