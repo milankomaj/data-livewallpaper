@@ -1,11 +1,9 @@
 name: Build Relase
 on:
  workflow_dispatch:
- workflow_run:
-  workflows:
-  - "Dependabot auto-merge"
+ pull_request_target:
   branches: '**'
-  types: [completed]
+  types: [closed]
 
 jobs:
   build:
