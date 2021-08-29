@@ -2,11 +2,7 @@ name: Build Debug
 on:
  workflow_dispatch:
  pull_request_target:
- workflow_run:
-  workflows: ["Dependabot auto-merge"]
-  branches:
-   - '**'
-  types: [completed]
+
 jobs:
   build:
     runs-on: ubuntu-latest
