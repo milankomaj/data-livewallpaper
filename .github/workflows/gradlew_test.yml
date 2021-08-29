@@ -29,8 +29,8 @@ jobs:
        rm gradle.zip
        cd ..
        cd ..
-       echo --------------------------------------
-       chmod +x ./gradlew     
+       chmod +x ./gradlew 
+       echo --------------------------------------*
        echo -e "\033[31;1m Gradle Version \033[0m"
        ./gradlew wrapper --gradle-version=$RELEASE
        ./gradlew -v 
