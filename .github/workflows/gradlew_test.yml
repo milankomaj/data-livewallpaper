@@ -2,12 +2,9 @@ name: Unit tests
 
 on:
   workflow_dispatch:
-
   pull_request_target:
-    branches:
-      - '**' 
-  schedule:
-    - cron: '1 2 */17 * *'
+    branches: '**' 
+
 jobs:
   testing:
     runs-on: ubuntu-latest
