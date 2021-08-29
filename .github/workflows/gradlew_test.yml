@@ -35,7 +35,7 @@ jobs:
        chmod +x ./gradlew 
        echo --------------------------------------*
        echo -e "\033[31;1m Gradle Version switch to Latest version \033[0m"
-       ./gradlew wrapper --gradle-version=$RELEASE
+       ./gradlew wrapper --gradle-version=$RELEASE --quiet
        ./gradlew -v 
        echo -e "\033[31;1m Gradle Test \033[0m"
        ./gradlew test
