@@ -1,9 +1,9 @@
 name: Build Relase
 on:
  workflow_dispatch:
- pull_request_target:
-  branches: '**'
-  types: [closed]
+ workflow_run:
+  workflows: ["Unit tests"]
+  types: [completed]
 
 jobs:
   build:
