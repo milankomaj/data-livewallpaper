@@ -110,10 +110,10 @@ jobs:
           rm -f ./.github/README.md
           find ./artifacts/ -type f -print0 | xargs -0 sha256sum >> ./sha256.md
           sed 's/  /|/1g' ./sha256.md  >> ./README1.md
-          sed -i 1i"## <details><summary><strong>SHA-256</strong></summary>" ./README1.md && sed -i '2i\' ./README1.md
-          sed -i 3i"**sha256** | **file**" ./README1.md && sed -i 4i"---: | :---:" ./README1.md      
+          sed -i 1i"## <details><summary><strong>SHA-256</strong></summary>" >> ./README1.md && sed -i '2i\' >> ./README1.md
+          sed -i 3i"**sha256** | **file**" >> ./README1.md && sed -i 4i"---: | :---:" >> ./README1.md      
           cat ./README.md ./README1.md >> ./.github/README.md
-          sed -i 39i"</details>" ./github/README.md
+          sed -i 39i"</details>" >> ./github/README.md
           git config --global user.email ${{ secrets.EMAIL }}
           git config --global user.name ${{ secrets.NAME }}        
           git add ./.github/README.md
