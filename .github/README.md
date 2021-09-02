@@ -24,14 +24,3 @@
 ![](https://dev-badge.eleonora.workers.dev/github/merged-prs/milankomaj/data-livewallpaper?icon=github&style=flat&scale=1) 
 
 ---
-## SHA-256
-**sha256** | **file**
----: | :---:
-aafd03fcd3a4431a93a2f6123208377c8c70d423721c71522e386afaa629aa72|./artifacts/debug&relase_APKS/data_live_wallpaper_relase_all.apks
-5fc6d264d5e3e84d452fa3562d39524c1d098de9e2c9c1a0b21d19aa1ae47889|./artifacts/debug&relase_APKS/data_live_wallpaper_debug_all.apks
-a404f9b0cf4dc2b414bf0877ba6b57a70e98ae0a6863bb0439f50bb34ca6cb36|./artifacts/debug&relase_APK/release/data_live_wallpaper_release.apk
-d82a056ce259f818138e4780f89b4b0b50755400b2cf40f1e7530c202c0f7c69|./artifacts/debug&relase_APK/debug/data_live_wallpaper_debug.apk
-65dd62bb9b205660125acfcbf7a6ac78c0118425ac6fc58481aa629b740360bb|./artifacts/debug&relase_Nokia5_APKS/data_live_wallpaper_nokia5_debug.apks
-afcd4e1cca7576a9cfed0759db5eeee65b77a18da36adb57fc01147fab90d4b5|./artifacts/debug&relase_Nokia5_APKS/data_live_wallpaper_nokia5_relase.apks
-9f06d642fcc32bab1e5e68b45b1859832ebcb6cfbe56d90f7f44679a4611b69d|./artifacts/debug&relase_AAB/release/app-release.aab
-bf21a8b5e6f85bee76ffa0bbd4ba1c613577c01d96d13887b65443cf2e273de8|./artifacts/debug&relase_AAB/debug/app-debug.aab
