@@ -111,14 +111,14 @@ jobs:
           find ./artifacts/ -type f -print0 | xargs -0 sha256sum >> ./sha256.md
           sed 's/  /|/1g' ./sha256.md  >> ./data.md
           
-          touch ./header.md
-          sed -i 1i"<details><summary><strong>SHA-256</strong></summary>" ./header.md
-          sed -i 2i'\' ./header.md
-          sed -i 3i"**sha256** | **file**" ./header.md 
-          sed -i 4i"---: | :---:" ./header.md
+         
+          sed -i 1i"<details><summary><strong>SHA-256</strong></summary>" ./data.md
+          sed -i 2i'\' ./data.md
+          sed -i 3i"**sha256** | **file**" ./data.md 
+          sed -i 4i"---: | :---:" ./data.md
           
           
-          cat ./README.md ./header.md ./data.md > ./.github/README.md
+          cat ./README.md ./data.md > ./.github/README.md
           echo "</details>" >> ./.github/README.md
           
           git config --global user.email ${{ secrets.EMAIL }}
