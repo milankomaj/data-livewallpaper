@@ -118,8 +118,8 @@ jobs:
           sed -i 4i"---: | :---:" ./header.md
           
           
-          cat ./README.md ./header.md ./data.md >> ./.github/README.md
-          sed -i 39i"</details>" ./.github/README.md
+          cat ./README.md ./header.md ./data.md > ./.github/README.md
+          cat "</details>" >> ./.github/README.md
           
           git config --global user.email ${{ secrets.EMAIL }}
           git config --global user.name ${{ secrets.NAME }}        
