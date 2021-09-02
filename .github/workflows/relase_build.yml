@@ -113,7 +113,7 @@ jobs:
           
          
           sed -i 1i"<details><summary><strong>SHA-256</strong></summary>" ./data.md
-          sed -i 2i"  " ./data.md
+          sed -i '2i\'"  " ./data.md
           sed -i 3i"**sha256** | **file**" ./data.md 
           sed -i 4i"---: | :---:" ./data.md
           cat ./data.md
