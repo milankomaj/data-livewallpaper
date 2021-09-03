@@ -18,7 +18,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.digitalwellbeingexperiments.toolkit.datalivewallpaper">
-
+   
+    <uses-feature
+        android:name="android.software.live_wallpaper"
+        android:required="true"/>
+    
     <application
         android:label="@string/app_name"
         android:allowBackup="true"
@@ -44,7 +48,5 @@
         </service>
     </application>
 
-    <uses-feature
-        android:name="android.software.live_wallpaper"
-        android:required="true"/>
+
 </manifest>
