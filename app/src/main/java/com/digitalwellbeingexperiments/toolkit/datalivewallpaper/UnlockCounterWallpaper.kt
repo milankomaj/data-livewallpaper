@@ -54,7 +54,7 @@ class UnlockCounterWallpaper : WallpaperService() {
                 }, ANIMATION_DELAY)
             }
 
-        private val handler = Handler()
+        private val handler = Handler(Looper.getMainLooper())
         private var charHeight: Float = 0f
         private var charWidth: Float = 0f
         private var bottomMargin = 0f
