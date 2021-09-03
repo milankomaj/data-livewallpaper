@@ -23,6 +23,7 @@ import android.graphics.Paint
 import android.graphics.Path
 import android.graphics.Rect
 import android.os.Handler
+import android.os.Looper
 import androidx.preference.PreferenceManager
 import android.service.wallpaper.WallpaperService
 import android.text.TextPaint
