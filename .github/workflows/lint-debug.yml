@@ -24,9 +24,6 @@ jobs:
       - name: lint
         run: ./gradlew lint
 
-      - name: lintDebug
-        run: ./gradlew lintDebug
-
       - name: lintRelease
         run: ./gradlew lintRelease
 
