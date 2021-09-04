@@ -23,13 +23,10 @@ import org.junit.Assert.*
  *
  * See [testing documentation](http://d.android.com/tools/testing).
  */
-internal class SampleTest {
-
-    private val testSample: Sample = Sample()
-
+class ExampleUnitTest {
     @Test
-    fun testSum() {
-        val expected = 10
-        assertEquals(expected, testSample.sum(5, 5))
+    fun addition_isCorrect() {
+        val expected = 4
+        assertEquals(expected.sum(2, 2))
     }
 }
