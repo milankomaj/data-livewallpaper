@@ -25,7 +25,7 @@ jobs:
         run: ./gradlew lint
 
       - name: lintRelease
-        run: ./gradlew lintRelease check
+        run: ./gradlew lintRelease
 
 
       - name: upload lint result
