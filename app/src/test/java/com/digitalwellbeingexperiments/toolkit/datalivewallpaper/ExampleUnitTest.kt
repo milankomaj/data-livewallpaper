@@ -14,16 +14,18 @@
 
 package com.digitalwellbeingexperiments.toolkit.datalivewallpaper
 
-import kotlin.test.Test
-import kotlin.test.assertEquals
+import org.junit.Test
 
-internal class SampleTest {
+import org.junit.Assert.*
 
-    private val testSample: Sample = Sample()
-
+/**
+ * Example local unit test, which will execute on the development machine (host).
+ *
+ * See [testing documentation](http://d.android.com/tools/testing).
+ */
+public class ExampleUnitTest {
     @Test
-    fun testSum() {
-        val expected = 42
-        assertEquals(expected, testSample.sum(40, 2))
+    fun addition_isCorrect() {
+        assertEquals(4, 2 + 2)
     }
 }
