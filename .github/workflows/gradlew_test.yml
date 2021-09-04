@@ -38,7 +38,7 @@ jobs:
        ./gradlew wrapper --gradle-version=$RELEASE --quiet
        ./gradlew -v 
        echo -e "\033[31;1m Gradle Test \033[0m"
-       ./gradlew test
+       ./gradlew check test
        
     - name: 🤖dependabot[bot]  Gradle assembleDebug
       if: ${{ github.actor == 'dependabot[bot]' }}
