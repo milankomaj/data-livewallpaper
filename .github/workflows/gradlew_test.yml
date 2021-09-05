@@ -42,7 +42,7 @@ jobs:
        git config --global user.name ${{ secrets.NAME }}
        git add ./gradle/wrapper/gradle-wrapper.jar
        git add ./gradle/wrapper/gradle-wrapper.properties
-       git commit -a
+       git commit -m
        git push       
        
     - name: 🤖dependabot[bot]  Gradle update version
