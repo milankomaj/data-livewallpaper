@@ -63,8 +63,8 @@ jobs:
            git add ./README.md
            git add -u 
            git commit -m "timestamp" ./README.md
-           git push --force         
-
+           git push        
+         
   
 
      
