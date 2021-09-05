@@ -17,6 +17,7 @@ jobs:
        RELEASE=$(curl -L -s -H 'Accept: application/json' https://github.com/google/bundletool/releases/latest)
        VERSION=$(echo $RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
        echo VERSION = $VERSION
+       echo $VERSION
        URL=$(curl -s -L -o ./bundletool.jar https://github.com/google/bundletool/releases/download/$(echo $RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')/bundletool-all-$(echo $RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/').jar)      
        echo --------------------------------------*
        cd ./gradle/wrapper
@@ -24,13 +25,14 @@ jobs:
        RELEASE=$(curl -L -s -H 'Accept: application/json' https://services.gradle.org/versions/current | jq .version | sed -e 's/"//g')
        echo -e "\033[31;1m Gradle wrapper: \033[0m"
        echo RELEASE = $RELEASE
+       echo $RELEASE
        URL=$(curl -s -L -o gradle.zip https://services.gradle.org/distributions/gradle-$(curl -L -s -H 'Accept: application/json' https://services.gradle.org/versions/current | jq .version | sed -e 's/"//g')-src.zip)
        wrapper=$(unzip -j -d . gradle.zip gradle-$(curl -L -s -H 'Accept: application/json' https://services.gradle.org/versions/current | jq .version | sed -e 's/"//g')/gradle/wrapper/gradle-wrapper.jar)
        SHA=$(curl -s --location --output gradle-wrapper.jar.sha256 https://services.gradle.org/distributions/gradle-$(curl -L -s -H 'Accept: application/json' https://services.gradle.org/versions/current | jq .version | sed -e 's/"//g')-wrapper.jar.sha256)
        echo "  gradle-wrapper.jar" >> gradle-wrapper.jar.sha256
        sha256sum --check gradle-wrapper.jar.sha256
        rm gradle.zip
-       sed -i 6s"distributionUrl=https\://services.gradle.org/distributions/gradle-"+"$(curl -L -s -H 'Accept: application/json' https://services.gradle.org/versions/current | jq .version | sed -e 's/"//g')"+"-all.zip" gradle-wrapper.properties
+       sed -i 6s"distributionUrl=https\://services.gradle.org/distributions/gradle-$RELEASE-all.zip" gradle-wrapper.properties
        cd ..
        cd ..
        chmod +x ./gradlew 
