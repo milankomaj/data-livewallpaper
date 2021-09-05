@@ -57,13 +57,14 @@ jobs:
       - name: Timestamp Unit tests
         shell: bash
         run: |
+           cd ./
            timestamp=$(TZ='Europe/Bratislava' date)
-           sed -i "7s/.*/- #####  Unit tests: $timestamp/" README.md
+           sed -i "7s/.*/- #####  Unit tests: $timestamp/" ./README.md
            echo $timestamp
            git config --global user.email ${{ secrets.EMAIL }}
            git config --global user.name ${{ secrets.NAME }}        
            git add -u 
-           git commit -m "$timestamp" README.md
+           git commit -m "$timestamp" ./README.md
            git pull --rebase
            git push        
          
