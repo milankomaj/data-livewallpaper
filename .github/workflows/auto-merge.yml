@@ -20,7 +20,7 @@ jobs:
         
         run: |
          gh pr merge --auto --merge "$PR_URL" 
-         echo ${{steps.dependabot-metadata.download.outputs.dependency-names}}
+         echo ${{steps.dependabot-metadata.outputs.dependency-names}}
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
@@ -34,7 +34,9 @@ jobs:
         with:
          path: master        
       - run: |
-         echo ${{steps.dependabot-metadata.download.outputs.dependency-names}}
+         echo ${{steps.dependabot-metadata.outputs.dependency-names}}
+         git config --global user.email ${{ secrets.EMAIL }}
+         git config --global user.name ${{ secrets.NAME }}         
          git status
          git log --pretty=oneline
          git add -A
