@@ -8,8 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: >
-     ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     
     env:
       KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
@@ -116,12 +115,13 @@ jobs:
           sed -i 4i"---: | :---:" ./data.md          
           cat ./README.md ./data.md  > ./.github/README.md
           echo "</details>" >> ./.github/README.md
+          timestamp=$(TZ='Europe/Bratislava' date)
+          echo "::set-output name=TIMESTAMP::$timestamp"
           
           git config --global user.email ${{ secrets.EMAIL }}
           git config --global user.name ${{ secrets.NAME }}
           git status
           git log --pretty=oneline
           git add -u
-          git add ./.github/README.md
-          git commit -m "update" ./.github/README.md
+          git commit -m "${{ steps.outputs.TIMESTAMP }}" ./.github/README.md
           git push    
