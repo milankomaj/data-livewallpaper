@@ -40,9 +40,9 @@ jobs:
        echo $timestamp
        git config --global user.email ${{ secrets.EMAIL }}
        git config --global user.name ${{ secrets.NAME }}
-       git add ./gradle/wrapper/gradle-wrapper.jar
+       git add . ./gradle/wrapper/gradle-wrapper.jar
        git commit -m "$VersionGradle $timestamp"
-       git add ./gradle/wrapper/gradle-wrapper.properties
+       git add -u ./gradle/wrapper/gradle-wrapper.properties
        git commit -m "$VersionGradle $timestamp"
        git push       
        
