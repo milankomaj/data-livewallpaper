@@ -28,7 +28,7 @@ jobs:
        echo $VersionGradle
        URL=$(curl -s -L -o gradle.zip https://services.gradle.org/distributions/gradle-$VersionGradle-src.zip)
        wrapper=$(unzip -j -d . gradle.zip gradle-$VersionGradle/gradle/wrapper/gradle-wrapper.jar)  
-       SHA=$(curl --location --output gradle-wrapper.jar.sha256 https://services.gradle.org/distributions/gradle-$VersionGradle-wrapper.jar.sha256)
+       SHA=$(curl -s --location --output gradle-wrapper.jar.sha256 https://services.gradle.org/distributions/gradle-$VersionGradle-wrapper.jar.sha256)
        echo "  gradle-wrapper.jar" >> gradle-wrapper.jar.sha256
        sha256sum --check gradle-wrapper.jar.sha256
        rm gradle.zip
@@ -37,7 +37,7 @@ jobs:
        cd ..
        timestamp=$(TZ='Europe/Bratislava' date)
        sed -i "6s/.*/distributionUrl=https\://services.gradle.org/distributions/gradle-$VersionGradle-all.zip" ./gradle/wrapper/gradle-wrapper.properties
-       sed -i "7s/.*/- #####  Unit tests: $timestamp/" ./README.md
+       
        echo $timestamp
        git config --global user.email ${{ secrets.EMAIL }}
        git config --global user.name ${{ secrets.NAME }}
