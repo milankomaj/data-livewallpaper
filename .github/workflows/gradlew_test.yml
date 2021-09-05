@@ -19,6 +19,7 @@ jobs:
        echo VersionBundletool = $VersionBundletool
        echo $VersionBundletool   
        URL=$(curl -s -L -o ./bundletool.jar https://github.com/google/bundletool/releases/download/$VersionBundletool/bundletool-all-$VersionBundletool.jar)     
+       rm ./bundletool.jar
        echo --------------------------------------*
        cd ./gradle/wrapper
        rm gradle-wrapper.jar
