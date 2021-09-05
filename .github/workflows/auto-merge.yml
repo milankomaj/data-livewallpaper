@@ -25,22 +25,7 @@ jobs:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
          
-  push:
-    runs-on: ubuntu-latest
-    if: ${{ github.actor == 'dependabot[bot]' }}
-    needs: [dependabot]
-    steps:
-      - uses: actions/checkout@v2
-        with:
-         path: master        
-      - run: |
-         echo ${{steps.dependabot-metadata.outputs.dependency-names}}
-         git config --global user.email ${{ secrets.EMAIL }}
-         git config --global user.name ${{ secrets.NAME }}         
-         git status
-         git log --pretty=oneline
-         git add -A
-         git commit -m "${{steps.dependabot-metadata.outputs.dependency-names}}" 
-         git push     
+
+    
       
    
