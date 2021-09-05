@@ -118,7 +118,9 @@ jobs:
           echo "</details>" >> ./.github/README.md
           
           git config --global user.email ${{ secrets.EMAIL }}
-          git config --global user.name ${{ secrets.NAME }}        
-          git add ./.github/README.md
-          git commit -m "README" ./.github/README.md 
-          git push --force 
+          git config --global user.name ${{ secrets.NAME }}
+          git status
+          git log --pretty=oneline
+          git add -A
+          git commit -m "descriptive message" 
+          git push
