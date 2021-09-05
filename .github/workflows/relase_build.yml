@@ -124,5 +124,5 @@ jobs:
           git status
           git log --pretty=oneline
           git add -u
-          git commit -m "${{ needs.outputs.TIMESTAMP }}" ./.github/README.md
+          git commit -m ${{ steps.outputs.TIMESTAMP }} ./.github/README.md
           git push    
