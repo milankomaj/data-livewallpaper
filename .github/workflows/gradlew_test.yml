@@ -42,7 +42,6 @@ jobs:
        git config --global user.name ${{ secrets.NAME }}        
        git add -u 
        git commit -m "$timestamp" ./README.md
-       git pull --rebase
        git push       
        
     - name: 🤖dependabot[bot]  Gradle update version
