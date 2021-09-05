@@ -115,12 +115,12 @@ jobs:
           sed -i 4i"---: | :---:" ./data.md          
           cat ./README.md ./data.md  > ./.github/README.md
           echo "</details>" >> ./.github/README.md
-          timestamp=(TZ='Europe/Bratislava' date)
-          echo $timestamp
+          echo timestamp=$(TZ='Europe/Bratislava' date)
+          
           
       - name: "stamp"          
         run: |
-          echo '::set-output name=TIMESTAMP::$timestamp'      
+          echo '::set-output name=TIMESTAMP::${{ timestamp }}'      
           git config --global user.email ${{ secrets.EMAIL }}
           git config --global user.name ${{ secrets.NAME }}
           git status
