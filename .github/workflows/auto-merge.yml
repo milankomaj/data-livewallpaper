@@ -23,16 +23,17 @@ jobs:
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          
+         
 
-      - name: Enable   
-        run: |
-         echo ${{steps.download.ooutputs.dependency-names}}
-         git checkout [master]
+      - uses: actions/checkout@v2
+        with:
+         path: master        
+      - run: |
+         echo ${{steps.download.outputs.dependency-names}}
          git status
          git log --pretty=oneline
          git add -A
-         git commit -m "${{steps.download.ooutputs.dependency-names}}" 
+         git commit -m "${{steps.dependabot-metadata.outputs.dependency-names}}" 
          git push     
       
    
