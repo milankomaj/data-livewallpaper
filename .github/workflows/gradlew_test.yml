@@ -47,7 +47,7 @@ jobs:
     
        
     - name: 🤖dependabot[bot]  Gradle update version
-      if: ${{ github.actor == 'dependabot[bot]' }}
+      
       run: |             
        chmod +x ./gradlew 
        echo -e "\033[31;1m Gradle Version switch to Latest version \033[0m"
@@ -57,6 +57,7 @@ jobs:
        ./gradlew test
        
     - name: 🤖dependabot[bot]  Gradle assembleDebug
+      if: ${{ github.actor == 'dependabot[bot]' }}
       run: ./gradlew assembleDebug
 
      
