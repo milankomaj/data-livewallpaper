@@ -62,7 +62,7 @@ jobs:
            git config --global user.name ${{ secrets.NAME }}        
            git add -u 
            git commit -m "timestamp" ./README.md
-           git pull
+           git pull --rebase
            git push        
          
   
