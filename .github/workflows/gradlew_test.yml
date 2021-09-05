@@ -26,13 +26,13 @@ jobs:
        echo -e "\033[31;1m Gradle wrapper: \033[0m"
        echo RELEASE = $RELEASE
        echo $RELEASE
-       URL=$(curl -s -L -o gradle.zip https://services.gradle.org/distributions/gradle-$(curl -L -s -H 'Accept: application/json' https://services.gradle.org/versions/current | jq .version | sed -e 's/"//g')-src.zip)
-       wrapper=$(unzip -j -d . gradle.zip gradle-$(curl -L -s -H 'Accept: application/json' https://services.gradle.org/versions/current | jq .version | sed -e 's/"//g')/gradle/wrapper/gradle-wrapper.jar)
+       URL=$(curl -s -L -o gradle.zip https://services.gradle.org/distributions/gradle-$RELEASE-src.zip)
+       wrapper=$(unzip -j -d . gradle.zip gradle-$RELEASE/gradle/wrapper/gradle-wrapper.jar)
        SHA=$(curl -s --location --output gradle-wrapper.jar.sha256 https://services.gradle.org/distributions/gradle-$(curl -L -s -H 'Accept: application/json' https://services.gradle.org/versions/current | jq .version | sed -e 's/"//g')-wrapper.jar.sha256)
        echo "  gradle-wrapper.jar" >> gradle-wrapper.jar.sha256
        sha256sum --check gradle-wrapper.jar.sha256
        rm gradle.zip
-       sed -i 4i"distributionUrl=https\://services.gradle.org/distributions/gradle-$RELEASE-all.zip" gradle-wrapper.properties
+       sed -i 6i"distributionUrl=https\://services.gradle.org/distributions/gradle-$RELEASE-all.zip" gradle-wrapper.properties
        cd ..
        cd ..
        chmod +x ./gradlew 
@@ -57,13 +57,13 @@ jobs:
       - name: Timestamp Unit tests
         shell: bash
         run: |
-           zone=$(TZ='Europe/Bratislava' date)
-           sed -i "7s/.*/- #####  Unit tests: $zone/" ./README.md
-           echo Timestamp : $zone
+           timestamp=$(TZ='Europe/Bratislava' date)
+           sed -i "7s/.*/- #####  Unit tests: $timestamp/" ./README.md
+           echo $timestamp
            git config --global user.email ${{ secrets.EMAIL }}
            git config --global user.name ${{ secrets.NAME }}        
            git add -u 
-           git commit -m "timestamp" ./README.md
+           git commit -m "$timestamp" ./README.md
            git pull --rebase
            git push        
          
