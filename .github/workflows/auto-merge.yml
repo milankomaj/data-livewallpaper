@@ -19,17 +19,15 @@ jobs:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
       - name: Enable auto-merge for Dependabot PRs
         
-        run: gh pr merge --auto --merge "$PR_URL"
+        run: |
+         gh pr merge --auto --merge "$PR_URL"
+         git status
+         git log --pretty=oneline
+         git add -A
+         git commit -m "descriptive message" 
+         git push         
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           
-      - name: Push
-        run: |
-          git config --global user.email ${{ secrets.EMAIL }}
-          git config --global user.name ${{ secrets.NAME }}
-          git status
-          git log --pretty=oneline
-          git add -A
-          git commit -m "descriptive message" 
-          git push
+
