@@ -14,31 +14,31 @@ jobs:
     - name: Execute tests
       run: |
        echo -e "\033[31;1m Bundletool Version download Latest version\033[0m"
-       RELEASE=$(curl -L -s -H 'Accept: application/json' https://github.com/google/bundletool/releases/latest)
-       VERSION=$(echo $RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
-       echo VERSION = $VERSION
-       echo $VERSION
-       URL=$(curl -s -L -o ./bundletool.jar https://github.com/google/bundletool/releases/download/$(echo $RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')/bundletool-all-$(echo $RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/').jar)      
+       Bundletool=$(curl -L -s -H 'Accept: application/json' https://github.com/google/bundletool/releases/latest)
+       VersionBundletool=$(echo $Bundletool | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
+       echo VersionBundletool = $VersionBundletool
+       echo $VersionBundletool
+       URL=$(curl -s -L -o ./bundletool.jar https://github.com/google/bundletool/releases/download/$VersionBundletool/bundletool-all-$VersionBundletool.jar)     
        echo --------------------------------------*
        cd ./gradle/wrapper
        rm gradle-wrapper.jar
-       RELEASE=$(curl -L -s -H 'Accept: application/json' https://services.gradle.org/versions/current | jq .version | sed -e 's/"//g')
+       VersionGradle=$(curl -L -s -H 'Accept: application/json' https://services.gradle.org/versions/current | jq .version | sed -e 's/"//g')
        echo -e "\033[31;1m Gradle wrapper: \033[0m"
-       echo RELEASE = $RELEASE
-       echo $RELEASE
-       URL=$(curl -s -L -o gradle.zip https://services.gradle.org/distributions/gradle-$RELEASE-src.zip)
-       wrapper=$(unzip -j -d . gradle.zip gradle-$RELEASE/gradle/wrapper/gradle-wrapper.jar)
-       SHA=$(curl -s --location --output gradle-wrapper.jar.sha256 https://services.gradle.org/distributions/gradle-$(curl -L -s -H 'Accept: application/json' https://services.gradle.org/versions/current | jq .version | sed -e 's/"//g')-wrapper.jar.sha256)
+       echo VersionGradle = $VersionGradle
+       echo $VersionGradle
+       URL=$(curl -s -L -o gradle.zip https://services.gradle.org/distributions/gradle-$VersionGradle-src.zip)
+       wrapper=$(unzip -j -d . gradle.zip gradle-$VersionGradle/gradle/wrapper/gradle-wrapper.jar)
+       SHA=$(curl -s --location --output gradle-wrapper.jar.sha256 https://services.gradle.org/distributions/gradle-$VersionGradle-wrapper.jar.sha256)
        echo "  gradle-wrapper.jar" >> gradle-wrapper.jar.sha256
        sha256sum --check gradle-wrapper.jar.sha256
        rm gradle.zip
-       sed -i 6i"distributionUrl=https\://services.gradle.org/distributions/gradle-$RELEASE-all.zip" gradle-wrapper.properties
+       sed -i 6i"distributionUrl=https\://services.gradle.org/distributions/gradle-$VersionGradle-all.zip" gradle-wrapper.properties
        cd ..
        cd ..
        chmod +x ./gradlew 
        echo --------------------------------------*
        echo -e "\033[31;1m Gradle Version switch to Latest version \033[0m"
-       ./gradlew wrapper --gradle-version=$RELEASE --quiet
+       ./gradlew wrapper --gradle-version=$VersionGradle --quiet
        ./gradlew -v 
        echo -e "\033[31;1m Gradle Test \033[0m"
        ./gradlew test
