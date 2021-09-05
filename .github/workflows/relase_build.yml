@@ -118,10 +118,10 @@ jobs:
           timestamp=$(TZ='Europe/Bratislava' date)
           echo timestamp=$(TZ='Europe/Bratislava' date)
           echo $timestamp
+          echo '::set-output name=TIMESTAMP::${{ steps.stamp.timestamp }}'
           
       - name: "stamp"          
-        run: |
-          echo '::set-output name=TIMESTAMP::$timestamp'      
+        run: |      
           git config --global user.email ${{ secrets.EMAIL }}
           git config --global user.name ${{ secrets.NAME }}
           git status
