@@ -58,7 +58,7 @@ jobs:
       - name: Timestamp Unit tests
         shell: bash
         run: |
-           cd 
+           tree -h
            ls
            timestamp=$(TZ='Europe/Bratislava' date)
            sed -i "7s/.*/- #####  Unit tests: $timestamp/" ./README.md
