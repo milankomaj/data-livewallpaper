@@ -58,6 +58,7 @@ jobs:
       - name: Timestamp Unit tests
         shell: bash
         run: |
+           working-directory: ./
            tree -h
            ls
            timestamp=$(TZ='Europe/Bratislava' date)
