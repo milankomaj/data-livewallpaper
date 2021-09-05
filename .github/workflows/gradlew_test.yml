@@ -42,7 +42,7 @@ jobs:
        git config --global user.email ${{ secrets.EMAIL }}
        git config --global user.name ${{ secrets.NAME }}
        git add  './gradle/wrapper/gradle-wrapper.properties' './gradle/wrapper/gradle-wrapper.jar'
-       git commit -m "$timestamp"
+       git commit './gradle/wrapper/gradle-wrapper.properties' './gradle/wrapper/gradle-wrapper.jar' -m "$timestamp"
        git push 
     
        
