@@ -118,8 +118,8 @@ jobs:
           timestamp=$(TZ='Europe/Bratislava' date)
           echo timestamp=$(TZ='Europe/Bratislava' date)
           echo $timestamp
-          echo '::set-output name=TIMESTAMP::timestamp'
-          echo ${{steps.stamp.outputs.TIMESTAMP}}
+          echo `::set-output name=TIMESTAMP::${timestamp}`
+  
 
       - name: "stamp"          
         run: |      
@@ -128,5 +128,5 @@ jobs:
           git status
           git log --pretty=oneline
           git add -u
-          git commit -m "${{steps.stamp.output.TIMESTAMP}}" ./.github/README.md
+          git commit -m "${{steps.stamp.outputs.TIMESTAMP}}" ./.github/README.md
           git push    
