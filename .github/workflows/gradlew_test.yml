@@ -34,8 +34,9 @@ jobs:
        rm gradle.zip
        cd ..
        cd ..
-       timestamp=$(TZ='Europe/Bratislava' date)
-       sed -i '6i\'"distributionUrl=https\://services.gradle.org/distributions/gradle-$VersionGradle-all.zip" ./gradle/wrapper/gradle-wrapper.properties
+       timestamp=$(TZ='Europe/Bratislava' date)  
+       sed -i 6i"distributionUrl=https\://services.gradle.org/distributions/gradle-$VersionGradle-all.zip" ./gradle/wrapper/gradle-wrapper.properties
+       sed -i '7i\'"  " ./gradle/wrapper/gradle-wrapper.properties
        sed -i "7i/.*/- #####  Unit tests: $timestamp/" ./README.md
        echo $timestamp
        git config --global user.email ${{ secrets.EMAIL }}
