@@ -35,6 +35,7 @@ jobs:
        sed -i 6i"distributionUrl=https\://services.gradle.org/distributions/gradle-$VersionGradle-all.zip" gradle-wrapper.properties
        cd ..
        cd ..
+       ls
        chmod +x ./gradlew 
        echo --------------------------------------*
        echo -e "\033[31;1m Gradle Version switch to Latest version \033[0m"
@@ -57,7 +58,8 @@ jobs:
       - name: Timestamp Unit tests
         shell: bash
         run: |
-           cd ./
+           cd 
+           ls
            timestamp=$(TZ='Europe/Bratislava' date)
            sed -i "7s/.*/- #####  Unit tests: $timestamp/" ./README.md
            echo $timestamp
