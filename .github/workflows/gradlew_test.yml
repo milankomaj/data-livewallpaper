@@ -32,14 +32,18 @@ jobs:
        echo "  gradle-wrapper.jar" >> gradle-wrapper.jar.sha256
        sha256sum --check gradle-wrapper.jar.sha256
        rm gradle.zip
-       echo $timestamp
+       cd ..
+       cd ..
        timestamp=$(TZ='Europe/Bratislava' date)
-       sed -i 6i"distributionUrl=https\://services.gradle.org/distributions/gradle-$VersionGradle-all.zip" gradle-wrapper.properties
+       sed -i "6i/.*/distributionUrl=https\://services.gradle.org/distributions/gradle-$VersionGradle-all.zip" ./gradle/wrapper/gradle-wrapper.properties/gradle-wrapper.properties
+       sed -i "7s/.*/- #####  Unit tests: $timestamp/" ./README.md
+       echo $timestamp
        git config --global user.email ${{ secrets.EMAIL }}
        git config --global user.name ${{ secrets.NAME }}
        git add .
        git commit -m "$timestamp"
-       git push       
+       git push 
+    
        
     - name: 🤖dependabot[bot]  Gradle update version
       if: ${{ github.actor == 'dependabot[bot]' }}
