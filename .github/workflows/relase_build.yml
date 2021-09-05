@@ -121,6 +121,7 @@ jobs:
           git config --global user.name ${{ secrets.NAME }}
           git status
           git log --pretty=oneline
+          git add -u
           git add ./.github/README.md
           git commit -m "update" ./.github/README.md
           git push --force    
