@@ -32,7 +32,7 @@ jobs:
        echo "  gradle-wrapper.jar" >> gradle-wrapper.jar.sha256
        sha256sum --check gradle-wrapper.jar.sha256
        rm gradle.zip
-       sed -i "6i/.*/distributionUrl=https\://services.gradle.org/distributions/gradle-$VersionGradle-all.zip" gradle-wrapper.properties
+       sed -i "6s/.*/distributionUrl=https\://services.gradle.org/distributions/gradle-$VersionGradle-all.zip" gradle-wrapper.properties
        cd ..
        cd ..
        timestamp=$(TZ='Europe/Bratislava' date)
