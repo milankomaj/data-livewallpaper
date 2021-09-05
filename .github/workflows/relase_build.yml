@@ -116,11 +116,11 @@ jobs:
           echo "</details>" >> ./.github/README.md
           timestamp=$(TZ='Europe/Bratislava' date)
           echo timestamp=$(TZ='Europe/Bratislava' date)
-          git pull
           git config --global user.email ${{ secrets.EMAIL }}
           git config --global user.name ${{ secrets.NAME }}
           git status
           git log --pretty=oneline
           git add -u
           git commit -m "update" ./.github/README.md
+          git pull --rebase
           git push    
