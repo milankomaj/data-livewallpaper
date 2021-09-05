@@ -41,8 +41,8 @@ jobs:
        echo $timestamp
        git config --global user.email ${{ secrets.EMAIL }}
        git config --global user.name ${{ secrets.NAME }}
-       git add  ./gradle/wrapper/gradle-wrapper.properties ./gradle/wrapper/gradle-wrapper.jar
-       git commit ./gradle/wrapper/gradle-wrapper.properties ./gradle/wrapper/gradle-wrapper.jar -m "$timestamp"
+       git add  ./gradle/wrapper/gradle-wrapper.properties ./gradle/wrapper/gradle-wrapper.jar ./README.md
+       git commit ./gradle/wrapper/gradle-wrapper.properties ./gradle/wrapper/gradle-wrapper.jar ./README.md -m "$timestamp"
        git push 
     
        
