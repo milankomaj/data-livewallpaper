@@ -28,7 +28,7 @@ jobs:
        echo $VersionGradle
        URL=$(curl -s -L -o gradle.zip https://services.gradle.org/distributions/gradle-$VersionGradle-src.zip)
        wrapper=$(unzip -j -d . gradle.zip gradle-$VersionGradle/gradle/wrapper/gradle-wrapper.jar)  
-       SHA=$(curl -s --location --output gradle-wrapper.jar.sha256 https://services.gradle.org/distributions/gradle-$(curl -L -s -H 'Accept: application/json' https://services.gradle.org/versions/current | jq .version | sed -e 's/"//g')-wrapper.jar.sha256)
+       SHA=$(curl --location --output gradle-wrapper.jar.sha256 https://services.gradle.org/distributions/gradle-$VersionGradle-wrapper.jar.sha256)
        echo "  gradle-wrapper.jar" >> gradle-wrapper.jar.sha256
        sha256sum --check gradle-wrapper.jar.sha256
        rm gradle.zip
