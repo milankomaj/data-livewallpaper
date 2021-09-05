@@ -1,8 +1,6 @@
 name: Dependabot auto-merge
 on:
  pull_request_target:
- workflow_run:
-  workflows: ["Unit tests"] 
   types: [completed]
       
         
