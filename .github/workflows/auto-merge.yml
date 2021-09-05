@@ -18,7 +18,9 @@ jobs:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
       - name: Enable auto-merge for Dependabot PRs
         
-        run: gh pr merge --auto --merge "$PR_URL" 
+        run: |
+         gh pr merge --auto --merge "$PR_URL" 
+         echo ${{steps.dependabot-metadata.download.outputs.dependency-names}}
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
@@ -26,12 +28,13 @@ jobs:
   push:
     runs-on: ubuntu-latest
     if: ${{ github.actor == 'dependabot[bot]' }}
+    needs: [dependabot]
     steps:
       - uses: actions/checkout@v2
         with:
          path: master        
       - run: |
-         echo ${{steps.download.outputs.dependency-names}}
+         echo ${{steps.dependabot-metadata.download.outputs.dependency-names}}
          git status
          git log --pretty=oneline
          git add -A
