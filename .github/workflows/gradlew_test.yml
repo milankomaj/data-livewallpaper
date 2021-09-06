@@ -37,7 +37,7 @@ jobs:
        cd ..
        cd ..
        timestamp=$(TZ='Europe/Bratislava' date)  
-       sed -i "6s/.*/distributionUrl=https\://services.gradle.org/distributions/gradle-$VersionGradle-all.zip" ./gradle/wrapper/gradle-wrapper.properties
+       sed -i "6s/.*/distributionUrl=https\://services.gradle.org/distributions/gradle-$VersionGradle-all.zip/" ./gradle/wrapper/gradle-wrapper.properties
        # sed -i '7d' ./gradle/wrapper/gradle-wrapper.properties
        sed -i "7s/.*/- #####  Unit tests: $timestamp/" ./README.md
        # sed -i '8d' ./README.md
