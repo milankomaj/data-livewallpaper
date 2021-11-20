@@ -4,7 +4,7 @@
 - ##### Changed *background [color : `#245b82`](https://github.com/milankomaj/data-livewallpaper/blob/b5c08d901c4341d0178ba37436c8bee609b97a44/app/src/main/res/values/colors.xml#L22)* , *images:* *`*.png`* to  [`*.webp`](https://developers.google.com/speed/webp)
 - ##### Changed *[font](app/src/main/res/font/mon.ttf) [(`86,95`)](https://github.com/milankomaj/data-livewallpaper/blob/b5c08d901c4341d0178ba37436c8bee609b97a44/app/src/main/java/com/digitalwellbeingexperiments/toolkit/datalivewallpaper/UnlockCounterWallpaper.kt#L81)* : [ Cascadia Code :copyright:](https://github.com/microsoft/cascadia-code) ([SIL Open Font License 1.1 ](https://github.com/microsoft/cascadia-code/blob/main/LICENSE)), *`textSize` : [(`144,145`)](https://github.com/milankomaj/data-livewallpaper/blob/b5c08d901c4341d0178ba37436c8bee609b97a44/app/src/main/java/com/digitalwellbeingexperiments/toolkit/datalivewallpaper/UnlockCounterWallpaper.kt#L143)*
 - #####  [![Unit tests](https://github.com/milankomaj/data-livewallpaper/actions/workflows/gradlew_test.yml/badge.svg?branch=master)](https://github.com/milankomaj/data-livewallpaper/actions/workflows/gradlew_test.yml)
-- #####  Unit tests: Sat Oct 16 18:57:03 CEST 2021
+- #####  Unit tests: Sat Nov 20 12:10:45 CET 2021
 
 <img src="https://raw.githubusercontent.com/milankomaj/data-livewallpaper/master/.gitbook/assets/Screenshot.jpg" width="200" title="👉  With change  👈"> <img src="https://play-lh.googleusercontent.com/5jrV7gPOVdXPw54SXDEqnQIbQlfb6mziR5JDwu7-04rUofHSPp-cJo2TveEUXQvHjW4=w1366-h695" width="178" title="Original">
 
