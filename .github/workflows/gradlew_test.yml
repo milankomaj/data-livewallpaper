@@ -47,6 +47,7 @@ jobs:
        git add -u
        git commit -m "$timestamp"
        git pull --rebase
+       git rebase --continue
        git push 
        
        
