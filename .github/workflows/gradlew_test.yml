@@ -46,8 +46,7 @@ jobs:
        git config --global user.name ${{ secrets.NAME }}
        git add -u
        git commit -m "$timestamp"
-       git pull --rebase
-       git rebase --continue
+       git pull
        git push 
        
        
