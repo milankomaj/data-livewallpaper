@@ -22,10 +22,10 @@ jobs:
         shell: bash
 
       - name: lint
-        run: ./gradlew lint
+        run: ./gradlew lint --no-build-cache
 
       - name: lintRelease
-        run: ./gradlew lintRelease
+        run: ./gradlew lintRelease --no-build-cache
 
 
       - name: upload lint result
