@@ -18,10 +18,10 @@
 ![](https://dev-badge.eleonora.workers.dev/github/issues/milankomaj/data-livewallpaper?icon=github&style=flat&scale=1) 
 ![](https://dev-badge.eleonora.workers.dev/github/open-issues/milankomaj/data-livewallpaper?icon=github&style=flat&scale=1) 
 ![](https://dev-badge.eleonora.workers.dev/github/closed-issues/milankomaj/data-livewallpaper?icon=github&style=flat&scale=1) 
-![](https://dev-badge.eleonora.workers.dev/github/prs/milankomaj/data-livewallpaper?icon=github&style=flat&scale=1) 
-![](https://dev-badge.eleonora.workers.dev/github/open-prs/milankomaj/data-livewallpaper?icon=github&style=flat&scale=1) 
-![](https://dev-badge.eleonora.workers.dev/github/closed-prs/milankomaj/data-livewallpaper?icon=github&style=flat&scale=1) 
-![](https://dev-badge.eleonora.workers.dev/github/merged-prs/milankomaj/data-livewallpaper?icon=github&style=flat&scale=1) 
+![](https://dev-badge.eleonora.workers.dev/github/PR/milankomaj/data-livewallpaper?icon=github&style=flat&scale=1) 
+![](https://dev-badge.eleonora.workers.dev/github/open-PR/milankomaj/data-livewallpaper?icon=github&style=flat&scale=1) 
+![](https://dev-badge.eleonora.workers.dev/github/closed-PR/milankomaj/data-livewallpaper?icon=github&style=flat&scale=1) 
+![](https://dev-badge.eleonora.workers.dev/github/merged-PR/milankomaj/data-livewallpaper?icon=github&style=flat&scale=1) 
 
 ---
 
