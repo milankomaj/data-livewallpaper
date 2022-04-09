@@ -21,6 +21,8 @@ jobs:
       - name: Enable auto-merge for Dependabot PRs
         
         run: |
+         echo "sleep 300s"
+         sleep 300s
          gh pr merge --auto --merge "$PR_URL" 
          echo ${{steps.dependabot-metadata.outputs.dependency-names}}
         env:
