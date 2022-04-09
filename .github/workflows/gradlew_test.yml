@@ -42,13 +42,11 @@ jobs:
        sed -i 7i"- #####  Unit tests: $timestamp" ./README.md
        sed -i '8d' ./README.md
        echo $timestamp
-       echo "sleep 300s"
-       sleep 300s
        git config --global user.email ${{ secrets.EMAIL }}
        git config --global user.name ${{ secrets.NAME }}
        git add -u
        git commit -m "$timestamp"
-       git pull
+       git pull --rebase
        git push 
        
        
