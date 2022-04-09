@@ -2,7 +2,7 @@ name: Build Relase
 on:
  workflow_dispatch:
  workflow_run:
-  workflows: ["Unit tests","Dependabot auto-merge"]
+  workflows: ["Unit tests"]
   types: [completed]
 
 jobs:
