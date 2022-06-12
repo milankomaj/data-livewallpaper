@@ -8,7 +8,7 @@ android {
     compileSdkVersion 31
     defaultConfig {
         applicationId "com.digitalwellbeingexperiments.toolkit.datalivewallpaper"
-        minSdkVersion 26
+        minSdkVersion 28
         targetSdkVersion 31
         versionCode 1
         versionName "1"
