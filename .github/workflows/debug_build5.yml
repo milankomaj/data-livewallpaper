@@ -86,8 +86,7 @@ jobs:
       - name: sha256sum
         run: find ./artifacts/ -type f -print0 | xargs -0 sha256sum
 
-
       - name: Gradle test verbose
         run: |
          echo -e "\033[31;1m Gradle Test Verbose \033[0m"
-        ./gradlew test --warning-mode all
+         ./gradlew test --warning-mode all
