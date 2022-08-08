@@ -90,3 +90,8 @@ jobs:
         run: |
          echo -e "\033[31;1m Gradle Test Verbose \033[0m"
          ./gradlew test --warning-mode all
+
+      - name: Gradle check
+        run: |
+         echo -e "\033[31;1m Gradle Check \033[0m"
+         ./gradle check
