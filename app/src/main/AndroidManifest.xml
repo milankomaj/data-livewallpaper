@@ -16,8 +16,7 @@
 -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.digitalwellbeingexperiments.toolkit.datalivewallpaper">
+    xmlns:tools="http://schemas.android.com/tools">
    
     <uses-feature
         android:name="android.software.live_wallpaper"
