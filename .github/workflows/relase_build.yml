@@ -12,14 +12,14 @@ jobs:
     env:
       KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
       KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-      KEY_PASSWORD: ${{ secrets.KEY_PASSWORD}} 
+      KEY_PASSWORD: ${{ secrets.KEY_PASSWORD}}
     steps:
       - uses: actions/checkout@v2
-      - name: Set up JDK 11
+      - name: Set up JDK 17
         uses: actions/setup-java@v2
         with:
-          java-version: '11'
-          distribution: 'adopt'
+          java-version: '17'
+          distribution: 'temurin'
       - name: echo "*** Make gradlew executable ***"
         run: chmod +x ./gradlew
       - name: echo "*** Download bundletool ***"
@@ -33,11 +33,11 @@ jobs:
          JSON_N5='{"supportedAbis":["arm64-v8a"],"supportedLocales":["sk"],"screenDensity":320,"sdkVersion":28}\n'
          printf "$JSON_N5" "$supportedAbis" "$supportedLocales" "$screenDensity" "$sdkVersion" >> ./nokia5.json
       - name:  echo "*** assembleRelease ***"
-        run: ./gradlew assembleRelease     
+        run: ./gradlew assembleRelease
       - name: echo "*** assembleDebug ***"
-        run: ./gradlew assembleDebug    
+        run: ./gradlew assembleDebug
       - name: echo "*** Build app bundle all (.aab) ***"
-        run: ./gradlew app:bundle      
+        run: ./gradlew app:bundle
       - name: echo "*** Bundletool build apks all DEBUG (.apks) ***"
         run: java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./MyApp/data_live_wallpaper_debug_all.apks --ks=./app/android-LQ0F5.keystore --ks-pass=pass:${{ secrets.KEYSTORE_PASSWORD }} --key-pass=pass:${{ secrets.KEY_PASSWORD }} --ks-key-alias=${{ secrets.KEY_ALIAS }}
       - name: echo "*** Bundletool build apks all RELASE (.apks) ***"
@@ -46,7 +46,7 @@ jobs:
         run: java -jar ./bundletool.jar build-apks --device-spec=./nokia5.json --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./MyApp/data_live_wallpaper_nokia5_debug.apks --ks=./app/android-LQ0F5.keystore --ks-pass=pass:${{ secrets.KEYSTORE_PASSWORD }} --key-pass=pass:${{ secrets.KEY_PASSWORD }} --ks-key-alias=${{ secrets.KEY_ALIAS }}
       - name: echo "*** Bundletool build apks all NOKIA 5 RELASE (.apks) ***"
         run: java -jar ./bundletool.jar build-apks --device-spec=./nokia5.json --bundle=./app/build/outputs/bundle/release/app-release.aab --output=./MyApp/data_live_wallpaper_nokia5_relase.apks --ks=./app/android-LQ0F5.keystore --ks-pass=pass:${{ secrets.KEYSTORE_PASSWORD }} --key-pass=pass:${{ secrets.KEY_PASSWORD }} --ks-key-alias=${{ secrets.KEY_ALIAS }}
-          
+
       - name: debug&relase_APK
         uses: actions/upload-artifact@v2
         with:
@@ -79,14 +79,14 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
          path: ./artifacts/
-         
+
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
          repo_token: "${{ secrets.GITHUB_TOKEN }}"
          prerelease: false
          title: data_live_wallpaper_artifacts
          automatic_release_tag: all_artifacts
-         files: |           
+         files: |
             ./artifacts/debug&relase_AAB/debug/app-debug.aab
             ./artifacts/debug&relase_AAB/release/app-release.aab
             ./artifacts/debug&relase_APK/debug/data_live_wallpaper_debug.apk
@@ -103,15 +103,15 @@ jobs:
           echo Size : --device-spec=./nokia5.json
           java -jar ./bundletool.jar get-size total MB --device-spec=./nokia5.json --apks=./MyApp/data_live_wallpaper_relase_all.apks
 
-      - name: echo "*** ReadmE ***"     
+      - name: echo "*** ReadmE ***"
         run: |
           rm -f ./.github/README.md
           find ./artifacts/ -type f -print0 | xargs -0 sha256sum >> ./sha256.md
           sed 's/  /|/1g' ./sha256.md  >> ./data.md
           sed -i 1i"<details><summary><strong>SHA-256</strong></summary>" ./data.md
           sed -i '2i\'"  " ./data.md
-          sed -i 3i"**sha256** | **file**" ./data.md 
-          sed -i 4i"---: | :---:" ./data.md          
+          sed -i 3i"**sha256** | **file**" ./data.md
+          sed -i 4i"---: | :---:" ./data.md
           cat ./README.md ./data.md  > ./.github/README.md
           echo "</details>" >> ./.github/README.md
           timestamp=$(TZ='Europe/Bratislava' date)
@@ -123,4 +123,4 @@ jobs:
           git add -u
           git commit -m "update" ./.github/README.md
           git pull --rebase
-          git push    
+          git push
