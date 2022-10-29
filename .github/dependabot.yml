@@ -8,8 +8,16 @@ updates:
   - package-ecosystem: "gradle" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
-      interval: "weekly"        
-      day: "saturday"      
+      interval: "weekly"
+      day: "saturday"
       time: "11:20"
-      
-        
+
+
+# Set update schedule for GitHub Actions
+  - package-ecosystem: "github-actions"
+    open-pull-requests-limit: 10
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "saturday"
+      time: "11:20"
