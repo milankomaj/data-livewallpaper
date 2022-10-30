@@ -82,7 +82,7 @@ jobs:
 
 
       - name: tree
-        run:  tree -h ${{ github.workspace }}
+        run:  tree -h ${{ github.workspace }}/artifacts/
 
       - uses: milankomaj/releases-x@v0.1
         with:
