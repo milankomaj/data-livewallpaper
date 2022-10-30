@@ -86,7 +86,7 @@ jobs:
           title: 'data_live_wallpaper_artifacts'
           tag: 'all_artifacts'
           rewrite: 'true'
-          files: '${{ github.workspace }}/artifacts/debug&relase_AAB/debug/*.* ${{ github.workspace }}/artifacts/debug&relase_AAB/release/*.*'
+          files: '${{ github.workspace }}/artifacts/debug&relase_AAB/debug/*.*  ${{ github.workspace }}/artifacts/debug&relase_AAB/release/*.*'
 
 
       - name: get-size
