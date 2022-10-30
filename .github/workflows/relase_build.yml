@@ -80,6 +80,10 @@ jobs:
         with:
          path: ./artifacts/
 
+
+      - name: tree
+        run:  tree -h ${{ github.workspace }}
+
       - uses: milankomaj/releases-x@v0.1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -87,8 +91,7 @@ jobs:
           tag: 'all_artifacts'
           rewrite: 'true'
           files: |
-            ${{ github.workspace }}/artifacts/debug&relase_AAB/app-debug.aab \
-            ${{ github.workspace }}/artifacts/debug&relase_AAB/app-release.aab
+            ${{ github.workspace }}/artifacts/*.*
 
 
 
