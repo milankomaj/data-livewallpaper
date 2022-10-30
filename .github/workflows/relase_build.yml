@@ -84,6 +84,7 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           title: 'data_live_wallpaper_artifacts'
+          
           tag: 'all_artifacts'
           rewrite: 'true'
           files: |
