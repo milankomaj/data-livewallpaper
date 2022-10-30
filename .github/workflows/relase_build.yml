@@ -86,7 +86,7 @@ jobs:
           title: 'data_live_wallpaper_artifacts'
           tag: 'all_artifacts'
           rewrite: 'true'
-          files: './artifacts/debug&relase_AAB/debug/*.* ./artifacts/debug&relase_AAB/release/*.*'
+          files: '/artifacts/debug&relase_AAB/debug/*.* /artifacts/debug&relase_AAB/release/*.*'
 
 
       - name: get-size
