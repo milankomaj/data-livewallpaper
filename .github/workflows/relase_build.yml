@@ -80,7 +80,6 @@ jobs:
         with:
          path: ./artifacts/
 
-
       - name: tree
         run:  tree -h ${{ github.workspace }}/artifacts/
 
@@ -97,6 +96,7 @@ jobs:
             ${{ github.workspace }}/MyApp/data_live_wallpaper_nokia5_relase.apks \
             ./app/build/outputs/apk/debug/data_live_wallpaper_debug.apk \
             ./app/build/outputs/apk/release/data_live_wallpaper_release.apk
+
       - name: get-size
         run: |
           echo Size : data_live_wallpaper_relase_all.apks
