@@ -86,7 +86,16 @@ jobs:
           title: 'data_live_wallpaper_artifacts'
           tag: 'all_artifacts'
           rewrite: 'true'
-          files: '${{ github.workspace }}/artifacts/debug&relase_AAB/debug/*.*  ${{ github.workspace }}/artifacts/debug&relase_AAB/release/*.*'
+          files: |
+            ./artifacts/debug&relase_AAB/debug/app-debug.aab \
+            ./artifacts/debug&relase_AAB/release/app-release.aab \
+            ./artifacts/debug&relase_APK/debug/data_live_wallpaper_debug.apk \
+            ./artifacts/debug&relase_APK/release/data_live_wallpaper_release.apk \
+            ./artifacts/debug&relase_APKS/data_live_wallpaper_debug_all.apks \
+            ./artifacts/debug&relase_APKS/data_live_wallpaper_relase_all.apks \
+            ./artifacts/debug&relase_Nokia5_APKS/data_live_wallpaper_nokia5_debug.apks \
+            ./artifacts/debug&relase_Nokia5_APKS/data_live_wallpaper_nokia5_relase.apks
+
 
 
       - name: get-size
