@@ -91,7 +91,7 @@ jobs:
           tag: 'all_artifacts'
           rewrite: 'true'
           files: |
-            ${{ github.workspace }}/artifacts/*.*
+            ${{ github.workspace }}/MyApp/data_live_wallpaper_nokia5_debug.apks
 
 
 
