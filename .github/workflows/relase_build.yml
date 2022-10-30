@@ -94,7 +94,9 @@ jobs:
             ${{ github.workspace }}/MyApp/data_live_wallpaper_debug_all.apks \
             ${{ github.workspace }}/MyApp/data_live_wallpaper_relase_all.apks \
             ${{ github.workspace }}/MyApp/data_live_wallpaper_nokia5_debug.apks \
-            ${{ github.workspace }}/MyApp/data_live_wallpaper_nokia5_relase.apks 
+            ${{ github.workspace }}/MyApp/data_live_wallpaper_nokia5_relase.apks \
+            ${{ github.workspace }}/artifacts/debug&relase_APK/debug/data_live_wallpaper_debug.apk \
+            ${{ github.workspace }}/artifacts/debug&relase_APK/release/data_live_wallpaper_release.apk
       - name: get-size
         run: |
           echo Size : data_live_wallpaper_relase_all.apks
