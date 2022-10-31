@@ -81,7 +81,7 @@ jobs:
          path: ./artifacts/
 
       - name: tree
-        run:  tree -h ${{ github.workspace }}/artifacts/
+        run:  tree -h ${{ github.workspace }}/./artifacts//
 
       - uses: milankomaj/releases-x@v0.1
         with:
@@ -90,7 +90,7 @@ jobs:
           tag: 'all_artifacts'
           rewrite: 'true'
           files: |
-           ${{ github.workspace }}/./artifacts/**/*.*
+           ${{ github.workspace }}/./artifacts/*
 
       - name: get-size
         run: |
