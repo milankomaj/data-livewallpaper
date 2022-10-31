@@ -90,7 +90,7 @@ jobs:
           tag: 'all_artifacts'
           rewrite: 'true'
           files: |
-           ${{ github.workspace }}/./artifacts/**/*
+           ${{ github.workspace }}/./artifacts/**/*.*
 
       - name: get-size
         run: |
