@@ -90,14 +90,14 @@ jobs:
           tag: 'all_artifacts'
           rewrite: 'true'
           files: |
-            ${{ github.workspace }}/./artifacts/debug&relase_AAB/debug/app-debug.aab \
-            ${{ github.workspace }}/./artifacts/debug&relase_AAB/release/app-release.aab \
-            ${{ github.workspace }}/./artifacts/debug&relase_APK/debug/data_live_wallpaper_debug.apk \
-            ${{ github.workspace }}/./artifacts/debug&relase_APK/release/data_live_wallpaper_release.apk \
-            ${{ github.workspace }}/./artifacts/debug&relase_APKS/data_live_wallpaper_debug_all.apks \
-            ${{ github.workspace }}/./artifacts/debug&relase_APKS/data_live_wallpaper_relase_all.apks \
-            ${{ github.workspace }}/./artifacts/debug&relase_Nokia5_APKS/data_live_wallpaper_nokia5_debug.apks \
-            ${{ github.workspace }}/./artifacts/debug&relase_Nokia5_APKS/data_live_wallpaper_nokia5_relase.apks
+            "${{ github.workspace }}/./artifacts/debug&relase_AAB/debug/app-debug.aab" \
+            "${{ github.workspace }}/./artifacts/debug&relase_AAB/release/app-release.aab" \
+            "${{ github.workspace }}/./artifacts/debug&relase_APK/debug/data_live_wallpaper_debug.apk" \
+            "${{ github.workspace }}/./artifacts/debug&relase_APK/release/data_live_wallpaper_release.apk" \
+            "${{ github.workspace }}/./artifacts/debug&relase_APKS/data_live_wallpaper_debug_all.apks" \
+            "${{ github.workspace }}/./artifacts/debug&relase_APKS/data_live_wallpaper_relase_all.apks" \
+            "${{ github.workspace }}/./artifacts/debug&relase_Nokia5_APKS/data_live_wallpaper_nokia5_debug.apks" \
+            "${{ github.workspace }}/./artifacts/debug&relase_Nokia5_APKS/data_live_wallpaper_nokia5_relase.apks"
 
 
       - name: get-size
