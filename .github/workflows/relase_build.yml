@@ -90,12 +90,7 @@ jobs:
           tag: 'all_artifacts'
           rewrite: 'true'
           files: |
-            ${{ github.workspace }}/MyApp/data_live_wallpaper_debug_all.apks \
-            ${{ github.workspace }}/MyApp/data_live_wallpaper_relase_all.apks \
-            ${{ github.workspace }}/MyApp/data_live_wallpaper_nokia5_debug.apks \
-            ${{ github.workspace }}/MyApp/data_live_wallpaper_nokia5_relase.apks \
-            ./app/build/outputs/apk/debug/data_live_wallpaper_debug.apk \
-            ./app/build/outputs/apk/release/data_live_wallpaper_release.apk
+           ${{ github.workspace }}/./artifacts/**/*
 
       - name: get-size
         run: |
