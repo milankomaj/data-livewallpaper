@@ -83,7 +83,8 @@ jobs:
       - name: tree
         run:  tree -h ${{ github.workspace }}/./artifacts//
 
-      - uses: milankomaj/releases-x@v0.1
+      - name: r-e-l-e-a-s-e
+        uses: milankomaj/releases-x@v0.1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           title: 'data_live_wallpaper_artifacts'
