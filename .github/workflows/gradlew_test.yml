@@ -74,6 +74,6 @@ jobs:
       if: ${{ github.actor == 'dependabot[bot]' }}
       run: ./gradlew assembleDebug
 
-
-
+    - name: Gradle connectedAndroidTest
+      run: ./gradlew connectedAndroidTest
      
