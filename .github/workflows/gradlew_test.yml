@@ -41,6 +41,7 @@ jobs:
        sed -i 7i"- #####  Unit tests: $timestamp" ./README.md
        sed -i '8d' ./README.md
        echo $timestamp
+       git config pull.ff only
        git config --global user.email ${{ secrets.EMAIL }}
        git config --global user.name ${{ secrets.NAME }}
        git add -u
