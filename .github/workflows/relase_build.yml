@@ -83,7 +83,7 @@ jobs:
       - name: tree
         run:  tree -h ${{ github.workspace }}/./artifacts//
 
-      - name: r-e-l-e-a-s-e
+      - name: releases-x
         uses: milankomaj/releases-x@v0.1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
