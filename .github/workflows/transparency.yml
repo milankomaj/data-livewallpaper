@@ -6,7 +6,7 @@ on:
 jobs:
   key:
     runs-on: ubuntu-latest
-    permissions: read-all | write-all
+    permissions: write-all
 
     env:
       KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
