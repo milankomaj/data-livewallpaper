@@ -35,22 +35,11 @@ jobs:
 
 
 
-      - name: Generate
-            # Generate code transparency file
-        run: |
-          java -jar ./bundletool.jar add-transparency \
-            --bundle=./app/build/outputs/bundle/debug/app-debug.aab \
-            --output=./transparency-app-debug.aab \
-            --ks=./app/android-LQ0F5.keystore \
-            --key-pass=pass:${{ secrets.KEY_PASSWORD }} \
-            --ks-key-alias=${{ secrets.KEY_ALIAS }}
+      - name: Generate   # Generate code transparency file
+        run: java -jar ./bundletool.jar add-transparency --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./transparency-app-debug.aab --ks=./app/android-LQ0F5.keystore --key-pass=pass:${{ secrets.KEY_PASSWORD }} --ks-key-alias=${{ secrets.KEY_ALIAS }}
 
-      - name: Add
-        # Add code transparency signature to the bundle
-        run: |
-          java -jar ./bundletool.jar check-transparency \
-            --mode=bundle \
-            --bundle=./transparency-app-debug.aab
+      - name: Add   # Add code transparency signature to the bundle
+        run: java -jar ./bundletool.jar check-transparency --mode=bundle --bundle=./transparency-app-debug.aab
 
 
       - name: tree
