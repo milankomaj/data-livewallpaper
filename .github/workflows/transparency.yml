@@ -10,40 +10,13 @@ jobs:
 
     env:
       KEYSTORE_PASSWORD:
-      KEY_ALIAS: 
+      KEY_ALIAS:
       KEY_PASSWORD:
       GH_TOKEN: ${{ github.TOKEN }}
 
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-
-
-
-      - name: echo "*** Download bundletool ***"
-        run: |
-         RELEASE=$(curl -L -s -H 'Accept: application/json' https://github.com/google/bundletool/releases/latest)
-         VERSION=$(echo $RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
-         echo VERSION = $VERSION
-         URL=$(curl -L -o ./bundletool.jar https://github.com/google/bundletool/releases/download/$(echo $RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')/bundletool-all-$(echo $RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/').jar)
-
-
-      - name: Build app bundle
-        run: |
-          chmod +x ./gradlew
-          ./gradlew app:bundleDebug
-
-
-      - name: Generate   # Generate code transparency file
-        run: java -jar ./bundletool.jar add-transparency --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./transparency-app-debug.aab --ks=./app/android-LQ0F5.keystore --ks-pass=pass:${{ secrets.KEYSTORE_PASSWORD }} --key-pass=pass:${{ secrets.KEY_PASSWORD }} --ks-key-alias=${{ secrets.KEY_ALIAS }}
-
-      - name: Add   # Add code transparency signature to the bundle
-        run: java -jar ./bundletool.jar check-transparency --mode=bundle --bundle=./transparency-app-debug.aab
+ 
 
 
       - name: tree
-        run: tree -h -L 2 ./
+        run: gh secret set SECREE
