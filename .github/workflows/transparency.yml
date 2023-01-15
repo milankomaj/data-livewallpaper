@@ -6,10 +6,8 @@ on:
 jobs:
   key:
     runs-on: ubuntu-latest
-    permissions:
-      actions: write
-      contents: write
-      security-events: write
+    permissions: read-all|write-all
+
     env:
       KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
       KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
