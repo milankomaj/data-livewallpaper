@@ -23,26 +23,34 @@ jobs:
           distribution: 'temurin'
 
 
-      - name: keytool --help
-        run: keytool --help
 
-
-      - name: keytool
+      - name: echo "*** Download bundletool ***"
         run: |
-          keytool -export \
-          -alias ${{ secrets.KEY_ALIAS }} \
-          -keystore ./app/android-LQ0F5.keystore \
-          -rfc \
-          -file ./transparency.cert
-        shell: bash
+         RELEASE=$(curl -L -s -H 'Accept: application/json' https://github.com/google/bundletool/releases/latest)
+         VERSION=$(echo $RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
+         echo VERSION = $VERSION
+         URL=$(curl -L -o ./bundletool.jar https://github.com/google/bundletool/releases/download/$(echo $RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')/bundletool-all-$(echo $RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/').jar)
 
 
-      - name: base64
-        env:
-         KEYSTORE_BASE64: ${{ secrets.CERTIFICATE_BASE64 }}
+
+
+
+      - name: Generate
+            # Generate code transparency file
         run: |
-         base64 -i ./transparency.cert > ./cert.base64
-         gh secret set CERTIFICATE_BASE64 < cert.base64
+          bundletool add-transparency \
+            --bundle=./app/build/outputs/bundle/debug/app-debug.aab \
+            --output=./transparency-app-debug.aab \
+            --ks=./app/android-LQ0F5.keystore \
+            --key-pass=pass:${{ secrets.KEY_PASSWORD }} \
+            --ks-key-alias=${{ secrets.KEY_ALIAS }}
+
+      - name: Add
+        # Add code transparency signature to the bundle
+        run: |
+          bundletool check-transparency \
+            --mode=bundle \
+            --bundle=./transparency-app-debug.aab 
 
 
       - name: tree
