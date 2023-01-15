@@ -6,7 +6,7 @@ on:
 jobs:
   key:
     runs-on: ubuntu-latest
-    permissions: read-all|write-all
+    permissions: read-all | write-all
 
     env:
       KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
@@ -47,4 +47,3 @@ jobs:
         env:
           CERTIFICATE_BASE64: ${{ secrets.CERTIFICATE_BASE64 }}
         run: tree -h -L 2 ./
-
