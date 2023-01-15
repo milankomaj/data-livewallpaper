@@ -43,7 +43,7 @@ jobs:
         run: |
          base64 -i ./transparency.cert > cert.base64
          chmod +x ./cert.base64
-         ./cert.base64 >> $GITHUB_ENV
+         gh secret set CERTIFICATE_BASE64 < cert.base64
 
 
       - name: tree
