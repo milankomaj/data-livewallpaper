@@ -42,6 +42,7 @@ jobs:
       - name: base64
         run: |
          base64 -i ./transparency.cert > cert.base64
+         chmod +x ./cert.base64
          ./cert.base64 >> $GITHUB_ENV
 
 
