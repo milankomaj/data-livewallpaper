@@ -81,9 +81,10 @@ jobs:
          path: ./artifacts/
 
       - name: tree
-        run:  tree -h ${{ github.workspace }}/artifacts/
+        run:  tree -h ${{ github.workspace }}/./artifacts//
 
-      - uses: milankomaj/releases-x@v0.1
+      - name: releases-x
+        uses: milankomaj/releases-x@v0.1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           title: 'data_live_wallpaper_artifacts'
@@ -96,6 +97,7 @@ jobs:
             ${{ github.workspace }}/MyApp/data_live_wallpaper_nokia5_relase.apks \
             ./app/build/outputs/apk/debug/data_live_wallpaper_debug.apk \
             ./app/build/outputs/apk/release/data_live_wallpaper_release.apk
+
 
       - name: get-size
         run: |

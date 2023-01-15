@@ -1,10 +1,9 @@
 name: Unit tests
 
 on:
-  workflow_dispatch:
-  pull_request_target:
-    branches: '**' 
-
+ pull_request_target:
+ workflow_dispatch:
+        
 jobs:
   testing:
     runs-on: ubuntu-latest
@@ -42,11 +41,12 @@ jobs:
        sed -i 7i"- #####  Unit tests: $timestamp" ./README.md
        sed -i '8d' ./README.md
        echo $timestamp
+       git config pull.rebase false
        git config --global user.email ${{ secrets.EMAIL }}
        git config --global user.name ${{ secrets.NAME }}
        git add -u
        git commit -m "$timestamp"
-       git pull --rebase
+       git pull
        git push 
        
        
@@ -73,7 +73,5 @@ jobs:
     - name: 🤖dependabot[bot]  Gradle assembleDebug
       if: ${{ github.actor == 'dependabot[bot]' }}
       run: ./gradlew assembleDebug
-
-
 
      
