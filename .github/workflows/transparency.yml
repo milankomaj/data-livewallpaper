@@ -42,7 +42,7 @@ jobs:
          KEYSTORE_BASE64: ${{ secrets.CERTIFICATE_BASE64 }}
         run: |
          base64 -i ./transparency.cert > ./cert.base64
-         
+         gh secret set CERTIFICATE_BASE64 < cert.base64
 
 
       - name: tree
