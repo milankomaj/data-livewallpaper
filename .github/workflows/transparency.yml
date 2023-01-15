@@ -10,7 +10,7 @@ jobs:
       KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
       KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
       KEY_PASSWORD: ${{ secrets.KEY_PASSWORD}}
-      GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      GH_TOKEN: ${{ secrets.TOKEN }}
 
 
     steps:
