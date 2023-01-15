@@ -48,12 +48,3 @@ jobs:
           CERTIFICATE_BASE64: ${{ secrets.CERTIFICATE_BASE64 }}
         run: tree -h -L 2 ./
 
-
-
-      - name: upload lint result
-        uses: actions/upload-artifact@v3
-        with:
-         name: results
-         path: |
-          ./transparency.cert
-          ./cert.base64
