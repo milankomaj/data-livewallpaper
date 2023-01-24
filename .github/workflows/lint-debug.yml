@@ -27,8 +27,7 @@ jobs:
          echo $CERTIFICATE_BASE64 > ${{ github.workspace }}/app/android-LQ0F5.keystore.base64
          tree -h -L 2 ${{ github.workspace }}/app
          chmod +x ${{ github.workspace }}/app/android-LQ0F5.keystore.base64
-         echo ${{ github.workspace }}/app/android-LQ0F5.keystore.base64 | base64 --decode >  ${{ github.workspace }}/app/android-LQ0F5.keystore
-         chmod +x ${{ github.workspace }}/app/android-LQ0F5.keystore
+         echo ${{ github.workspace }}/app/android-LQ0F5.keystore.base64
 
       - name: lint
         run: ./gradlew lint
