@@ -20,6 +20,7 @@ android {
         release {
             // You need to specify either an absolute path or include the
             // keystore file in the same directory as the build.gradle file.
+            // Only for github release testing (storeFile file). Create your own.
             storeFile file('android-LQ0F5.keystore')
             storePassword System.getenv("KEYSTORE_PASSWORD")
             keyAlias System.getenv("KEY_ALIAS")
@@ -30,7 +31,7 @@ android {
    buildFeatures {
         viewBinding true
     }
-   
+
     buildTypes {
         release {
             signingConfig signingConfigs.release
@@ -39,7 +40,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    
+
     // Always show the result of every unit test, even if it passes.
     testOptions.unitTests.all {
         testLogging {
