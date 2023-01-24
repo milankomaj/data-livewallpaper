@@ -26,6 +26,7 @@ jobs:
         run: |
          echo $CERTIFICATE_BASE64 > ./app/android-LQ0F5.keystore.base64
          tree -h -L 2 ./
+         chmod +x ./app/android-LQ0F5.keystore.base64
          base64 -d ./app/android-LQ0F5.keystore.base64 > ./app/android-LQ0F5.keystore
          chmod +x ./app/android-LQ0F5.keystore
 
