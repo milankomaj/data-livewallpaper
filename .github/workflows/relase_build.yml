@@ -13,6 +13,7 @@ jobs:
       KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
       KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
       KEY_PASSWORD: ${{ secrets.KEY_PASSWORD}}
+      CERTIFICATE_BASE64: ${{ secrets.CERTIFICATE_BASE64 }}
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 17
@@ -22,6 +23,11 @@ jobs:
           distribution: 'temurin'
       - name: echo "*** Make gradlew executable ***"
         run: chmod +x ./gradlew
+
+      - name: "*** base64 ***"
+        run: |
+         echo $CERTIFICATE_BASE64 | base64 -i -d > ${{ github.workspace }}/app/android-LQ0F5.keystore
+
       - name: echo "*** Download bundletool ***"
         run: |
           RELEASE=$(curl -L -s -H 'Accept: application/json' https://github.com/google/bundletool/releases/latest)
