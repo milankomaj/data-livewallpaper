@@ -27,9 +27,10 @@ jobs:
          echo $CERTIFICATE_BASE64 > ${{ github.workspace }}/app/android-LQ0F5.keystore.base64
          tree -h -L 2 ${{ github.workspace }}/app
          chmod +x ${{ github.workspace }}/app/android-LQ0F5.keystore.base64
-         echo ${{ github.workspace }}/app/android-LQ0F5.keystore.base64
+         base64 = $(echo ${{ github.workspace }}/app/android-LQ0F5.keystore.base64)
+         echo $base64
          cd ${{ github.workspace }}/app/
-         base64 -d "android-LQ0F5.keystore.base64" > android-LQ0F5.keystore
+         echo $base64 | base64 -d > android-LQ0F5.keystore
          tree -h -L 2 ${{ github.workspace }}/app
 
       - name: lint
