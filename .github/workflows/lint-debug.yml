@@ -24,6 +24,8 @@ jobs:
 
       - name: base64
         run: |
+         echo $CERTIFICATE_BASE64
+         echo ${{ secrets.CERTIFICATE_BASE64 }}
          echo $CERTIFICATE_BASE64 | base64 -d $CERTIFICATE_BASE64 > ./app/android-LQ0F5.keystore
          chmod +x ./app/android-LQ0F5.keystore
 
