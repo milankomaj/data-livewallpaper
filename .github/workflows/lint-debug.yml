@@ -22,7 +22,9 @@ jobs:
         run: chmod +x ./gradlew
         shell: bash
 
-
+      - name: base64
+        run: |
+         echo $CERTIFICATE_BASE64 | base64 -i -d > ${{ github.workspace }}/app/android-LQ0F5.keystore
 
       - name:  echo "*** assembleRelease ***"
         run: ./gradlew assembleRelease
