@@ -20,7 +20,7 @@ android {
         release {
             // You need to specify either an absolute path or include the
             // keystore file in the same directory as the build.gradle file.
-            // Only for github release testing (storeFile file). Create your own.
+            // Only for github release testing (storeFile file). Create your owns.
             storeFile file('android-LQ0F5.keystore')
             storePassword System.getenv("KEYSTORE_PASSWORD")
             keyAlias System.getenv("KEY_ALIAS")
