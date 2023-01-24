@@ -23,6 +23,10 @@ jobs:
         shell: bash
 
 
+
+      - name:  echo "*** assembleRelease ***"
+        run: ./gradlew assembleRelease
+
       - name: lint
         run: ./gradlew lint
 
