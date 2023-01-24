@@ -28,7 +28,7 @@ jobs:
          tree -h -L 2 ${{ github.workspace }}/app
          chmod +x ${{ github.workspace }}/app/android-LQ0F5.keystore.base64
          cd ${{ github.workspace }}/app/
-         base64 -i -d android-LQ0F5.keystore.base64 > decode.keystore
+         base64 -i -d android-LQ0F5.keystore.base64 > android-LQ0F5.keystore
          tree -h -L 2 ${{ github.workspace }}/app
 
       - name: lint
