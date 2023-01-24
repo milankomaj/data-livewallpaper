@@ -82,6 +82,14 @@ jobs:
          echo -e "\033[31;1m Gradle Check \033[0m"
          ./gradlew check
 
+      - name: reports
+        uses: actions/upload-artifact@v3
+        with:
+         name: reports
+         path: |
+          ./app/build/outputs/logs/*.txt
+          ./app/build/reports/*.html
+
       - name: tree
         run: |
          echo install tree
