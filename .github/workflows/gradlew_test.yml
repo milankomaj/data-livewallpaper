@@ -3,7 +3,7 @@ name: Unit tests
 on:
  pull_request_target:
  workflow_dispatch:
-        
+
 jobs:
   testing:
     runs-on: ubuntu-latest
@@ -16,8 +16,8 @@ jobs:
        Bundletool=$(curl -L -s -H 'Accept: application/json' https://github.com/google/bundletool/releases/latest)
        VersionBundletool=$(echo $Bundletool | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
        echo VersionBundletool = $VersionBundletool
-       echo $VersionBundletool   
-       URL=$(curl -s -L -o ./bundletool.jar https://github.com/google/bundletool/releases/download/$VersionBundletool/bundletool-all-$VersionBundletool.jar)     
+       echo $VersionBundletool
+       URL=$(curl -s -L -o ./bundletool.jar https://github.com/google/bundletool/releases/download/$VersionBundletool/bundletool-all-$VersionBundletool.jar)
        rm ./bundletool.jar
        echo --------------------------------------*
        cd ./gradle/wrapper
@@ -27,7 +27,7 @@ jobs:
        echo VersionGradle = $VersionGradle
        echo $VersionGradle
        URL=$(curl -s -L -o gradle.zip https://services.gradle.org/distributions/gradle-$VersionGradle-src.zip)
-       wrapper=$(unzip -j -d . gradle.zip gradle-$VersionGradle/gradle/wrapper/gradle-wrapper.jar)  
+       wrapper=$(unzip -j -d . gradle.zip gradle-$VersionGradle/gradle/wrapper/gradle-wrapper.jar)
        SHA=$(curl -s --location --output gradle-wrapper.jar.sha256 https://services.gradle.org/distributions/gradle-$VersionGradle-wrapper.jar.sha256)
        echo "  gradle-wrapper.jar" >> gradle-wrapper.jar.sha256
        sha256sum --check gradle-wrapper.jar.sha256
@@ -35,7 +35,7 @@ jobs:
        rm gradle.zip
        cd ..
        cd ..
-       timestamp=$(TZ='Europe/Bratislava' date)  
+       timestamp=$(TZ='Europe/Bratislava' date)
        sed -i 6i"distributionUrl=https\://services.gradle.org/distributions/gradle-$VersionGradle-all.zip" ./gradle/wrapper/gradle-wrapper.properties
        sed -i '7d' ./gradle/wrapper/gradle-wrapper.properties
        sed -i 7i"- #####  Unit tests: $timestamp" ./README.md
@@ -47,31 +47,33 @@ jobs:
        git add -u
        git commit -m "$timestamp"
        git pull
-       git push 
-       
-       
-       
+       git push
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+         java-version: '17'
+         distribution: 'temurin'
+
     - name: 🤖dependabot[bot]  Gradle update version
       if: ${{ github.actor == 'dependabot[bot]' }}
-      run: |             
-       chmod +x ./gradlew 
+      run: |
+       chmod +x ./gradlew
        echo -e "\033[31;1m Gradle Version switch to Latest version \033[0m"
        VersionGradle=$(curl -L -s -H 'Accept: application/json' https://services.gradle.org/versions/current | jq .version | sed -e 's/"//g')
        echo $VersionGradle
        ./gradlew wrapper --gradle-version=$VersionGradle --quiet
-       ./gradlew -v 
+       ./gradlew -v
 
-       
-       
+
+
     - name: 🤖dependabot[bot]  Gradle test
       if: ${{ github.actor == 'dependabot[bot]' }}
-      run: | 
+      run: |
        echo -e "\033[31;1m Gradle Test \033[0m"
        ./gradlew test
-      
-      
+
+
     - name: 🤖dependabot[bot]  Gradle assembleDebug
       if: ${{ github.actor == 'dependabot[bot]' }}
       run: ./gradlew assembleDebug
-
-     
