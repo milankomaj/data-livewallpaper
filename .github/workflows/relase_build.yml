@@ -108,9 +108,9 @@ jobs:
       - name: get-size
         run: |
           echo Size : data_live_wallpaper_relase_all.apks
-          java -jar ./bundletool.jar get-size total MB --apks=./MyApp/data_live_wallpaper_relase_all.apks
+          java -jar ./bundletool.jar get-size total --human-readable-sizes --apks=./MyApp/data_live_wallpaper_relase_all.apks
           echo Size : --device-spec=./nokia5.json
-          java -jar ./bundletool.jar get-size total MB --device-spec=./nokia5.json --apks=./MyApp/data_live_wallpaper_relase_all.apks
+          java -jar ./bundletool.jar get-size total --human-readable-sizes --device-spec=./nokia5.json --apks=./MyApp/data_live_wallpaper_relase_all.apks
 
       - name: echo "*** ReadmE ***"
         run: |
