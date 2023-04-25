@@ -65,14 +65,11 @@ jobs:
        ./gradlew wrapper --gradle-version=$VersionGradle --quiet
        ./gradlew -v
 
-
-
     - name: 🤖dependabot[bot]  Gradle test
       if: ${{ github.actor == 'dependabot[bot]' }}
       run: |
        echo -e "\033[31;1m Gradle Test \033[0m"
        ./gradlew test
-
 
     - name: 🤖dependabot[bot]  Gradle assembleDebug
       if: ${{ github.actor == 'dependabot[bot]' }}
