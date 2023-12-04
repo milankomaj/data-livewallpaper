@@ -39,4 +39,6 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
          name: lint-results
-         path: ./app/build/reports/*.*
+         path: |
+          ./app/build/reports/*.*
+          ./app/lint-baseline.xml
