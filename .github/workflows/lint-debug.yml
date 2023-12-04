@@ -41,4 +41,4 @@ jobs:
          name: lint-results
          path: |
           ./app/build/reports/*.*
-          ./app/lint-baseline.xml
+
