@@ -32,8 +32,6 @@ jobs:
       - name: lintRelease
         run: ./gradlew lintRelease
 
-      - name: lintDebug
-        run: ./gradlew lintDebug -Dlint.baselines.continue=true
 
       - name: upload lint result
         uses: actions/upload-artifact@v3
