@@ -37,7 +37,9 @@ jobs:
         with:
           subject-path: './README.md'
 
-     -  run: tree -h -L 2 ./
+     -  run:
+         gh attestation download './README.md' --repo milankomaj/data-livewallpaper
+         tree -h -L 2 ./
 
      -  name: artifact attest verify
         run: gh attestation verify './README.md' --repo milankomaj/data-livewallpaper
