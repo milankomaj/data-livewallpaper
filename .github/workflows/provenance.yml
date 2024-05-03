@@ -18,10 +18,14 @@ jobs:
     steps:
     # Artifacts download
 
-     - uses: actions/checkout@v4
-     -  run: gh attestation verify -R milankomaj/data-livewallpaper --format json ./README.md
+
+     -  run: echo > ./example.txt
      -  run: tree -h -L 2 ./
 
+     -  name: Generate artifact attestation
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-path: './example.txt'
 
 
      # -  name: artifact attestverifyation
