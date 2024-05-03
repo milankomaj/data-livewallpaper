@@ -19,15 +19,11 @@ jobs:
     # Artifacts download
 
 
-     -  run: echo > ./example.txt
-     -  run: tree -h -L 2 ./
-
-     -  name: Generate artifact attestation
-        uses: actions/attest-build-provenance@v1
-        with:
-          subject-path: './example.txt'
-
-
+     -  run: |
+         sudo apt-fast -y update
+         gh --version
+         sudo apt-fast install -y gh --fix-missing
+         gh --version
      # -  name: artifact attest verifyation
      #    ------
      #    run: gh attestation verify './example.txt' --repo milankomaj/data-livewallpaper
