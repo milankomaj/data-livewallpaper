@@ -15,12 +15,13 @@ jobs:
 
     steps:
     # Artifacts download
+ 
      - uses: actions/download-artifact@v4
        id: download
        with:
           path: ./artifacts/
           merge-multiple: true
-          pattern: *.apks
+          pattern: debug&relase.*
 
 
      - name: Display structure of downloaded files
