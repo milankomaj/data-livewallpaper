@@ -18,7 +18,7 @@ jobs:
     steps:
     # Artifacts download
 
-
+     - uses: actions/checkout@v4
      -  run: echo > ./example.txt
      -  run: tree -h -L 2 ./
 
@@ -26,6 +26,8 @@ jobs:
         uses: actions/attest-build-provenance@v1
         with:
           subject-path: './example.txt'
+
+
 
      -  name: push
         run: |
