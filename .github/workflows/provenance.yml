@@ -28,4 +28,10 @@ jobs:
           subject-path: './example.txt'
 
      -  name: artifact attestverifyation
-        run: gh attestation verify ./example.txt --repo milankomaj/data-livewallpaper
+        run: |
+         git add ./example.txt
+         git commit -m "update
+         git push
+
+     -  name: artifact attestverifyation
+        run: gh attestation verify './example.txt' --repo milankomaj/data-livewallpaper
