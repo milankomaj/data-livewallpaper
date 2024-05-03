@@ -28,5 +28,6 @@ jobs:
           subject-path: './example.txt'
 
 
-     # -  name: artifact attestverifyation
+     # -  name: artifact attest verifyation
+     #    ------ 
      #    run: gh attestation verify './example.txt' --repo milankomaj/data-livewallpaper
