@@ -28,6 +28,7 @@ jobs:
             && sudo apt update \
             && sudo apt install gh -y
             gh --version
-     # -  name: artifact attest verifyation
-     #    ------
-     #    run: gh attestation verify './example.txt' --repo milankomaj/data-livewallpaper
+
+
+     -  name: artifact attest verifyation
+        run: gh attestation verify './example.txt' --repo milankomaj/data-livewallpaper
