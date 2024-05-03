@@ -1,0 +1,32 @@
+name: provenance
+run-name: ${{ github.workflow }} ✅ ${{ github.actor }} ✅ ${{ github.event_name}}
+on:
+ workflow_dispatch:
+
+jobs:
+  test-attest-provenance:
+    runs-on: ubuntu-latest
+    permissions:
+        id-token: write
+        attestations: write
+        contents: read
+
+    steps:
+
+
+     # Artifacts download
+      - uses: actions/download-artifact@v4
+        id: download
+        with:
+         path: ./artifacts/
+         merge-multiple: true
+         pattern: *.apks
+
+
+      - name: Display structure of downloaded files
+        run: tree -h ./artifacts/
+
+      - name: Generate artifact attestation
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-path: './artifacts/*.apks'
