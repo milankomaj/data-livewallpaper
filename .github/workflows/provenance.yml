@@ -20,4 +20,4 @@ jobs:
 
 
      -  name: artifact attestverifyation
-        run: gh attestation verify './example.txt' --repo milankomaj/data-livewallpaper
+        run: gh attestation verify './example.txt' -o milankomaj
