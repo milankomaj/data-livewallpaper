@@ -19,15 +19,9 @@ jobs:
     # Artifacts download
 
 
-     -  run: echo > ./example.txt
-     -  run: tree -h -L 2 ./
+     - uses: actions/checkout@v4
 
-     -  name: Generate artifact attestation
-        uses: actions/attest-build-provenance@v1
-        with:
-          subject-path: './example.txt'
-
-
+     -  run: gh attestation verify /example.txt --owner milankomaj --bundle ./milankomaj-data-livewallpaper-attestation-789150.sigstore.json
      # -  name: artifact attest verifyation
-     #    ------ 
+     #    ------
      #    run: gh attestation verify './example.txt' --repo milankomaj/data-livewallpaper
