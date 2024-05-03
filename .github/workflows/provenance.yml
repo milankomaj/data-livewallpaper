@@ -20,4 +20,4 @@ jobs:
 
 
      -  name: artifact attestverifyation
-        run: gh attestation verify './example.txt' -o milankomaj
+        run: gh attestation verify ./example.txt -o milankomaj
