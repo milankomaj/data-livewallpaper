@@ -18,12 +18,10 @@ jobs:
      - uses: actions/checkout@v4
 
 
-
-
-
-
-
      - name: Generate artifact attestation
        uses: actions/attest-build-provenance@v1
        with:
           subject-path: './README.md'
+
+     - name: Generate artifact attestation
+       run: gh attestation verify ./README.md  --repo milankomaj/data-livewallpaper
