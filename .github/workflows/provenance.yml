@@ -19,7 +19,7 @@ jobs:
     # Artifacts download
 
      - uses: actions/checkout@v4
-     -  run: gh attestation verify -R milankomaj/data-livewallpaper --format json README.md
+     -  run: gh attestation verify -R milankomaj/data-livewallpaper --format json ./README.md
      -  run: tree -h -L 2 ./
 
 
