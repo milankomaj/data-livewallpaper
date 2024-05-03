@@ -18,7 +18,7 @@ jobs:
     steps:
     # Artifacts download
 
-
+     - uses: actions/checkout@v4
      -  run: |
             (type -p wget >/dev/null || (sudo apt update && sudo apt-get install wget -y)) \
             && sudo mkdir -p -m 755 /etc/apt/keyrings \
@@ -31,4 +31,4 @@ jobs:
 
 
      -  name: artifact attest verifyation
-        run: gh attestation verify './example.txt' --repo milankomaj/data-livewallpaper
+        run: gh attestation verify './README.md' --repo milankomaj/data-livewallpaper
