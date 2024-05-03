@@ -32,14 +32,13 @@ jobs:
 
      -  run: tree -h -L 2 ./
 
-     -  name: Generate artifact attestation
-        uses: actions/attest-build-provenance@v1
-        with:
-          subject-path: './README.md'
+
 
      -  run: |
          gh attestation download './README.md' --repo milankomaj/data-livewallpaper
          tree -h -L 2 ./
 
      -  name: artifact attest verify
-        run: gh attestation verify './README.md' --repo milankomaj/data-livewallpaper
+        run: |
+         gh attestation verify './README.md' --repo milankomaj/data-livewallpaper
+         gh attestation verify './README.md' --owner milankomaj --bundle ./milankomaj-data-livewallpaper-attestation-789332.sigstore.json
