@@ -39,5 +39,6 @@ jobs:
          tree -h -L 2 ./
 
      -  name: artifact attest verify
-        run: |
-         gh attestation verify './README.md' --owner milankomaj --bundle ./sha256:92ae2c81d25db2a8c0cf834c154616720a64abc4b5f18078ee784bf819c7dfa9.jsonl
+        run:
+         gh attestation verify './README.md' --repo milankomaj/data-livewallpaper
+         gh attestation verify -R milankomaj/data-livewallpaper --format json './README.md'
