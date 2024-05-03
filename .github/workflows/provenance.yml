@@ -15,23 +15,9 @@ jobs:
     # Artifacts download
 
      - uses: actions/checkout@v4
-     -  run: echo > ./example.txt
+
      -  run: tree -h -L 2 ./
 
-     -  name: Generate artifact attestation
-        uses: actions/attest-build-provenance@v1
-        with:
-          subject-path: './example.txt'
-
-
-
-     -  name: push
-        run: |
-         git config --global user.email ${{ secrets.EMAIL }}
-         git config --global user.name ${{ secrets.NAME }}
-         git add ./example.txt
-         git commit -m "example"
-         git push
 
      -  name: artifact attestverifyation
         run: gh attestation verify './example.txt' --repo milankomaj/data-livewallpaper
