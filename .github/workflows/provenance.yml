@@ -21,7 +21,7 @@ jobs:
 
      - uses: actions/checkout@v4
 
-     -  run: gh attestation verify /example.txt --owner milankomaj --bundle ./milankomaj-data-livewallpaper-attestation-789150.sigstore.json
+     -  run: gh attestation verify ./README.md --owner milankomaj --bundle ./milankomaj-data-livewallpaper-attestation-789022.sigstore.json
      # -  name: artifact attest verifyation
      #    ------
      #    run: gh attestation verify './example.txt' --repo milankomaj/data-livewallpaper
