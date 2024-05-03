@@ -21,7 +21,7 @@ jobs:
        with:
           path: ./artifacts/
           merge-multiple: true
-          pattern: debug&relase.*
+          pattern: debug&relase_*
 
 
      - name: Display structure of downloaded files
