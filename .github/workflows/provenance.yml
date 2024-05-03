@@ -19,7 +19,7 @@ jobs:
     # Artifacts download
      - uses: actions/checkout@v4
 
-     -  run: cat ./example.txt
+     -  run: echo ./example.txt
 
      - name: Generate artifact attestation
        uses: actions/attest-build-provenance@v1
