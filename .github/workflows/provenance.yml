@@ -18,8 +18,8 @@ jobs:
     steps:
     # Artifacts download
 
-
-     -  run: gh attestation verify -R milankomaj/data-livewallpaper--format json README.md
+     - uses: actions/checkout@v4
+     -  run: gh attestation verify -R milankomaj/data-livewallpaper --format json README.md
      -  run: tree -h -L 2 ./
 
 
