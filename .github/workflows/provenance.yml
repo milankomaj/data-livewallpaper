@@ -35,10 +35,10 @@ jobs:
 
 
      -  run: |
-         gh attestation download 'gradle.properties' --repo milankomaj/data-livewallpaper
+         gh attestation download gradle.properties --repo milankomaj/data-livewallpaper
          tree -h -L 2 ./
-         jq 'sha256:ac5020c9b57c676af75c3a137b01995b69b37180f63f094cfd4d3b036d89a0b5.jsonl'
+
      -  name: artifact attest verify
         run: |
-         gh attestation verify 'gradle.properties' --repo milankomaj/data-livewallpaper
+         gh attestation verify gradle.properties --repo milankomaj/data-livewallpaper
          # gh attestation verify './gradlew' --owner milankomaj --bundle './sha256:c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4.jsonl'
