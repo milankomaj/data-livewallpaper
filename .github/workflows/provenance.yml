@@ -11,16 +11,19 @@ jobs:
       contents: read
       attestations: write
 
+
     env:
-        GH_TOKEN: ${{ github.TOKEN }}
+     GH_TOKEN: ${{ github.TOKEN }}
 
     steps:
     # Artifacts download
      - uses: actions/checkout@v4
 
 
-
+     - name: Generate artifact attestation
+       uses: actions/attest-build-provenance@v1
+       with:
+          subject-path: './README.md'
 
      - name: artifact attestverifyation
-       run: |
-        gh attestation verify ./README.md  --repo milankomaj/data-livewallpaper
+       run: gh attestation verify ./README.md  --repo milankomaj/data-livewallpaper
