@@ -11,7 +11,8 @@ jobs:
       contents: read
       attestations: write
 
-
+    env:
+        GH_TOKEN: ${{ github.TOKEN }}
 
     steps:
     # Artifacts download
@@ -22,6 +23,4 @@ jobs:
 
      - name: artifact attestverifyation
        run: |
-        git config --global user.email ${{ secrets.EMAIL }}
-        git config --global user.name ${{ secrets.NAME }}
         gh attestation verify ./README.md  --repo milankomaj/data-livewallpaper
