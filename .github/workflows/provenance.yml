@@ -31,4 +31,4 @@ jobs:
 
 
      -  name: artifact attest verifyation
-        run: gh attestation verify './README.md' --repo milankomaj/data-livewallpaper
+        run: gh attestation verify './README.md' --owner milankomaj --bundle ./milankomaj-data-livewallpaper-attestation-789022.sigstore.json
