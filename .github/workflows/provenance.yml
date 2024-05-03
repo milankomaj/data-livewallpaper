@@ -32,13 +32,16 @@ jobs:
 
      -  run: tree -h -L 2 ./
 
-
+     -  name: Generate artifact attestation
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-path: settings.gradle
 
      -  run: |
-         gh attestation download gradle.properties --repo milankomaj/data-livewallpaper
+         gh attestation download settings.gradle --repo milankomaj/data-livewallpaper
          tree -h -L 2 ./
-
+         
      -  name: artifact attest verify
         run: |
-         gh attestation verify gradle.properties --repo milankomaj/data-livewallpaper
+         gh attestation verify settings.gradle --repo milankomaj/data-livewallpaper
          # gh attestation verify './gradlew' --owner milankomaj --bundle './sha256:c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4.jsonl'
