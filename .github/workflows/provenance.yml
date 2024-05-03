@@ -37,7 +37,7 @@ jobs:
         with:
           subject-path: './README.md'
 
-     -  run:
+     -  run: |
          gh attestation download './README.md' --repo milankomaj/data-livewallpaper
          tree -h -L 2 ./
 
