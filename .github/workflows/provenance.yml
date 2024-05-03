@@ -27,7 +27,7 @@ jobs:
         with:
           subject-path: './example.txt'
 
-     -  name: artifact attestverifyation
+     -  name: push
         run: |
          git add ./example.txt
          git commit -m "example"
