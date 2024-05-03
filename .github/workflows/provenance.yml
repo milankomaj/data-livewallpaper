@@ -30,7 +30,7 @@ jobs:
      -  name: artifact attestverifyation
         run: |
          git add ./example.txt
-         git commit -m "update
+         git commit -m "example"
          git push
 
      -  name: artifact attestverifyation
