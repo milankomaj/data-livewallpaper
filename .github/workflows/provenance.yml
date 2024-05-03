@@ -42,6 +42,6 @@ jobs:
          tree -h -L 2 ./
 
      -  name: artifact attest verify
-        run:
+        run: |
          gh attestation verify './LICENSE' --repo milankomaj/data-livewallpaper
-         gh attestation verify './LICENSE' --owner milankomaj --bundle ./sha256:92ae2c81d25db2a8c0cf834c154616720a64abc4b5f18078ee784bf819c7dfa9.jsonl
+         gh attestation verify './LICENSE' --owner milankomaj --bundle './milankomaj-data-livewallpaper-attestation-789332.sigstore.json'
