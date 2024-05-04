@@ -38,10 +38,10 @@ jobs:
           subject-path: ${{ github.workspace }}/gradlew
 
      -  run: |
-         gh attestation download "${{ github.workspace }}/gradlew" -R milankomaj/data-livewallpaper
+         gh attestation download gradlew -R milankomaj/data-livewallpaper
          tree -h -L 2 ${{ github.workspace }}/gradlew
 
      -  name: artifact attest verify
         run: |
-         gh attestation verify "${{ github.workspace }}/gradlew" -R milankomaj/data-livewallpaper
+         gh attestation verify gradlew -R milankomaj/data-livewallpaper
          # gh attestation verify './gradlew' --owner milankomaj --bundle './sha256:c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4.jsonl'
