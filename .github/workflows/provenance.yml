@@ -41,6 +41,6 @@ jobs:
 
      -  name: artifact attest verify
         run: |
-         gh attestation verify gradlew -b milankomaj-data-livewallpaper-attestation-789931.sigstore.json -R milankomaj/data-livewallpaper
+         gh attestation verify gradlew -b ${{ github.workspace }}/*.jsonl -R milankomaj/data-livewallpaper
          # gh attestation verify ${{ github.workspace }}/gradlew  --owner milankomaj
          # gh attestation verify './gradlew' --owner milankomaj --bundle './sha256:c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4.jsonl'
