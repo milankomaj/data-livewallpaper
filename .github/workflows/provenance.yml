@@ -32,11 +32,7 @@ jobs:
 
      -  run: tree -h -L 2 ${{ github.workspace }}
 
-     -  name: Generate artifact attestation
-        uses: actions/attest-build-provenance@v1
-        with:
-          subject-path: ${{ github.workspace }}/gradlew
-          github-token: ${{ github.TOKEN }}
+
 
      -  run: |
          gh attestation download ${{ github.workspace }}/gradlew --owner milankomaj
@@ -45,6 +41,6 @@ jobs:
 
      -  name: artifact attest verify
         run: |
-         gh attestation verify gradlew -b ./milankomaj-data-livewallpaper-attestation-789925.sigstore.json -R milankomaj/data-livewallpaper
+         gh attestation verify gradlew -b ./milankomaj-data-livewallpaper-attestation-789931.sigstore.json -R milankomaj/data-livewallpaper
          # gh attestation verify ${{ github.workspace }}/gradlew  --owner milankomaj
          # gh attestation verify './gradlew' --owner milankomaj --bundle './sha256:c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4.jsonl'
