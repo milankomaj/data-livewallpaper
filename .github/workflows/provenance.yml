@@ -36,6 +36,7 @@ jobs:
         uses: actions/attest-build-provenance@v1
         with:
           subject-path: ${{ github.workspace }}/gradlew
+          github-token: ${{ github.TOKEN }}
 
      -  run: |
          gh attestation download ${{ github.workspace }}/gradlew -R milankomaj/data-livewallpaper
