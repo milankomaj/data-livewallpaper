@@ -38,10 +38,10 @@ jobs:
           subject-path: ./gradle.properties
 
      -  run: |
-         gh attestation download gradle.properties -o milankomaj
+         gh attestation download gradle.properties -R milankoma/jdata-livewallpaper
          tree -h -L 2 ./
 
      -  name: artifact attest verify
         run: |
-         gh attestation verify gradle.properties -o milankomaj
+         gh attestation verify gradle.properties -R milankomaj/data-livewallpaper
          # gh attestation verify './gradlew' --owner milankomaj --bundle './sha256:c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4.jsonl'
