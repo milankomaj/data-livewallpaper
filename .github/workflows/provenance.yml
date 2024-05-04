@@ -27,12 +27,16 @@ jobs:
             && sudo apt update \
             && sudo apt install gh -y
             gh --version
-
+            exit 0
 
 
      -  run: tree -h -L 2 ${{ github.workspace }}
 
-
+     -  name: Generate artifact attestation
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-path: ${{ github.workspace }}/gradlew
+          github-token: ${{ github.TOKEN }}
 
      -  run: |
          gh attestation download LICENSE --owner milankomaj
