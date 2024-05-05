@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'org.gradle.plugin.api‑version'
 apply plugin: 'kotlin-android'
 
 
