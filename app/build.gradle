@@ -6,7 +6,7 @@ apply plugin: 'kotlin-android'
 
 android {
     namespace 'com.digitalwellbeingexperiments.toolkit.datalivewallpaper'
-    compileSdkVersion 33
+    compileSdkVersion 34
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
