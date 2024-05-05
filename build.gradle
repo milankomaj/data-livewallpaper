@@ -4,7 +4,8 @@ buildscript {
     ext.kotlin_version = '1.9.23'
     repositories {
         google()
-
+        mavenCentral()
+        
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:8.4.0'
@@ -17,10 +18,17 @@ buildscript {
 allprojects {
     repositories {
         google()
-
+        mavenCentral()
+        
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+
+
+
+
+    
