@@ -37,7 +37,7 @@ jobs:
          printf "$JSON_N5" "$supportedAbis" "$supportedLocales" "$screenDensity" "$sdkVersion" >> ./nokia5.json
          cat ./nokia5.json | jq
       - name: Build with Gradle
-        run: ./gradlew assembleDebug --stacktrace
+        run: ./gradlew assembleDebug
       - name: Build app bundle
         run: ./gradlew app:bundleDebug
       - name: generated APK file
