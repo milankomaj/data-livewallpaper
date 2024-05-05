@@ -17,7 +17,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: '21'
-          distribution: 'temurin'
+          distribution: 'oracle'
           check-latest: true
       - name: Make gradlew executable
         run: chmod +x ./gradlew
@@ -37,7 +37,7 @@ jobs:
          printf "$JSON_N5" "$supportedAbis" "$supportedLocales" "$screenDensity" "$sdkVersion" >> ./nokia5.json
          cat ./nokia5.json | jq
       - name: Build with Gradle
-        run: ./gradlew assembleDebug --no-daemon
+        run: ./gradlew assembleDebug
       - name: Build app bundle
         run: ./gradlew app:bundleDebug
       - name: generated APK file
