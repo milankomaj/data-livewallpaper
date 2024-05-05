@@ -26,7 +26,3 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
-
-tasks.withType(GenerateModuleMetadata).configureEach {
-    suppressedValidationErrors.add('dependencies-without-versions')
-}
