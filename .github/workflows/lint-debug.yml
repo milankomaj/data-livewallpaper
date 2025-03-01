@@ -39,5 +39,5 @@ jobs:
          name: lint-results
          path: |
           ./app/build/reports/*.*
-          ./build/reports/*.*
+          ./build/reports/problems/*.*
 
