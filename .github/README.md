@@ -4,7 +4,7 @@
 - ##### Changed *background [color : `#245b82`](https://github.com/milankomaj/data-livewallpaper/blob/b5c08d901c4341d0178ba37436c8bee609b97a44/app/src/main/res/values/colors.xml#L22)* , *images:* *`*.png`* to  [`*.webp`](https://developers.google.com/speed/webp)
 - ##### Changed *[font](app/src/main/res/font/mon.ttf) [(`86,95`)](https://github.com/milankomaj/data-livewallpaper/blob/b5c08d901c4341d0178ba37436c8bee609b97a44/app/src/main/java/com/digitalwellbeingexperiments/toolkit/datalivewallpaper/UnlockCounterWallpaper.kt#L81)* : [ Cascadia Code :copyright:](https://github.com/microsoft/cascadia-code) ([SIL Open Font License 1.1 ](https://github.com/microsoft/cascadia-code/blob/main/LICENSE)), *`textSize` : [(`144,145`)](https://github.com/milankomaj/data-livewallpaper/blob/b5c08d901c4341d0178ba37436c8bee609b97a44/app/src/main/java/com/digitalwellbeingexperiments/toolkit/datalivewallpaper/UnlockCounterWallpaper.kt#L143)*
 - #####  [![Unit tests](https://github.com/milankomaj/data-livewallpaper/actions/workflows/gradlew_test.yml/badge.svg?branch=master)](https://github.com/milankomaj/data-livewallpaper/actions/workflows/gradlew_test.yml)
-- #####  Unit tests: Thu May  1 17:46:41 CEST 2025
+- #####  Unit tests: Sat May 10 13:06:25 CEST 2025
 
 <img src="https://raw.githubusercontent.com/milankomaj/data-livewallpaper/master/.gitbook/assets/Screenshot.jpg" width="200" title="👉  With change  👈"> <img src="https://play-lh.googleusercontent.com/5jrV7gPOVdXPw54SXDEqnQIbQlfb6mziR5JDwu7-04rUofHSPp-cJo2TveEUXQvHjW4=w1366-h695" width="178" title="Original">
 
@@ -31,12 +31,12 @@
   
 **sha256** | **file**
 ---: | :---:
-538bac38a9013d8df7c1311c5cb348e2ffb2107a3a4ce72aee5a7f74182da094|./artifacts/debug&relase_AAB/release/app-release.aab
-b3ef77cf62daf0b3794b15fabcd4dc152bd68118b211a34d991c4da2c4ae49f2|./artifacts/debug&relase_AAB/debug/app-debug.aab
-e6bf85153a5a61d22f2e754b0470c854800695d9274e52b6b63e5f38fe1d7e63|./artifacts/debug&relase_Nokia5_APKS/data_live_wallpaper_nokia5_relase.apks
-164e207768b1d0cab06cc615b3a88301029a843a034ae7d5de09ad8e938ce680|./artifacts/debug&relase_Nokia5_APKS/data_live_wallpaper_nokia5_debug.apks
-2859e066b408b9e9f90a76926936b4095a6dd61cde8707a4d985038c65c6a776|./artifacts/debug&relase_APKS/data_live_wallpaper_debug_all.apks
-d72973555c56509e48df5625e98a5958d2eb325d9ed5e62cf1e3578069797586|./artifacts/debug&relase_APKS/data_live_wallpaper_relase_all.apks
-31c8b08e5f88699a84596e44a60f4f6f04bc6b6f5379c8a2812d864c0c815238|./artifacts/debug&relase_APK/release/data_live_wallpaper_release.apk
-e852870e12847e866231d024e378956a71cb5c7b035cc3f31d5c58214c832a4d|./artifacts/debug&relase_APK/debug/data_live_wallpaper_debug.apk
+257e6fe240c57bfdb82e18700b8ab566e572a83906191af07cda65e520ce306d|./artifacts/debug&relase_APK/release/data_live_wallpaper_release.apk
+913893083fc91154cb0b830248a332f27382cc14e4547a664fd4661be46884a9|./artifacts/debug&relase_APK/debug/data_live_wallpaper_debug.apk
+c54fc270f3a3e552abc75b5841e6517bf88f38ee3f3725e17cd0d67eb72054f6|./artifacts/debug&relase_AAB/release/app-release.aab
+51bd29c767a8f5b5f1257829afcb7fbaeaefb4dfb608bbe838bf60655fdab88d|./artifacts/debug&relase_AAB/debug/app-debug.aab
+75843ee24ae06194ac4edf5778b018ed8be2740712fb7c4860970f5964ef382a|./artifacts/debug&relase_APKS/data_live_wallpaper_debug_all.apks
+0772c43dae61df422ab24f28cdac5f14c454b039e5999250b9ea72b36794cdc2|./artifacts/debug&relase_APKS/data_live_wallpaper_relase_all.apks
+d48819aca781d8866f8ea0c4bed568bbadd5f88215f4307111d2cea572b075b8|./artifacts/debug&relase_Nokia5_APKS/data_live_wallpaper_nokia5_debug.apks
+67f829ad78c408bdf6cb4fccb6cb559ee4aa6886bf4c69694eced605d80ed965|./artifacts/debug&relase_Nokia5_APKS/data_live_wallpaper_nokia5_relase.apks
 </details>
