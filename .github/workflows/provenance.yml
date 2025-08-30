@@ -33,7 +33,7 @@ jobs:
      -  run: tree -h -L 2 ${{ github.workspace }}
 
      -  name: Generate artifact attestation
-        uses: actions/attest-build-provenance@v2
+        uses: actions/attest-build-provenance@v3
         with:
           subject-path: ${{ github.workspace }}/LICENSE
           github-token: ${{ github.TOKEN }}
@@ -48,3 +48,4 @@ jobs:
          gh attestation verify LICENSE -b ${{ github.workspace }}/*.jsonl -R milankomaj/data-livewallpaper
          # gh attestation verify ${{ github.workspace }}/gradlew  --owner milankomaj
          # gh attestation verify './gradlew' --owner milankomaj --bundle './sha256:c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4.jsonl'
+
