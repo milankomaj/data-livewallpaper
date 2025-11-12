@@ -71,6 +71,4 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.4'
-    implementation("com.android.tools.lint:lint-gradle:31.13.0")
-    implementation 'com.android.tools.build:aapt2:8.13.0-13719691:linux'
 }
