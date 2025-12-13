@@ -101,7 +101,7 @@ jobs:
          echo ***./MyApp/***
          tree -h ./MyApp/
 
-      - uses: actions/download-artifact@v6
+      - uses: actions/download-artifact@v7
         with:
          path: ./artifacts/
       - name: Display structure of downloaded files
