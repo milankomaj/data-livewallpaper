@@ -41,26 +41,26 @@ jobs:
       - name: Build app bundle
         run: ./gradlew app:bundleDebug
       - name: generated APK file
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
          name: data-livewallpaper-debug(.apk)
          path: ./app/build/outputs/apk/debug/*.apk
       - name: generated app bundle
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
          name: bundletool(.aab)
          path: ./app/build/outputs/bundle/debug
       - name: bundletool build-apks
         run: java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./MyApp/my_app.apks --ks=./app/android-LQ0F5.keystore --ks-pass=pass:${{ secrets.KEYSTORE_PASSWORD }} --key-pass=pass:${{ secrets.KEY_PASSWORD }} --ks-key-alias=${{ secrets.KEY_ALIAS }}
       - name: apks
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
          name: apks(.apks)
          path: ./MyApp/my_app.apks
       - name: bundletool build-apks nokia5.json
         run: java -jar ./bundletool.jar build-apks --device-spec=./nokia5.json --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./MyApp/nokia5_app.apks --ks=./app/android-LQ0F5.keystore --ks-pass=pass:${{ secrets.KEYSTORE_PASSWORD }} --key-pass=pass:${{ secrets.KEY_PASSWORD }} --ks-key-alias=${{ secrets.KEY_ALIAS }}
       - name: apks nokia5
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
          name: nokia5(.apks)
          path: ./MyApp/nokia5_app.apks
@@ -84,7 +84,7 @@ jobs:
          ./gradlew check
 
       - name: reports
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
          name: reports
          path: |
