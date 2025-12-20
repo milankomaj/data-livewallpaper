@@ -54,28 +54,28 @@ jobs:
         run: java -jar ./bundletool.jar build-apks --device-spec=./nokia5.json --bundle=./app/build/outputs/bundle/release/app-release.aab --output=./MyApp/data_live_wallpaper_nokia5_relase.apks --ks=./app/android-LQ0F5.keystore --ks-pass=pass:${{ secrets.KEYSTORE_PASSWORD }} --key-pass=pass:${{ secrets.KEY_PASSWORD }} --ks-key-alias=${{ secrets.KEY_ALIAS }}
 
       - name: debug&relase_APK
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
          name: debug&relase_APK
          path: |
           ./app/build/outputs/apk/debug/data_live_wallpaper_debug.apk
           ./app/build/outputs/apk/release/data_live_wallpaper_release.apk
       - name: debug&relase_APKS
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
          name: debug&relase_APKS
          path: |
           ./MyApp/data_live_wallpaper_debug_all.apks
           ./MyApp/data_live_wallpaper_relase_all.apks
       - name: debug&relase_Nokia5_APKS
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
          name: debug&relase_Nokia5_APKS
          path: |
           ./MyApp/data_live_wallpaper_nokia5_debug.apks
           ./MyApp/data_live_wallpaper_nokia5_relase.apks
       -  name: debug&relase_AAB
-         uses: actions/upload-artifact@v5
+         uses: actions/upload-artifact@v6
          with:
           name: debug&relase_AAB
           path: |
