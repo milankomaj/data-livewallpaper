@@ -49,10 +49,13 @@ android {
         }
     }
 
-    applicationVariants.all { variant ->
-        variant.outputs.all {
-            def flavor = variant.name
-            outputFileName = "data_live_wallpaper_${flavor}.apk"
+} // 
+
+// NOVÝ SPÔSOB PREMENOVANIA APK (MUSÍ BYŤ TU)
+androidComponents {
+    onVariants { variant ->
+        variant.outputs.forEach { output ->
+            output.outputFileName.set("data_live_wallpaper_${variant.name}.apk")
         }
     }
 }
