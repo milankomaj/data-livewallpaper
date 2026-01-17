@@ -49,10 +49,10 @@ android {
         }
     }
 
-    // Oprava: Moderná syntax pre konfiguráciu variantov
-    applicationVariants.configureEach { variant ->
-        variant.outputs.configureEach {
-            outputFileName = "data_live_wallpaper_${variant.name}.apk"
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            def flavor = variant.name
+            outputFileName = "data_live_wallpaper_${flavor}.apk"
         }
     }
 }
