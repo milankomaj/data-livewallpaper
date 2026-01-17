@@ -2,9 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     namespace = 'com.digitalwellbeingexperiments.toolkit.datalivewallpaper'
-    // Oprava: Použitie novej syntaxe compileSdk
     compileSdk 35
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
@@ -13,11 +11,9 @@ android {
     defaultConfig {
         applicationId "com.digitalwellbeingexperiments.toolkit.datalivewallpaper"
         minSdkVersion 26
-        // Oprava: Použitie novej syntaxe targetSdk pre rok 2026
         targetSdk 36
         versionCode 1
         versionName "1"
-        // Oprava: Migrácia na AndroidX test runner
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -49,7 +45,7 @@ android {
         }
     }
 
-} // 
+}
 
 androidComponents {
     onVariants(selector().all()) { variant ->
@@ -61,17 +57,11 @@ androidComponents {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    // Kotlin stdlib je v AGP 9.0+ zahrnutý automaticky, riadok bol odstránený
-
     implementation 'androidx.appcompat:appcompat:1.7.1'
-    // Oprava: Migrácia zo starého support-constraint na AndroidX
     implementation 'androidx.constraintlayout:constraintlayout:2.2.0'
     implementation 'androidx.preference:preference-ktx:1.2.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7'
-
     testImplementation 'junit:junit:4.13.2'
-    // Oprava: Migrácia testovacích knižníc na AndroidX
     androidTestImplementation 'androidx.test:runner:1.6.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
 }
