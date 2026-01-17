@@ -1,39 +1,36 @@
 apply plugin: 'com.android.application'
 
-apply plugin: 'kotlin-android'
-
-
-
 android {
     namespace = 'com.digitalwellbeingexperiments.toolkit.datalivewallpaper'
-    compileSdkVersion 35
+    // Oprava: Použitie novej syntaxe compileSdk
+    compileSdk 35
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
     }
+
     defaultConfig {
         applicationId "com.digitalwellbeingexperiments.toolkit.datalivewallpaper"
         minSdkVersion 26
-        targetSdkVersion 36
+        // Oprava: Použitie novej syntaxe targetSdk pre rok 2026
+        targetSdk 36
         versionCode 1
         versionName "1"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        // Oprava: Migrácia na AndroidX test runner
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     signingConfigs {
         release {
-            // You need to specify either an absolute path or include the
-            // keystore file in the same directory as the build.gradle file.
-            // Only for github releases testing (storeFile file). ** Create your owns. **
             storeFile file('android-LQ0F5.keystore')
             storePassword System.getenv("KEYSTORE_PASSWORD")
             keyAlias System.getenv("KEY_ALIAS")
             keyPassword System.getenv("KEY_PASSWORD")
         }
-
     }
 
-   buildFeatures {
+    buildFeatures {
         viewBinding = true
     }
 
@@ -46,29 +43,33 @@ android {
         }
     }
 
-    // Always show the result of every unit test, even if it passes.
     testOptions.unitTests.all {
         testLogging {
             events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
         }
     }
 
-    applicationVariants.all { variant ->
-        variant.outputs.all {
-            def flavor = variant.name
-            outputFileName = "data_live_wallpaper_${flavor}.apk"
+    // Oprava: Moderná syntax pre konfiguráciu variantov
+    applicationVariants.configureEach { variant ->
+        variant.outputs.configureEach {
+            outputFileName = "data_live_wallpaper_${variant.name}.apk"
         }
     }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+
+    // Kotlin stdlib je v AGP 9.0+ zahrnutý automaticky, riadok bol odstránený
+
     implementation 'androidx.appcompat:appcompat:1.7.1'
-    implementation 'com.android.support.constraint:constraint-layout:2.0.4'
+    // Oprava: Migrácia zo starého support-constraint na AndroidX
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.0'
     implementation 'androidx.preference:preference-ktx:1.2.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7'
+
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0'
+    // Oprava: Migrácia testovacích knižníc na AndroidX
+    androidTestImplementation 'androidx.test:runner:1.6.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
 }
