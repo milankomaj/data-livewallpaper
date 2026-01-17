@@ -51,10 +51,9 @@ android {
 
 } // 
 
-// NOVÝ SPÔSOB PREMENOVANIA APK (MUSÍ BYŤ TU)
 androidComponents {
-    onVariants { variant ->
-        variant.outputs.forEach { output ->
+    onVariants(selector().all()) { variant ->
+        variant.outputs.each { output ->
             output.outputFileName.set("data_live_wallpaper_${variant.name}.apk")
         }
     }
