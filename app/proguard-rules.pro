@@ -1,21 +1,33 @@
-# Add project specific ProGuard rules here.
-# You can control the set of applied configuration files using the
-# proguardFiles setting in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
+# 1. Agresívna optimalizácia kódu
+-optimizationpasses 5
+-allowaccessmodification
+-mergeinterfacesaggressively
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
+# 2. Odstránenie ladiacich informácií (Logging)
+# Toto odstráni volania Log.d, Log.v atď., čím sa ušetrí miesto a zrýchli beh
+-assumenosideeffects class android.util.Log {
+    public static *** d(...);
+    public static *** v(...);
+    public static *** i(...);
+}
 
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
+# 3. Odstránenie nepotrebných atribútov
+-keepattributes *Annotation*, Signature, InnerClasses, EnclosingMethod
+-dontskipnonpubliclibraryclassmembers
 
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
+# 4. Ochrana dôležitých častí pre Live Wallpaper
+-keep public class * extends android.service.wallpaper.WallpaperService
+-keep public class * extends android.service.wallpaper.WallpaperService$Engine
+
+# 5. Ochrana pre ViewBinding (keďže ho máte v build.gradle zapnutý)
+-keep class com.digitalwellbeingexperiments.toolkit.datalivewallpaper.databinding.** { *; }
+
+# 6. Odstránenie nepoužitých Kotlin metadát
+-dontwarn kotlin.**
+-keep class kotlin.Metadata { *; }
+-assumenosideeffects class kotlin.jvm.internal.Intrinsics {
+    static void checkParameterIsNotNull(java.lang.Object, java.lang.String);
+}
+
+# 7. Zmenšenie názvov tried a metód (Obfuscation)
+-repackageclasses ''
