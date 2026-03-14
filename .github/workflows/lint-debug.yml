@@ -37,6 +37,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
          name: lint-results
+         archive: false
          path: |
           ./app/build/reports/*.*
           ./build/reports/problems/*.*
