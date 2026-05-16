@@ -1,11 +1,7 @@
 name: Dependabot auto-merge
 on:
  pull_request_target:
-  types: [completed]
- workflow_run:
-  workflows: ["Build Debug", "Lint"]
-  types: [completed]
-
+  types: [opened]
 
 permissions:
   pull-requests: write
