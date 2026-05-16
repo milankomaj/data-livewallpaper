@@ -1,9 +1,10 @@
 name: Unit tests
 
 on:
- pull_request:
-  types: [closed]
  workflow_dispatch:
+ workflow_run:
+  workflows: ["Build Debug"]
+  types: [completed]
 
 jobs:
   testing:
@@ -56,8 +57,7 @@ jobs:
          java-version: '21'
          distribution: 'oracle'
 
-    - name: 🤖dependabot[bot]  Gradle update version
-      if: ${{ github.actor == 'dependabot[bot]' }}
+    - name: Gradle update version
       run: |
        chmod +x ./gradlew
        echo -e "\033[31;1m Gradle Version switch to Latest version \033[0m"
@@ -66,8 +66,7 @@ jobs:
        ./gradlew wrapper --gradle-version=$VersionGradle --quiet
        ./gradlew -v
 
-    - name: 🤖dependabot[bot]  Gradle test
-      if: ${{ github.actor == 'dependabot[bot]' }}
+    - name: Gradle test
       run: |
        echo -e "\033[31;1m Gradle Test \033[0m"
        ./gradlew test
