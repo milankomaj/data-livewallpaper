@@ -1,9 +1,10 @@
 name: Dependabot auto-merge
 on:
- pull_request:
+ workflow_run:
+  workflows: ["Build Debug", "Lint"]
+  types: [completed]
 
-      
-        
+
 permissions:
   pull-requests: write
   contents: write
@@ -11,7 +12,11 @@ permissions:
 jobs:
   dependabot:
     runs-on: ubuntu-latest
-    if: ${{ github.actor == 'dependabot[bot]' }}
+    if: >
+      github.actor == 'dependabot[bot]' &&
+      github.event.workflow_run.conclusion == 'success' &&
+      (github.event.workflow_run.name == 'Build Debug' || github.event.workflow_run.name == 'Lint')
+
     steps:
       - name: Dependabot metadata
         id: dependabot-metadata
@@ -21,13 +26,8 @@ jobs:
       - name: Enable auto-merge for Dependabot PRs
 
         run: |
-         gh pr merge --auto --merge "$PR_URL" 
+         gh pr merge --auto --merge "$PR_URL"
          echo ${{steps.dependabot-metadata.outputs.dependency-names}}
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-         
-
-    
-      
-   
