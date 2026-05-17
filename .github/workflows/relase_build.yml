@@ -104,8 +104,8 @@ jobs:
       - name: Verify Attestations
         run:  gh attestation verify ${{ github.workspace }}/MyApp/data_live_wallpaper_motorola_edge_70_relase.apks --repo ${{ github.repository }}
         env:
-          ${{ github.TOKEN }}
-          
+          GITHUB_TOKEN: ${{ github.TOKEN }}
+
       - name: get-size
         run: |
           echo Size : data_live_wallpaper_relase_all.apks
