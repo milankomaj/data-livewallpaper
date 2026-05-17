@@ -12,7 +12,7 @@
 }
 
 # 3. Odstránenie nepotrebných atribútov
--keepattributes !*                    # *Annotation*, Signature, InnerClasses, EnclosingMethod
+-keepattributes *Annotation*, Signature, InnerClasses, EnclosingMethod
 -dontskipnonpubliclibraryclassmembers
 
 # 4. Ochrana dôležitých častí pre Live Wallpaper
