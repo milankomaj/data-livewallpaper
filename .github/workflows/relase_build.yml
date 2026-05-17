@@ -81,19 +81,6 @@ jobs:
       - name: tree
         run:  tree -h ${{ github.workspace }}/./artifacts//
 
-
-      - name: Generate Artifact Attestation
-        uses: actions/attest@v4
-        with:
-          subject-path: |
-            ${{ github.workspace }}/MyApp/data_live_wallpaper_debug_all.apks \
-            ${{ github.workspace }}/MyApp/data_live_wallpaper_relase_all.apks \
-            ${{ github.workspace }}/MyApp/data_live_wallpaper_motorola_edge_70_debug.apks \
-            ${{ github.workspace }}/MyApp/data_live_wallpaper_motorola_edge_70_relase.apks \
-            ./app/build/outputs/apk/debug/data_live_wallpaper_debug.apk \
-            ./app/build/outputs/apk/release/data_live_wallpaper_release.apk
-          show-summary: true
-
       - name: releases-x
         uses: milankomaj/releases-x@v0.1
         with:
@@ -109,6 +96,21 @@ jobs:
             ./app/build/outputs/apk/debug/data_live_wallpaper_debug.apk \
             ./app/build/outputs/apk/release/data_live_wallpaper_release.apk
 
+
+      - name: Generate Artifact Attestation
+        uses: actions/attest@v4
+        with:
+          subject-path: |
+            ${{ github.workspace }}/MyApp/data_live_wallpaper_debug_all.apks
+            ${{ github.workspace }}/MyApp/data_live_wallpaper_relase_all.apks
+            ${{ github.workspace }}/MyApp/data_live_wallpaper_motorola_edge_70_debug.apks
+            ${{ github.workspace }}/MyApp/data_live_wallpaper_motorola_edge_70_relase.apks
+            ./app/build/outputs/apk/debug/data_live_wallpaper_debug.apk
+            ./app/build/outputs/apk/release/data_live_wallpaper_release.apk
+          show-summary: true
+
+      - name: Verify Attestations
+        run: gh attestation verify ${{ github.workspace }}/MyApp/data_live_wallpaper_motorola_edge_70_relase.apks --repo ${{ github.repository }}
 
       - name: get-size
         run: |
