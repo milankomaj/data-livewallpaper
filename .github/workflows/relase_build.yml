@@ -30,10 +30,10 @@ jobs:
 
       - name: echo "*** Download bundletool ***"
         run: |
-          RELEASE=$(curl -L -s -H 'Accept: application/json' https://github.com)
-          VERSION=$(echo $RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
-          echo VERSION = $VERSION
-          URL=$(curl -L -o ./bundletool.jar https://github.com(echo $RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')/bundletool-all-$(echo $RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/').jar)
+         RELEASE=$(curl -L -s -H 'Accept: application/json' https://github.com/google/bundletool/releases/latest)
+         VERSION=$(echo $RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
+         echo VERSION = $VERSION
+         URL=$(curl -L -o ./bundletool.jar https://github.com/google/bundletool/releases/download/$(echo $RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')/bundletool-all-$(echo $RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/').jar)
       - name: Build motorola_edge_70.json file
         run: |
          JSON_MOTO_EDGE_70='{"supportedAbis":["arm64-v8a"],"supportedLocales":["sk"],"screenDensity":446,"sdkVersion":36}\n'
