@@ -30,14 +30,14 @@ jobs:
 
       - name: echo "*** Download bundletool ***"
         run: |
-          RELEASE=$(curl -L -s -H 'Accept: application/json' https://github.com/google/bundletool/releases/latest)
+          RELEASE=$(curl -L -s -H 'Accept: application/json' https://github.com)
           VERSION=$(echo $RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
           echo VERSION = $VERSION
-          URL=$(curl -L -o ./bundletool.jar https://github.com/google/bundletool/releases/download/$(echo $RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')/bundletool-all-$(echo $RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/').jar)
-      - name: Build nokia5.json file
+          URL=$(curl -L -o ./bundletool.jar https://github.com(echo $RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')/bundletool-all-$(echo $RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/').jar)
+      - name: Build motorola_edge_70.json file
         run: |
-         JSON_N5='{"supportedAbis":["arm64-v8a"],"supportedLocales":["sk"],"screenDensity":446,"sdkVersion":36}\n'
-         printf "$JSON_N5" "$supportedAbis" "$supportedLocales" "$screenDensity" "$sdkVersion" >> ./nokia5.json
+         JSON_MOTO_EDGE_70='{"supportedAbis":["arm64-v8a"],"supportedLocales":["sk"],"screenDensity":446,"sdkVersion":36}\n'
+         printf "$JSON_MOTO_EDGE_70" "$supportedAbis" "$supportedLocales" "$screenDensity" "$sdkVersion" >> ./motorola_edge_70.json
       - name:  echo "*** assembleRelease ***"
         run: ./gradlew assembleRelease
       - name: echo "*** assembleDebug ***"
@@ -48,10 +48,10 @@ jobs:
         run: java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./MyApp/data_live_wallpaper_debug_all.apks --ks=./app/android-LQ0F5.keystore --ks-pass=pass:${{ secrets.KEYSTORE_PASSWORD }} --key-pass=pass:${{ secrets.KEY_PASSWORD }} --ks-key-alias=${{ secrets.KEY_ALIAS }}
       - name: echo "*** Bundletool build apks all RELASE (.apks) ***"
         run: java -jar ./bundletool.jar build-apks --bundle=./app/build/outputs/bundle/release/app-release.aab --output=./MyApp/data_live_wallpaper_relase_all.apks --ks=./app/android-LQ0F5.keystore --ks-pass=pass:${{ secrets.KEYSTORE_PASSWORD }} --key-pass=pass:${{ secrets.KEY_PASSWORD }} --ks-key-alias=${{ secrets.KEY_ALIAS }}
-      - name: echo "*** Bundletool build apks all NOKIA 5 DEBUG (.apks) ***"
-        run: java -jar ./bundletool.jar build-apks --device-spec=./nokia5.json --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./MyApp/data_live_wallpaper_nokia5_debug.apks --ks=./app/android-LQ0F5.keystore --ks-pass=pass:${{ secrets.KEYSTORE_PASSWORD }} --key-pass=pass:${{ secrets.KEY_PASSWORD }} --ks-key-alias=${{ secrets.KEY_ALIAS }}
-      - name: echo "*** Bundletool build apks all NOKIA 5 RELASE (.apks) ***"
-        run: java -jar ./bundletool.jar build-apks --device-spec=./nokia5.json --bundle=./app/build/outputs/bundle/release/app-release.aab --output=./MyApp/data_live_wallpaper_nokia5_relase.apks --ks=./app/android-LQ0F5.keystore --ks-pass=pass:${{ secrets.KEYSTORE_PASSWORD }} --key-pass=pass:${{ secrets.KEY_PASSWORD }} --ks-key-alias=${{ secrets.KEY_ALIAS }}
+      - name: echo "*** Bundletool build apks all MOTOROLA EDGE 70 DEBUG (.apks) ***"
+        run: java -jar ./bundletool.jar build-apks --device-spec=./motorola_edge_70.json --bundle=./app/build/outputs/bundle/debug/app-debug.aab --output=./MyApp/data_live_wallpaper_motorola_edge_70_debug.apks --ks=./app/android-LQ0F5.keystore --ks-pass=pass:${{ secrets.KEYSTORE_PASSWORD }} --key-pass=pass:${{ secrets.KEY_PASSWORD }} --ks-key-alias=${{ secrets.KEY_ALIAS }}
+      - name: echo "*** Bundletool build apks all MOTOROLA EDGE 70 RELASE (.apks) ***"
+        run: java -jar ./bundletool.jar build-apks --device-spec=./motorola_edge_70.json --bundle=./app/build/outputs/bundle/release/app-release.aab --output=./MyApp/data_live_wallpaper_motorola_edge_70_relase.apks --ks=./app/android-LQ0F5.keystore --ks-pass=pass:${{ secrets.KEYSTORE_PASSWORD }} --key-pass=pass:${{ secrets.KEY_PASSWORD }} --ks-key-alias=${{ secrets.KEY_ALIAS }}
 
       - name: debug&relase_APK
         uses: actions/upload-artifact@v7
@@ -67,13 +67,13 @@ jobs:
          path: |
           ./MyApp/data_live_wallpaper_debug_all.apks
           ./MyApp/data_live_wallpaper_relase_all.apks
-      - name: debug&relase_Nokia5_APKS
+      - name: debug&relase_Motorola_Edge_70_APKS
         uses: actions/upload-artifact@v7
         with:
-         name: debug&relase_Nokia5_APKS
+         name: debug&relase_Motorola_Edge_70_APKS
          path: |
-          ./MyApp/data_live_wallpaper_nokia5_debug.apks
-          ./MyApp/data_live_wallpaper_nokia5_relase.apks
+          ./MyApp/data_live_wallpaper_motorola_edge_70_debug.apks
+          ./MyApp/data_live_wallpaper_motorola_edge_70_relase.apks
       -  name: debug&relase_AAB
          uses: actions/upload-artifact@v7
          with:
@@ -93,14 +93,14 @@ jobs:
         uses: milankomaj/releases-x@v0.1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          title: 'data_live_wallpaper_artifacts'
+          title: 'data_live_wallpaper_artifacts_minSdkVersion_36'
           tag: 'all_artifacts'
           rewrite: 'true'
           files: |
             ${{ github.workspace }}/MyApp/data_live_wallpaper_debug_all.apks \
             ${{ github.workspace }}/MyApp/data_live_wallpaper_relase_all.apks \
-            ${{ github.workspace }}/MyApp/data_live_wallpaper_nokia5_debug.apks \
-            ${{ github.workspace }}/MyApp/data_live_wallpaper_nokia5_relase.apks \
+            ${{ github.workspace }}/MyApp/data_live_wallpaper_motorola_edge_70_debug.apks \
+            ${{ github.workspace }}/MyApp/data_live_wallpaper_motorola_edge_70_relase.apks \
             ./app/build/outputs/apk/debug/data_live_wallpaper_debug.apk \
             ./app/build/outputs/apk/release/data_live_wallpaper_release.apk
 
@@ -109,8 +109,8 @@ jobs:
         run: |
           echo Size : data_live_wallpaper_relase_all.apks
           java -jar ./bundletool.jar get-size total --human-readable-sizes --apks=./MyApp/data_live_wallpaper_relase_all.apks
-          echo Size : --device-spec=./nokia5.json
-          java -jar ./bundletool.jar get-size total --human-readable-sizes --device-spec=./nokia5.json --apks=./MyApp/data_live_wallpaper_relase_all.apks
+          echo Size : --device-spec=./motorola_edge_70.json
+          java -jar ./bundletool.jar get-size total --human-readable-sizes --device-spec=./motorola_edge_70.json --apks=./MyApp/data_live_wallpaper_relase_all.apks
 
       - name: echo "*** ReadmE ***"
         run: |
