@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     namespace = 'com.digitalwellbeingexperiments.toolkit.datalivewallpaper'
-    compileSdk 35
+    compileSdk 36
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
@@ -15,6 +15,7 @@ android {
         versionCode 1
         versionName "1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        // resConfigs "en", "sk"
     }
 
     signingConfigs {
