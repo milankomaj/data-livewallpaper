@@ -63,7 +63,6 @@ jobs:
           ./MyApp/data_live_wallpaper_motorola_edge_70_relase.apks
           ./app/build/outputs/bundle/debug/app-debug.aab
           ./app/build/outputs/bundle/release/app-release.aab
-         archive: false
          if-no-files-found: error
 
       - uses: actions/download-artifact@v8
