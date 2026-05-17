@@ -28,12 +28,12 @@
   
 **sha256** | **file**
 ---: | :---:
-e3c71aab9cf326784b4e78f286d9b1e7a12aebe7d05081774fb4278de22a36f9|./artifacts/app/build/outputs/bundle/debug/app-debug.aab
-6d241e7288bd00f8633e74008ee673b5883047c8fb2bf200c2ea93e078a88583|./artifacts/app/build/outputs/bundle/release/app-release.aab
-4003f6eb431989ad7d6c79367bfb3499f8ba2cb619864178641d47984e7b0340|./artifacts/app/build/outputs/apk/debug/data_live_wallpaper_debug.apk
-7cb7a1a98ea2b084c511ea4a0837cb8bae5c99c4a638b1b9c47e0c6e0afa2e4d|./artifacts/app/build/outputs/apk/release/data_live_wallpaper_release.apk
+cff34709b2de280a07232c706231c14b9bc5b419ac827bab3dba96da07017582|./artifacts/app/build/outputs/bundle/debug/app-debug.aab
+1c104e2408f80bf1cbef7646a68280ec4860003a4c37633ebd4221829df9104c|./artifacts/app/build/outputs/bundle/release/app-release.aab
+3d2c7880b8696b300f037d8f8b0081517a3544665991b8f96d170f629cdd8ab6|./artifacts/app/build/outputs/apk/debug/data_live_wallpaper_debug.apk
+0c825935ec21fc653ff7bdc7c4eaeb8f8bb7d80ef248e64005a590e07b1d0f90|./artifacts/app/build/outputs/apk/release/data_live_wallpaper_release.apk
 a8187056a5adc3f2adb55af9ca8b4f0a48b40cd4aac69ef65f9b47bf00379ebe|./artifacts/MyApp/data_live_wallpaper_debug_all.apks
-18298fb5e5154b1e1151651c9099f1a28ccc9b416709ea7f109f9ba8aa4215e3|./artifacts/MyApp/data_live_wallpaper_motorola_edge_70_relase.apks
-b65385c7839a1cb838ac4fbf8c234a59d35d45c98bdbd7ddb6666f81d4465be0|./artifacts/MyApp/data_live_wallpaper_relase_all.apks
+493eeaf592953109884ee51f08b23b388a175aaa658f988f9e40278dbec8ac11|./artifacts/MyApp/data_live_wallpaper_motorola_edge_70_relase.apks
+19be1ba73da5d5bc2bdca8db28959e0e32378f0f295267bdc5e2a36ec44ab1fd|./artifacts/MyApp/data_live_wallpaper_relase_all.apks
 794ede016bdfd4bded6849038aba3359b349bd1e224263da7430a36d7ead3625|./artifacts/MyApp/data_live_wallpaper_motorola_edge_70_debug.apks
 </details>
