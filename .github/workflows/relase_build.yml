@@ -102,7 +102,7 @@ jobs:
           show-summary: true
 
       - name: Verify Attestations
-        run:  gh attestation verify ./artifacts/**/data_live_wallpaper_release.apk --repo ${{ github.repository }}
+        run:  gh attestation verify ./app/build/outputs/apk/release/data_live_wallpaper_release.apk --repo milankomaj/data-livewallpaper
 
       - name: get-size
         run: |
