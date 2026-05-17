@@ -53,34 +53,21 @@ jobs:
       - name: echo "*** Bundletool build apks all MOTOROLA EDGE 70 RELASE (.apks) ***"
         run: java -jar ./bundletool.jar build-apks --device-spec=./motorola_edge_70.json --bundle=./app/build/outputs/bundle/release/app-release.aab --output=./MyApp/data_live_wallpaper_motorola_edge_70_relase.apks --ks=./app/android-LQ0F5.keystore --ks-pass=pass:${{ secrets.KEYSTORE_PASSWORD }} --key-pass=pass:${{ secrets.KEY_PASSWORD }} --ks-key-alias=${{ secrets.KEY_ALIAS }}
 
-      - name: debug&relase_APK
+      - name: debug&relase_all_artifacts
         uses: actions/upload-artifact@v7
         with:
-         name: debug&relase_APK
+         name: debug&relase_all_artifacts
          path: |
           ./app/build/outputs/apk/debug/data_live_wallpaper_debug.apk
           ./app/build/outputs/apk/release/data_live_wallpaper_release.apk
-      - name: debug&relase_APKS
-        uses: actions/upload-artifact@v7
-        with:
-         name: debug&relase_APKS
-         path: |
           ./MyApp/data_live_wallpaper_debug_all.apks
           ./MyApp/data_live_wallpaper_relase_all.apks
-      - name: debug&relase_Motorola_Edge_70_APKS
-        uses: actions/upload-artifact@v7
-        with:
-         name: debug&relase_Motorola_Edge_70_APKS
-         path: |
           ./MyApp/data_live_wallpaper_motorola_edge_70_debug.apks
           ./MyApp/data_live_wallpaper_motorola_edge_70_relase.apks
-      -  name: debug&relase_AAB
-         uses: actions/upload-artifact@v7
-         with:
-          name: debug&relase_AAB
-          path: |
-           ./app/build/outputs/bundle/debug/app-debug.aab
-           ./app/build/outputs/bundle/release/app-release.aab
+          ./app/build/outputs/bundle/debug/app-debug.aab
+          ./app/build/outputs/bundle/release/app-release.aab
+         archive: false
+         if-no-files-found: error
 
       - uses: actions/download-artifact@v8
         with:
