@@ -98,12 +98,14 @@ jobs:
       - name: Generate Artifact Attestation
         uses: actions/attest@v4
         with:
-          subject-path: ./app/build/outputs/apk/release/data_live_wallpaper_release.apk
+          subject-path: ${{ github.workspace }}/MyApp/data_live_wallpaper_motorola_edge_70_relase.apks
           show-summary: true
 
       - name: Verify Attestations
-        run:  gh attestation verify ./app/build/outputs/apk/release/data_live_wallpaper_release.apk --repo milankomaj/data-livewallpaper
-
+        run:  gh attestation verify ${{ github.workspace }}/MyApp/data_live_wallpaper_motorola_edge_70_relase.apks --repo ${{ github.repository }}
+        env:
+          ${{ github.TOKEN }}
+          
       - name: get-size
         run: |
           echo Size : data_live_wallpaper_relase_all.apks
