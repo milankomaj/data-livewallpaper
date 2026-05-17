@@ -10,7 +10,7 @@ jobs:
   build:
     permissions:
       id-token: write
-      contents: read
+      contents: write
       attestations: write
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
@@ -18,7 +18,7 @@ jobs:
       KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
       KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
       KEY_PASSWORD: ${{ secrets.KEY_PASSWORD}}
-      CERTIFICATE_BASE64: ${{ secrets.CERTIFICATE_BASE64 }}
+      CERTIFICATE_BASE64: ${{ secrets.CERTIFICATE_BASE64 }}}
     steps:
       - uses: actions/checkout@v6
       - name: Set up JDK 21
@@ -100,13 +100,7 @@ jobs:
       - name: Generate Artifact Attestation
         uses: actions/attest@v4
         with:
-          subject-path: |
-            ${{ github.workspace }}/MyApp/data_live_wallpaper_debug_all.apks
-            ${{ github.workspace }}/MyApp/data_live_wallpaper_relase_all.apks
-            ${{ github.workspace }}/MyApp/data_live_wallpaper_motorola_edge_70_debug.apks
-            ${{ github.workspace }}/MyApp/data_live_wallpaper_motorola_edge_70_relase.apks
-            ./app/build/outputs/apk/debug/data_live_wallpaper_debug.apk
-            ./app/build/outputs/apk/release/data_live_wallpaper_release.apk
+          subject-path: ./app/build/outputs/apk/release/data_live_wallpaper_release.apk
           show-summary: true
 
       - name: Verify Attestations
