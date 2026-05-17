@@ -1,11 +1,15 @@
 name: Build Relase
 on:
  workflow_dispatch:
+ workflow_run:
+  workflows: ["Unit tests"]
+  types: [completed]
 
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     env:
       KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
       KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
@@ -50,6 +54,7 @@ jobs:
       - name: echo "*** Bundletool build apks all MOTOROLA EDGE 70 RELASE (.apks) ***"
         run: java -jar ./bundletool.jar build-apks --device-spec=./motorola_edge_70.json --bundle=./app/build/outputs/bundle/release/app-release.aab --output=./MyApp/data_live_wallpaper_motorola_edge_70_relase.apks --ks=./app/android-LQ0F5.keystore --ks-pass=pass:${{ secrets.KEYSTORE_PASSWORD }} --key-pass=pass:${{ secrets.KEY_PASSWORD }} --ks-key-alias=${{ secrets.KEY_ALIAS }}
 
+
       - name: debug&relase_all_artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -71,6 +76,19 @@ jobs:
 
       - name: tree
         run:  tree -h ${{ github.workspace }}/./artifacts//
+
+
+      - name: Generate Artifact Attestation
+        uses: actions/attest@v4
+        with:
+          subject-path: |
+            ${{ github.workspace }}/MyApp/data_live_wallpaper_debug_all.apks \
+            ${{ github.workspace }}/MyApp/data_live_wallpaper_relase_all.apks \
+            ${{ github.workspace }}/MyApp/data_live_wallpaper_motorola_edge_70_debug.apks \
+            ${{ github.workspace }}/MyApp/data_live_wallpaper_motorola_edge_70_relase.apks \
+            ./app/build/outputs/apk/debug/data_live_wallpaper_debug.apk \
+            ./app/build/outputs/apk/release/data_live_wallpaper_release.apk
+          show-summary: true
 
       - name: releases-x
         uses: milankomaj/releases-x@v0.1
