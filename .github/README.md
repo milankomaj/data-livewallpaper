@@ -4,7 +4,7 @@
 - ##### Changed *background [color : `#454a4c`](https://github.com/milankomaj/data-livewallpaper/blob/b5c08d901c4341d0178ba37436c8bee609b97a44/app/src/main/res/values/colors.xml#L22)* , *images:* *`*.png`* to  [`*.webp`](https://developers.google.com/speed/webp)
 - ##### Changed *[font](app/src/main/res/font/mon.ttf) [(`86,95`)](https://github.com/milankomaj/data-livewallpaper/blob/b5c08d901c4341d0178ba37436c8bee609b97a44/app/src/main/java/com/digitalwellbeingexperiments/toolkit/datalivewallpaper/UnlockCounterWallpaper.kt#L81)* : [ Cascadia Code :copyright:](https://github.com/microsoft/cascadia-code) ([SIL Open Font License 1.1 ](https://github.com/microsoft/cascadia-code/blob/main/LICENSE)), *`textSize` : [(`144,145`)](https://github.com/milankomaj/data-livewallpaper/blob/b5c08d901c4341d0178ba37436c8bee609b97a44/app/src/main/java/com/digitalwellbeingexperiments/toolkit/datalivewallpaper/UnlockCounterWallpaper.kt#L143)*
 - #####  [![Unit tests](https://github.com/milankomaj/data-livewallpaper/actions/workflows/gradlew_test.yml/badge.svg?branch=master)](https://github.com/milankomaj/data-livewallpaper/actions/workflows/gradlew_test.yml)
-- #####  Unit tests: Sat Jun 20 13:25:19 CEST 2026
+- #####  Unit tests: Sat Jun 27 13:25:01 CEST 2026
 
 <img src="https://raw.githubusercontent.com/milankomaj/data-livewallpaper/master/.gitbook/assets/Screenshot.jpg" width="200" title="👉  With change  👈"> <img src="https://play-lh.googleusercontent.com/5jrV7gPOVdXPw54SXDEqnQIbQlfb6mziR5JDwu7-04rUofHSPp-cJo2TveEUXQvHjW4=w1366-h695" width="178" title="Original">
 
@@ -29,11 +29,11 @@
 **sha256** | **file**
 ---: | :---:
 9c32f92c22c4d162332f5a8eb8b834cfcb2c93b547119ad97f27617ad6ecada1|./artifacts/MyApp/data_live_wallpaper_motorola_edge_70_debug.apks
-71f67759d209da059e891951f04caf37d7bfdb07e4c315c36ed5ae089a5021dc|./artifacts/MyApp/data_live_wallpaper_relase_all.apks
-1882921c8d81ed9776307c1ae74f20b34daed4a6a0242b84afa8d0bd5141427c|./artifacts/MyApp/data_live_wallpaper_motorola_edge_70_relase.apks
+3844a882c7e96aa1db6c9a2debf08abe2245853a4e095990227b85b7a181771f|./artifacts/MyApp/data_live_wallpaper_relase_all.apks
+dc5adae8c4c35c89cb0dbd5b8ffed48fef17278bf59ec3a6351ed80307c47fb0|./artifacts/MyApp/data_live_wallpaper_motorola_edge_70_relase.apks
 7aa4c2c78c11588607f8eb364260c39dfb891b82363794dbc2cf67d548fa2224|./artifacts/MyApp/data_live_wallpaper_debug_all.apks
-a820b294e8791b3bfc35fb08fcf5a1a86ef600ee06c2a7871f7bab6e42e38ca3|./artifacts/app/build/outputs/bundle/release/app-release.aab
-b2fe387c2b359cf67a6c0fa4e955e4b5da0fb186ba8dc2bd8567a71fa8327a74|./artifacts/app/build/outputs/bundle/debug/app-debug.aab
-3af86080980c748c3df45ef78a535df75cc1c64dda73cee76442960bc371abd9|./artifacts/app/build/outputs/apk/release/data_live_wallpaper_release.apk
-ffc75ea39dc2aa85fc5b145e37fd0464757b6d51fa228de7d065b032bf5a6163|./artifacts/app/build/outputs/apk/debug/data_live_wallpaper_debug.apk
+1b9a6524638f1850e366ec785c8b1ce69cb92eb3b1aff50e0f6b28ed6a0c766c|./artifacts/app/build/outputs/bundle/release/app-release.aab
+e90fff10cf0530056073bedef7c9ece0cb12ec38bc01e74f69e2fa7d230fbb78|./artifacts/app/build/outputs/bundle/debug/app-debug.aab
+2b02b7c709a7e90f588fd47a5addb55a532a3d4154621444321213ecdbfce547|./artifacts/app/build/outputs/apk/release/data_live_wallpaper_release.apk
+06a65dae83e8776a3bd91f6089fe1764c4f26bfdb7bd318cd2e8cf80cc23559b|./artifacts/app/build/outputs/apk/debug/data_live_wallpaper_debug.apk
 </details>
